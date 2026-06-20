@@ -300,5 +300,26 @@ Usuário quer link público compartilhável; escolheu **Streamlit Community Clou
 - ⚠️ Para futuro: se quiser senha, usar `st.secrets` (acesso hoje é público). Atualizar dados = rodar pipeline local +
   commit/push → Streamlit Cloud redeploya sozinho.
 
+## ✅ CONCLUÍDO — Botões QGIS e Google Earth Desktop FUNCIONANDO na nuvem p/ visitantes (2026-06-20)
+Pedido: no app publicado, qualquer visitante com os PROGRAMAS instalados deve conseguir abrir o ponto no
+QGIS / Google Earth Desktop da própria máquina. SOLUÇÃO escolhida (mais robusta): o botão **baixa um arquivo**
+que o programa abre por **associação de arquivo** — `.kml`→Google Earth Pro, `.qgs`→QGIS. Requer SÓ o programa
+instalado (sem handler/protocolo/Python por visitante). Associações confirmadas no Windows: `.kml`→GoogleEarth,
+`.qgs`/`.qgz`→QGIS Project.
+- `dashboard/app.py`: `build_kml(lat,lon,nome)` (LookAt+Placemark) e `build_qgs(lat,lon,nome)` (satélite Esri
+  centralizado, half=600 m). `open_buttons` em PUBLIC_MODE agora rende 4: 🌐 GE Web + 📍 Maps (`st.link_button`)
+  e 🖥️ GE Desktop (.kml) + 🗺️ QGIS (.qgs) (`st.download_button`). Local segue com `launch_desktop` (4 botões diretos).
+- ⚠️ O `.qgs` é gerado a partir de **template escrito pelo PRÓPRIO QGIS** (`dashboard/assets/qgis_template.qgs`),
+  não à mão (XML à mão abria mas NÃO renderizava/zoom). Gerado via `src/gerar_template_qgis.py` (roda no Console
+  Python do QGIS: `proj.write(...)`), depois parametrizado: os 4 valores do `<mapcanvas><extent>` viraram
+  `__IAT_XMIN/YMIN/XMAX/YMAX__` e `projectname` virou `__IAT_NOME__`. `build_qgs` faz `_to3857(lat,lon)` e
+  `str.replace`. Para regenerar o template: abrir QGIS → Console Python → rodar `src/gerar_template_qgis.py` →
+  reparametrizar (substituir os 4 nº do extent do mapcanvas pelos placeholders + projectname).
+- VALIDADO no QGIS 4.0.3 (2 pontos: Curitiba e oeste do PR): `.qgs` abre por duplo-clique, satélite Esri
+  renderiza, centralizado no ponto (escala ~1:18 mil), EPSG:3857. VALIDADO no app PUBLICADO: os 4 botões aparecem
+  no painel do ponto (print confirmou 🖥️ GE Desktop (.kml) e 🗺️ QGIS (.qgs) + legenda). py_compile OK; pushado
+  (commit c75a208) e Streamlit Cloud redeployou sozinho.
+- Limitação aceita: sem marcador no QGIS (só satélite centralizado); marcador exigiria `.qgz` com geojson embutido.
+
 Frente futura: publicar no ArcGIS; opcional incluir Uso/Cobertura MapBiomas via esri-leaflet; minZoom nas camadas
-pesadas (carregar só com zoom alto) se a lentidão estadual incomodar.
+pesadas (carregar só com zoom alto) se a lentidão estadual incomodar; opcional marcador no .qgs via .qgz.
