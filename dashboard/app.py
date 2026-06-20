@@ -1,14 +1,17 @@
 """Dashboard Central de Projetos Hidrelétricos do Estado do Paraná — IAT/PR"""
 import os
+import re
 import sys
 import ssl
 import json
+import math
 import base64
 import subprocess
 import webbrowser
 import urllib.request
 from pathlib import Path
 from urllib.parse import quote
+from xml.sax.saxutils import escape as _xesc
 
 import pandas as pd
 import plotly.express as px
@@ -243,16 +246,71 @@ def _maps_url(row):
     return None
 
 
+# Geração de arquivos para abrir os PROGRAMAS no computador do VISITANTE (modo nuvem).
+# .kml abre no Google Earth Pro e .qgs no QGIS por associação de arquivo — basta o
+# programa estar instalado (nenhum handler/Python extra é necessário).
+_KML_TPL = """<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>{nome}</name>
+    <LookAt><longitude>{lon}</longitude><latitude>{lat}</latitude><altitude>0</altitude>
+      <range>2500</range><tilt>0</tilt><heading>0</heading>
+      <altitudeMode>relativeToGround</altitudeMode></LookAt>
+    <Placemark><name>{nome}</name><description>Lat {lat}, Lon {lon}</description>
+      <Point><coordinates>{lon},{lat},0</coordinates></Point></Placemark>
+  </Document>
+</kml>
+"""
+
+
+def _to3857(lat, lon):
+    x = float(lon) * 20037508.342789244 / 180.0
+    y = math.log(math.tan((90.0 + float(lat)) * math.pi / 360.0)) / (math.pi / 180.0)
+    return x, y * 20037508.342789244 / 180.0
+
+
+def build_kml(lat, lon, nome="Empreendimento"):
+    return _KML_TPL.format(nome=_xesc(str(nome)), lat=f"{float(lat):.6f}",
+                           lon=f"{float(lon):.6f}").encode("utf-8")
+
+
+def build_qgs(lat, lon, nome="Empreendimento", half_m=600.0):
+    """Projeto QGIS (satélite Esri centralizado no ponto) a partir do template gerado
+    pelo próprio QGIS (dashboard/assets/qgis_template.qgs)."""
+    x, y = _to3857(lat, lon)
+    tpl = (Path(__file__).parent / "assets" / "qgis_template.qgs").read_text(encoding="utf-8")
+    return (tpl.replace("__IAT_XMIN__", f"{x - half_m:.5f}")
+               .replace("__IAT_YMIN__", f"{y - half_m:.5f}")
+               .replace("__IAT_XMAX__", f"{x + half_m:.5f}")
+               .replace("__IAT_YMAX__", f"{y + half_m:.5f}")
+               .replace("__IAT_NOME__", _xesc(str(nome)))).encode("utf-8")
+
+
 def open_buttons(row, key_prefix):
-    """Botões para abrir o local. Na nuvem (PUBLIC_MODE) usa links que abrem no navegador
-    do visitante; local usa launch_desktop (abre programas na máquina onde o app roda)."""
+    """Botões para abrir o local. Na nuvem (PUBLIC_MODE): 🌐/📍 abrem no navegador do
+    visitante; 🖥️/🗺️ baixam .kml/.qgs que abrem o programa NA MÁQUINA do visitante (se
+    instalado). Local: launch_desktop abre os programas direto (servidor = PC do usuário)."""
     if PUBLIC_MODE:
         ew, mp = _earth_web_url(row), _maps_url(row)
+        lat, lon = row.get("latitude"), row.get("longitude")
+        nome = str(row.get("empreendimento") or "Empreendimento").strip() or "Empreendimento"
         if ew:
             st.link_button("🌐 Google Earth Web", ew, use_container_width=True)
         if mp:
             st.link_button("📍 Google Maps", mp, use_container_width=True)
-        st.caption("ℹ️ QGIS e Google Earth Desktop só abrem na versão instalada localmente.")
+        if _ok(lat) and _ok(lon):
+            safe = re.sub(r"[^A-Za-z0-9]+", "_", nome).strip("_")[:40] or "ponto"
+            st.download_button("🖥️ Google Earth Desktop (.kml)", build_kml(lat, lon, nome),
+                               file_name=f"{safe}.kml", mime="application/vnd.google-earth.kml+xml",
+                               use_container_width=True, key=f"{key_prefix}_kml")
+            try:
+                st.download_button("🗺️ QGIS (.qgs)", build_qgs(lat, lon, nome),
+                                   file_name=f"{safe}.qgs", mime="application/x-qgis-project",
+                                   use_container_width=True, key=f"{key_prefix}_qgs")
+            except OSError:
+                pass
+        st.caption("🖥️ e 🗺️ baixam um arquivo que abre o programa **no seu computador** "
+                   "(se estiver instalado). 🌐 e 📍 abrem no navegador.")
     else:
         if st.button("🌐 Google Earth Web", key=f"{key_prefix}_nav", use_container_width=True):
             launch_desktop("navegador", row)
@@ -1017,8 +1075,9 @@ elif pagina == "Mais Informações":
 Os **filtros** (barra lateral) valem para **todo o painel** — mapa, gráficos e tabela reagem juntos.
 Troque de seção pelas **abas** no topo; **Limpar Filtros** (fim da barra lateral) recomeça.
 
-- **Mapa:** **clique num ponto** → detalhes + botões **🌐 Navegador · 🖥️ Google Earth · 🗺️ QGIS**;
-  troque para **🛰️ Satélite** e aproxime para ver a obra; ajuste a **transparência** dos pontos.
+- **Mapa:** **clique num ponto** → detalhes + botões para abrir o local: **🌐 Google Earth Web** e **📍 Maps**
+  (abrem no navegador) e **🖥️ Google Earth Desktop / 🗺️ QGIS** (baixam um arquivo `.kml`/`.qgs` que abre o
+  programa **no seu computador**, se instalado). Troque para **🛰️ Satélite** e ajuste a **transparência**.
 - **Licenças e Vencimentos:** o que está **vencido** e **a vencer** (90 dias).
 - **Qualidade dos Dados:** o que **corrigir na planilha** (por gravidade) e a **precisão** das coordenadas.
 - **Relatório Analítico:** **busque**, **selecione uma linha** para abrir o ponto e **exporte** (CSV/JSON).
