@@ -1,0 +1,23 @@
+.env
+*.xlsm
+*.xlsx
+data/raw/
+# Ignora data/processed/ inteiro, MAS sobe os 4 arquivos que o dashboard lê na nuvem:
+data/processed/*
+!data/processed/processos_hidreletricas.csv
+!data/processed/resumo_indicadores.json
+!data/processed/metadados_execucao.json
+!data/processed/erros_validacao.csv
+logs/
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.idea/
+.vscode/
+.claude/
+*.egg-info/
+dist/
+build/
+.streamlit/secrets.toml

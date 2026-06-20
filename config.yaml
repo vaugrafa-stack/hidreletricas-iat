@@ -1,0 +1,155 @@
+# ============================================================
+# Configuração Central — Dashboard Hidrelétricas IAT
+# ============================================================
+
+# --- Fonte de dados ---
+excel:
+  local_path: "C:/Users/rafae/Downloads/IAT/Central_de_Processos_HIDRELETRICAS_COM_MACRO e Links.xlsm"
+  sheet_name: "Central de Processos HIDREL"   # primeiros 31 chars (limite openpyxl read_only)
+  sheet_name_fallback_index: 0                 # usa aba 0 se nome não bater
+  header_row: 1
+
+# --- Mapeamento de colunas (nome_original -> nome_padronizado) ---
+column_mapping:
+  "CÓDIGO":                  codigo
+  "PROTOCOLO":               protocolo
+  "BACIA":                   bacia_hidrografica
+  "DATA PROTOCOLO":          data_protocolo
+  "TIPO":                    tipologia
+  "NOME":                    empreendimento
+  "RIO":                     rio
+  "SITUAÇÃO":                situacao
+  "TÉCNICO":                 tecnico_responsavel
+  "TIPOS DE LICENÇA":        tipo_licenca
+  "POT SOLIC (MW)":          potencia
+  "REQUERENTE":              empreendedor
+  "CPF/CNPJ":                cnpj
+  "MUNICÍPIOS AFETADOS":     municipio
+  "Nº DOC (licença)":        numero_licenca
+  "DATA DECISÃO":            data_emissao
+  "DATA VALIDADE":           data_validade
+  "OBS":                     observacoes
+  "LATITUDE BARRAGEM":       latitude
+  "LAT. BARRAGEM .KMZ":      lat_kmz
+  "LONGITUDE BARRAGEM":      longitude
+  "LON. BARRAGEM .KMZ":      lon_kmz
+  "LATITUDE CASA FORÇA":     lat_casa_forca
+  "LAT. CASA FORÇA .KMZ":    lat_casa_forca_kmz
+  "LONGITUDE CASA FORÇA":    lon_casa_forca
+  "LONGITUDE CASA FORÇA .KMZ": lon_casa_forca_kmz
+  "STATUS BARRAGEM":         status_coord_barragem
+  "STATUS CASA FORÇA":       status_coord_casa_forca
+  "FONTE COORD":             fonte_coord
+  "OBS AUDITORIA":           obs_auditoria
+  "ABRIR NO EARTH PRO":      _link_earth_texto
+  "LINK EARTH BARRAGEM":     link_google_earth
+  "LINK EARTH NAVEGADOR WEB": link_google_earth
+
+# --- Campos obrigatórios para validação ---
+campos_obrigatorios:
+  critico:
+    - protocolo
+    - empreendimento
+    - municipio
+  medio:
+    - tecnico_responsavel
+    - tipologia
+    - tipo_licenca
+    - situacao
+    - rio
+
+# --- Alertas de validade ---
+dias_alerta_vencimento: 90   # registros com validade nos próximos N dias
+
+# --- Limites de coordenadas (Paraná) ---
+coordenadas:
+  lat_min: -27.0
+  lat_max: -22.0
+  lon_min: -55.0
+  lon_max: -48.0
+
+# --- Paleta semântica de situações ---
+cores_situacao:
+  DEFERIDO:          "#22c55e"
+  VIGENTE:           "#22c55e"
+  REGULAR:           "#22c55e"
+  PROTOCOLADO:       "#3b82f6"
+  "EM ANALISE":      "#f59e0b"
+  "EM TRAMITAÇÃO":   "#f59e0b"
+  PENDENTE:          "#f59e0b"
+  INDEFERIDO:        "#ef4444"
+  VENCIDO:           "#ef4444"
+  CANCELADO:         "#ef4444"
+  SUSPENSO:          "#ef4444"
+  EMBARGADO:         "#ef4444"
+  ARQUIVADO:         "#94a3b8"
+  ENCERRADO:         "#94a3b8"
+  DEVOLVIDO:         "#94a3b8"
+  IBAMA:             "#8b5cf6"
+  DEFAULT:           "#64748b"
+
+# --- Paleta por tipologia ---
+cores_tipologia:
+  CGH:  "#0ea5e9"
+  PCH:  "#6366f1"
+  UHE:  "#ec4899"
+  MGH:  "#14b8a6"
+  MCH:  "#f97316"
+  DEFAULT: "#64748b"
+
+# --- Publicação ArcGIS ---
+arcgis:
+  dry_run: true
+  campo_id_unico: protocolo
+  remover_ausentes: false   # se true, marca como inativo registro removido da planilha
+  folder: "Hidreletricas_IAT"
+
+# --- Monitoramento de arquivo ---
+watch:
+  intervalo_segundos: 60
+  hash_check: true
+  log_alteracoes: true
+
+# --- Dashboard ---
+dashboard:
+  titulo: "Central de Projetos Hidrelétricos do Estado do Paraná"
+  subtitulo: "Instituto Água e Terra do Paraná"
+  mapa_zoom_inicial: 7
+  mapa_centro_lat: -24.5
+  mapa_centro_lon: -51.5
+  max_registros_tabela: 2000
+
+# --- Camadas temáticas do GeoPR / IAT (WMS por streaming, alternáveis no mapa) ---
+# Servidor ArcGIS do GeoPR (Infraestrutura de Dados Espaciais do Paraná).
+# As camadas entram como sobreposições OCULTAS por padrão; o usuário liga/desliga
+# pelo controle de camadas no canto superior direito do mapa. Como são estaduais
+# e detalhadas, podem levar alguns segundos no 1º carregamento (depois o ArcGIS
+# cacheia). Para adicionar uma nova camada, basta uma entrada aqui (nome + service):
+# o "service" é o caminho do MapServer em geopr.iat.pr.gov.br/server/rest/services.
+geopr_wms_base:  "https://geopr.iat.pr.gov.br/server/services"
+geopr_rest_base: "https://geopr.iat.pr.gov.br/server/rest/services"
+camadas_wms:
+  - nome: "🏺 Sítios Arqueológicos (CNSA)"
+    service: "00_PUBLICACOES/iap_sitios_arqueologicos_cnsa"
+    opacidade: 0.90
+  - nome: "🌱 APP – Áreas de Preservação Permanente"
+    service: "00_PUBLICACOES/fbds_app"
+    opacidade: 0.55
+  - nome: "🌳 Vegetação Nativa (2021)"
+    service: "00_PUBLICACOES/vegetacao_nativa_2021"
+    opacidade: 0.60
+  - nome: "🏞️ Unidades de Conservação – Estaduais"
+    service: "00_PUBLICACOES/unidades_conservacao_estaduais"
+    opacidade: 0.60
+  - nome: "🏞️ Unidades de Conservação – Federais"
+    service: "00_PUBLICACOES/uc_federal_cnuc_mma"
+    opacidade: 0.60
+  - nome: "🌿 RPPN Estaduais"
+    service: "00_PUBLICACOES/iap_rppn_estadual_pr"
+    opacidade: 0.70
+  - nome: "⛰️ Solos (EMBRAPA)"
+    service: "00_PUBLICACOES/solos_parana_embrapa"
+    opacidade: 0.55
+  - nome: "🪨 Geologia (ZEE)"
+    service: "00_PUBLICACOES/zee_geologia"
+    opacidade: 0.55

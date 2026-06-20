@@ -1,0 +1,10 @@
+# Dependências do PIPELINE/ETL e da publicação ArcGIS — usadas LOCALMENTE, não no deploy.
+# O dashboard na nuvem NÃO precisa destas (ver requirements.txt).
+# Para rodar tudo localmente:  pip install -r requirements.txt -r requirements-pipeline.txt
+openpyxl>=3.1.0      # ler a planilha .xlsm (pipeline)
+numpy>=1.26.0        # transform/validate
+python-dotenv>=1.0.0 # variáveis .env
+watchdog>=4.0.0      # monitorar alterações na planilha (watch_file.py)
+requests>=2.31.0     # utilitários de rede
+pyarrow>=16.0.0      # leitura/escrita parquet
+arcgis>=2.3.0        # publicação no ArcGIS Online (publish_arcgis.py) — pacote grande

@@ -1,0 +1,1190 @@
+﻿linha_original,protocolo,empreendimento,campo,problema,gravidade,recomendacao
+2,148856214,CGH SÃO PEDRO DO IGUAÇU,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+2,148856214,CGH SÃO PEDRO DO IGUAÇU,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+2,148856214,CGH SÃO PEDRO DO IGUAÇU,latitude/longitude,"Coordenada de baixa precisão (2.0 casas decimais, ~1 km ou pior)",BAIXO,Refinar a coordenada com mais casas decimais (≥5 ≈ metros)
+3,25.271.974-1,CACHOEIRA BRAVA,latitude/longitude,Registro sem coordenada geográfica válida,CRITICO,Verificar e preencher latitude/longitude no Paraná (WGS84)
+4,53306160,CGH NOVA JAGUARIAÍVA,data_validade,Licença vencida em 2008-08-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+5,118188934,CGH NOVA JAGUARIAÍVA,data_validade,Licença vencida em 2019-07-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+7,182359564,CGH ACARAÍ,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+9,157971590,CGH AÇUNGUI 2H,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+10,189208812,CGH ADAMI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+11,151171400,CGH AFIRMAC,data_validade,Licença vencida em 2023-07-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+13,79110981,CGH ÁGUA BENTA,data_validade,Licença vencida em 2024-03-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+15,185248852,CGH ÁGUA DO BRAZ,data_validade,Licença vencida em 2023-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+16,141138120,CGH ÁGUA DO BRAZ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+18,189962487,CGH ÁGUA PARADA,data_validade,Licença vencida em 2025-06-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+20,79116220,CGH ÁGUA SANTA,data_validade,Licença vencida em 2024-02-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+22,141139320,CGH ÁGUA SANTA (CONSTRUNÍVEL),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+24,188687040,CGH AGUAS PERDIDAS,data_validade,Licença vencida em 2023-07-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+25,163752360,CGH ALBERTI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+26,136727885,CGH ALCEU VIGANÓ I,data_validade,Licença vencida em 2020-02-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+26,136727885,CGH ALCEU VIGANÓ I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+27,153596581,CGH ALCEU VIGANÓ I,data_validade,Licença vencida em 2021-05-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+27,153596581,CGH ALCEU VIGANÓ I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+28,168806914,CGH ALCEU VIGANÓ I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+29,172881467,CGH ALCEU VIGANÓ I,data_validade,Licença vencida em 2024-06-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+29,172881467,CGH ALCEU VIGANÓ I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+30,184862956,CGH ALCEU VIGANÓ I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+31,136728245,CGH ALCEU VIGANÓ II,data_validade,Licença vencida em 2020-02-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+32,180972560,CGH ALGACIR,data_validade,Licença vencida em 2023-10-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+36,149448454,CGH ALIANÇA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+37,79227897,CGH ALTO ALEGRE,data_validade,Licença vencida em 2016-06-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+39,185298000,CGH ALTO TRICOLOR,data_validade,Licença vencida em 2025-09-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+41,187476011,CGH ALVORADA,data_validade,Licença vencida em 2025-03-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+43,150826314,CGH AMANAYTU,data_validade,Licença vencida em 2021-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+46,187077311,CGH ARARAS,data_validade,Licença vencida em 2023-07-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+47,154991204,CGH ARARAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+49,189955995,CGH ARIRANHA,data_validade,Licença vencida em 2023-06-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+51,151137610,CGH ARROIO DA COTIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+52,185277852,CGH ARVOREDO,data_validade,Licença vencida em 2023-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+54,77036806,CGH ASSIS CHATEAUBRIAND,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+55,135939544,CGH AVECON,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+58,157709682,CGH AZUL I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+61,181331518,CGH AZUL II,data_validade,Licença vencida em 2023-09-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+62,162807331,CGH AZUL II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+63,139609484,CGH BAIXO ANDRADA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+63,139609484,CGH BAIXO ANDRADA,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+64,140228788,CGH BAIXO ANDRADA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+65,146181147,CGH BAIXO ANDRADA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+66,257675335,CGH BANDEIRA,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+70,147291027,CGH BANDIERA RONFIM,data_validade,Licença vencida em 2020-09-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+72,166967708,CGH BANDIERA RONFIM,data_validade,Licença vencida em 2023-05-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+73,184622823,CGH BARRA DO AMPERE,data_validade,Licença vencida em 2023-03-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+75,185231259,CGH BARRA DO BUGRE,data_validade,Licença vencida em 2023-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+77,142117037,CGH BARRA DO LEÃO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+79,185812774,CGH BARRA MANSA,data_validade,Licença vencida em 2024-10-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+81,173139802,CGH BARRA MANSA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+84,144880331,CGH BELA VISTA,data_validade,Licença vencida em 2023-02-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+86,147391790,CGH BELTRAME,data_validade,Licença vencida em 2021-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+87,162265644,CGH BELTRAME,data_validade,Licença vencida em 2024-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+88,25.863.362-8,CGH BELTRAME,data_validade,Licença vencida em 2026-06-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+91,79566128,CGH BENEDITO,data_validade,Licença vencida em 2016-06-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+92,140971120,CGH BENEDITO,data_validade,Licença vencida em 2019-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+93,159539210,CGH BENEDITO,data_validade,Licença vencida em 2024-06-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+94,199866184,CGH BENEDITO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+97,215112357,CGH BITUR,data_validade,Licença vencida em 2026-04-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+99,139744411,CGH BITUR,data_validade,Licença vencida em 2021-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+101,226854193,CGH BOA ESPERANÇA,latitude/longitude,Coordenada informada está fora dos limites do Paraná,CRITICO,"Conferir sinal/ordem de latitude e longitude (WGS84, graus decimais)"
+102,46291158,CGH BOA VISTA I,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+103,78431334,CGH BOA VISTA I,data_validade,Licença vencida em 2017-09-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+104,145283876,CGH BOA VISTA I,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+106,166315611,CGH BOM JESUS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+108,166688329,CGH BOM RETIRO,data_validade,Licença vencida em 2026-06-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+110,180824863,CGH BOM SUCESSO,data_validade,Licença vencida em 2023-09-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+111,173076371,CGH BOM SUCESSO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+113,165061403,CGH BONETI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+114,185809749,CGH BORBOLETA,data_validade,Licença vencida em 2023-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+116,96391617,CGH BRAÇO DO POTINGA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+117,117851982,CGH BRAÇO DO POTINGA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+118,118016688,CGH BRAMESCA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+119,139348486,CGH BRITAFOZ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+120,187236649,CGH BROMELIA,data_validade,Licença vencida em 2023-07-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+122,138227871,CGH BRUGIM,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+124,153976619,CGH BULHA I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+125,143984982,CGH BUTIAZINHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+126,136856294,CGH CABEÇA DE PATO,data_validade,Licença vencida em 2019-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+127,159612171,CGH CABEÇA DE PATO,data_validade,Licença vencida em 2025-07-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+128,187919568,CGH CABIUNA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+129,117851990,CGH CACATU,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+131,46291140,CGH CACHOEIRA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+132,78431326,CGH CACHOEIRA,data_validade,Licença vencida em 2024-11-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+133,79229962,CGH CACHOEIRA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+134,146071457,CGH CACHOEIRA,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+135,175546960,CGH CACHOEIRA,data_validade,Licença vencida em 2025-06-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+136,219571674,CGH CACHOEIRA,data_validade,Licença vencida em 2025-06-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+138,154949518,CGH CACHOEIRA BAIXA,data_validade,Licença vencida em 2022-08-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+140,52304440,CGH CACHOEIRA BRAVA,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+140,52304440,CGH CACHOEIRA BRAVA,latitude/longitude,"Coordenada de baixa precisão (2.0 casas decimais, ~1 km ou pior)",BAIXO,Refinar a coordenada com mais casas decimais (≥5 ≈ metros)
+141,122228851,CGH CACHOEIRA BRAVA,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+141,122228851,CGH CACHOEIRA BRAVA,latitude/longitude,"Coordenada de baixa precisão (2.0 casas decimais, ~1 km ou pior)",BAIXO,Refinar a coordenada com mais casas decimais (≥5 ≈ metros)
+142,163842262,CGH CACHOEIRA BRAVA,data_validade,Licença vencida em 2025-10-31,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+142,163842262,CGH CACHOEIRA BRAVA,latitude/longitude,"Coordenada de baixa precisão (2.0 casas decimais, ~1 km ou pior)",BAIXO,Refinar a coordenada com mais casas decimais (≥5 ≈ metros)
+143,220998967,CGH CACHOEIRA BRAVA,data_validade,Licença vencida em 2025-10-31,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+143,220998967,CGH CACHOEIRA BRAVA,latitude/longitude,"Coordenada de baixa precisão (2.0 casas decimais, ~1 km ou pior)",BAIXO,Refinar a coordenada com mais casas decimais (≥5 ≈ metros)
+144,238639727,CGH CACHOEIRA BRAVA,latitude/longitude,"Coordenada de baixa precisão (2.0 casas decimais, ~1 km ou pior)",BAIXO,Refinar a coordenada com mais casas decimais (≥5 ≈ metros)
+145,163426625,CGH CACHOEIRINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+146,184559706,CGH CACHOEIRINHA,data_validade,Licença vencida em 2023-02-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+147,182359572,CGH CACUMBANGUE,data_validade,Licença vencida em 2023-06-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+149,138227618,CGH CAMILO KLEIN,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+150,136245775,CGH CAMPING,data_validade,Licença vencida em 2024-09-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+153,160049529,CGH CAMPO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+154,158858851,CGH CAMPO BONITO,data_validade,Licença vencida em 2024-11-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+156,79486450,CGH CAMPO REAL,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+157,152515480,CGH CAMPO REAL,data_validade,Licença vencida em 2020-10-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+158,166602840,CGH CAMPO REAL,data_validade,Licença vencida em 2024-02-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+159,201435374,CGH CAMPO REAL,data_validade,Licença vencida em 2024-04-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+161,119967252,CGH CANANÉIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+163,185231399,CGH CANAVIAL,data_validade,Licença vencida em 2023-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+166,186468376,CGH CANTINHO DO CÉU,data_validade,Licença vencida em 2023-08-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+167,165775309,CGH CANTINHO DO CÉU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+168,121990520,CGH CÃO MENOR,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+169,164507149,CGH CAPELETE,data_validade,Licença vencida em 2026-06-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+170,78429690,CGH CAPIVARA,data_validade,Licença vencida em 2015-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+171,130838570,CGH CAPIVARA,data_validade,Licença vencida em 2017-09-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+172,146502512,CGH CAPIVARA,data_validade,Licença vencida em 2019-11-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+173,160175346,CGH CAPIVARA,data_validade,Licença vencida em 2021-10-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+174,162208519,CGH CAPIVARA,data_validade,Licença vencida em 2025-01-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+176,166725178,CGH CAPIVARI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+176,166725178,CGH CAPIVARI,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+178,72679504,CGH CARAZINHO,data_validade,Licença vencida em 2012-04-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+180,133216502,CGH CARMINATTI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+181,140284610,CGH CASALI,data_validade,Licença vencida em 2020-10-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+182,78562080,CGH CASALI,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+183,171686687,CGH CASALI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+184,181243945,CGH CASCATA I,data_validade,Licença vencida em 2023-09-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+185,144483570,CGH CASCATA I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+187,77471162,CGH CASCAVELZINHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+188,78393688,CGH CASTRO,data_validade,Licença vencida em 2016-11-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+189,139632338,CGH CASTRO,data_validade,Licença vencida em 2018-06-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+190,148510385,CGH CASTRO,data_validade,Licença vencida em 2021-10-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+191,178686666,CGH CASTRO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+193,149044876,CGH CATUPORANGA,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+194,156127485,CGH CATUPORANGA,data_validade,Licença vencida em 2025-08-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+198,49471459,CGH CAVERNOSO,data_validade,Licença vencida em 2006-04-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+199,88346874,CGH CAVERNOSO,data_validade,Licença vencida em 2010-04-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+200,77484990,CGH CAVERNOSO,data_validade,Licença vencida em 2014-03-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+201,122182452,CGH CAVERNOSO,data_validade,Licença vencida em 2018-02-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+202,149035885,CGH CAVERNOSO,data_validade,Licença vencida em 2022-12-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+204,147113471,CGH CAVERNOSO V,data_validade,Licença vencida em 2025-02-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+206,228248576,CGH CAVERNOSO V,data_validade,Licença vencida em 2025-11-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+209,147314671,CGH CAVERNOSO VI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+210,183176803,CGH CAVERNOSO VII,data_validade,Licença vencida em 2022-11-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+211,169730237,CGH CAVERNOSO VII,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+213,183758268,CGH CECILIA,data_validade,Licença vencida em 2023-02-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+216,56715177,CGH CERME,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+218,169347573,CGH CERRO AZUL,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+220,49470860,CGH CHOPIM I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+221,56580565,CGH CHOPIM I,data_validade,Licença vencida em 2007-09-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+222,78680687,CGH CHOPIM I,data_validade,Licença vencida em 2016-01-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+226,183872745,CGH CINZAS I,data_validade,Licença vencida em 2023-02-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+228,136727095,CGH CLÓVIS VIGANÓ I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+228,136727095,CGH CLÓVIS VIGANÓ I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+229,136727567,CGH CLÓVIS VIGANÓ II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+230,81040125,CGH COAMO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+231,121990540,CGH COLUMBA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+232,220159370,CGH COLUSSI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+236,140890197,CGH CONDOMÍNIO SÃO LUIZ,data_validade,Licença vencida em 2020-11-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+237,168262914,CGH CONDOMÍNIO SÃO LUIZ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+238,185732630,CGH CONGOINHAS,data_validade,Licença vencida em 2023-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+239,117033600,CGH CONGOINHAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+241,144880544,CGH CONRADO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+242,140826332,CGH CORRENTE DE OURO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+243,206850167,CGH CORUMBATAÍ,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+244,181219181,CGH CORVO I,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+245,149703209,CGH CORVO I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+248,181312386,CGH CORVO II,data_validade,Licença vencida em 2023-10-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+249,144483278,CGH CORVO II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+251,150933684,CGH COTEGIPE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+252,181209410,CGH COTEGIPE II,data_validade,Licença vencida em 2023-09-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+253,153919712,CGH COTEGIPE II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+255,212629383,CGH COTEGIPE III,data_validade,Licença vencida em 2026-04-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+256,59687131,CGH COTIA,data_validade,Licença vencida em 2010-09-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+257,78275057,CGH COTIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+258,79409235,CGH COVÓ,data_validade,Licença vencida em 2015-10-31,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+259,137431807,CGH COVÓ,data_validade,Licença vencida em 2023-04-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+261,152726597,CGH COVÓ,data_validade,Licença vencida em 2019-07-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+262,155090600,CGH COVÓ,data_validade,Licença vencida em 2023-03-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+264,51430832,CGH CRISTALINO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+265,54988850,CGH CRISTALINO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+266,58748790,CGH CRISTALINO,data_validade,Licença vencida em 2005-02-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+267,58750670,CGH CRISTALINO,data_validade,Licença vencida em 2004-09-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+268,85330730,CGH CRISTALINO,data_validade,Licença vencida em 2008-05-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+269,98505040,CGH CRISTALINO,data_validade,Licença vencida em 2012-09-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+270,79778044,CGH CRISTALINO,data_validade,Licença vencida em 2018-07-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+271,151678050,CGH CRISTALINO,data_validade,Licença vencida em 2022-07-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+272,185963276,CGH CURIÚVA I,data_validade,Licença vencida em 2023-06-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+273,139778987,CGH CURIÚVA I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+275,132991650,CGH DA ILHA,data_validade,Licença vencida em 2017-10-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+276,141139266,CGH DA ILHA,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+277,178262335,CGH DA ILHA,data_validade,Licença vencida em 2022-09-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+279,137626497,CGH DA MESA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+280,78152001,CGH DALBA,data_validade,Licença vencida em 2012-07-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+281,78826959,CGH DALBA,data_validade,Licença vencida em 2013-10-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+282,79769657,CGH DALBA,data_validade,Licença vencida em 2018-02-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+283,149486089,CGH DALBA,data_validade,Licença vencida em 2022-08-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+285,146216137,CGH DÁRIO,data_validade,Licença vencida em 2022-08-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+287,185883086,CGH DIAMANTE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+291,134532696,CGH DO GARCIA,data_validade,Licença vencida em 2023-08-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+293,120961764,CGH DO LONTRA,data_validade,Licença vencida em 2016-10-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+294,139685016,CGH DO LONTRA,data_validade,Licença vencida em 2023-10-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+295,189002262,CGH DO LONTRA,data_validade,Licença vencida em 2023-07-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+298,135849588,CGH DOIS VIZINHOS,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+299,152526326,CGH DOIS VIZINHOS,data_validade,Licença vencida em 2023-06-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+300,194830254,CGH DOIS VIZINHOS,data_validade,Licença vencida em 2023-10-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+302,140229040,CGH DONA ARACY,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+303,146181520,CGH DONA ARACY,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+304,138227537,CGH DONA MARLI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+305,131436890,CGH DRACO - ESTRELA CARRARO - ESTRELINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+306,189965850,CGH DRACO - ESTRELA CARRARO - ESTRELINHA,data_validade,Licença vencida em 2022-06-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+308,181384530,CGH ENTRE RIOS,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+309,78671238,CGH ENXADRISTA,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+310,79682152,CGH ENXADRISTA,data_validade,Licença vencida em 2017-09-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+311,147777230,CGH ENXADRISTA,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+312,164970957,CGH ENXADRISTA,data_validade,Licença vencida em 2022-10-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+313,170259092,CGH ENXADRISTA,data_validade,Licença vencida em 2022-01-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+315,79842486,CGH ESPINGARDA I,data_validade,Licença vencida em 2016-06-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+316,138271862,CGH ESPINGARDA I,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+317,164809641,CGH ESPINGARDA I,data_validade,Licença vencida em 2025-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+318,181549289,CGH ESPINGARDA I,data_validade,Licença vencida em 2024-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+320,167425402,CGH ESPINGARDA II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+322,79565245,CGH EVO,data_validade,Licença vencida em 2016-06-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+323,140970611,CGH EVO,data_validade,Licença vencida em 2019-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+325,159539458,CGH EVO,data_validade,Licença vencida em 2023-06-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+326,,CGH EVO,protocolo,Registro sem protocolo,CRITICO,Preencher número do protocolo no sistema de origem
+326,,CGH EVO,data_validade,Licença vencida em 2026-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+327,25.268.795-5,CGH EVO,municipio,Registro sem município,CRITICO,Preencher município(s) afetado(s)
+328,186985486,CGH EVR,data_validade,Licença vencida em 2023-07-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+330,189965516,CGH EXTREMOSA,data_validade,Licença vencida em 2022-06-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+332,185982998,CGH FAROL DE SANTA MARTA,data_validade,Licença vencida em 2025-01-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+336,138963004,CGH FAZENDA DA ONÇA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+337,141582500,CGH FÊNIX,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+338,80183348,CGH FERRADURA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+339,122129403,CGH FOLHA VERDE,data_validade,Licença vencida em 2016-06-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+340,139375696,CGH FOLHA VERDE,data_validade,Licença vencida em 2019-06-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+341,155314176,CGH FOLHA VERDE,data_validade,Licença vencida em 2024-03-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+345,119967244,CGH FOZ DO CATINGUEIRO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+346,197386991,CGH FOZ DO IRATIM,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+347,182223131,CGH FOZ DO LAJEADO,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+349,25.275.757-0,CGH FUNDÃO I,latitude/longitude,Registro sem coordenada geográfica válida,CRITICO,Verificar e preencher latitude/longitude no Paraná (WGS84)
+350,7726381,CGH FUNDÃO I,data_validade,Licença vencida em 2014-12-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+351,132913951,CGH FUNDÃO I,data_validade,Licença vencida em 2018-11-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+352,152152620,CGH FUNDÃO I,data_validade,Licença vencida em 2022-09-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+354,184127822,CGH GABANA,data_validade,Licença vencida em 2024-10-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+356,149810684,CGH GALINA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+357,185448495,CGH GALO VERMELHO,data_validade,Licença vencida em 2023-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+359,79978019,CGH GAMELA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+360,120961853,CGH GENEROSO,data_validade,Licença vencida em 2016-11-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+361,135130974,CGH GENEROSO,data_validade,Licença vencida em 2017-09-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+362,145369010,CGH GENEROSO,data_validade,Licença vencida em 2023-05-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+363,180824464,CGH GENTIL AMIGO,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+366,121133121,CGH GERMÂNIA,data_validade,Licença vencida em 2017-03-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+367,141605275,CGH GERMÂNIA,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+368,161579440,CGH GERMÂNIA,data_validade,Licença vencida em 2023-04-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+369,173438800,CGH GERMÂNIA,data_validade,Licença vencida em 2022-05-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+371,196137106,CGH GIACOMINI,data_validade,Licença vencida em 2024-12-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+373,138859770,CGH GIRAU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+374,214302047,CGH GIULIA,data_validade,Licença vencida em 2026-04-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+376,157646303,CGH GUAMIRANGA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+377,182731633,CGH GUAMIRANGA,data_validade,Licença vencida em 2022-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+379,184859327,CGH GUARANI,data_validade,Licença vencida em 2022-07-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+382,186175743,CGH GW,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+384,153651680,CGH HENKE,data_validade,Licença vencida em 2023-05-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+387,184654032,CGH HERVEIRA,data_validade,Licença vencida em 2023-03-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+391,142887681,CGH IMBAÚ I,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+394,142932156,CGH IMBAÚ II,data_validade,Licença vencida em 2020-03-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+397,192654319,CGH ITAPEJARA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+398,149826645,CGH ITARARÉ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+398,149826645,CGH ITARARÉ,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+400,186469542,CGH JABORANDI,data_validade,Licença vencida em 2023-06-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+401,53306152,CGH JAGUARIAÍVA VELHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+401,53306152,CGH JAGUARIAÍVA VELHA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+402,130868223,CGH JARACATIÁ,data_validade,Licença vencida em 2020-02-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+403,152382030,CGH JARACATIÁ,data_validade,Licença vencida em 2023-04-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+405,220761983,CGH JARACATIÁ,data_validade,Licença vencida em 2025-10-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+409,190326888,CGH JARACATIA III,data_validade,Licença vencida em 2022-06-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+411,156225568,CGH JARARACA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+412,51376480,CGH JATAÍ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+413,132468982,CGH JATAÍ,data_validade,Licença vencida em 2018-05-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+414,182043184,CGH JESUÍTAS,data_validade,Licença vencida em 2023-06-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+416,137408643,CGH JESUÍTAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+418,138227570,CGH JOLMAR RIQUETTI,data_validade,Licença vencida em 2017-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+419,183870530,CGH JOPEVI,data_validade,Licença vencida em 2023-02-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+421,138025810,CGH JUDAS TADEU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+422,79745618,CGH JUSSARA,data_validade,Licença vencida em 2019-08-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+423,157235133,CGH JUSSARA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+425,133090002,CGH KM 10,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+426,135538566,CGH KM 14,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+426,135538566,CGH KM 14,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+427,158178621,CGH KOESTER,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+428,150826047,CGH KUARAYTU,data_validade,Licença vencida em 2021-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+430,182569585,CGH LAGOA CRISTAL,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+432,182359580,CGH LAGOA DOURADA,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+434,140706191,CGH LAJEADO,data_validade,Licença vencida em 2022-05-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+435,197200073,CGH LAJEADO (Piquiri),data_validade,Licença vencida em 2025-05-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+436,160005815,CGH LAJEADO (Piquiri),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+437,158480611,CGH LAJEADO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+438,135326089,CGH LAMBARI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+439,72678591,CGH LARA E REITMEYER,data_validade,Licença vencida em 2013-10-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+440,120851047,CGH LARA E REITMEYER,data_validade,Licença vencida em 2021-09-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+441,78120738,CGH LARANJINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+442,79965235,CGH LARANJINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+443,150265053,CGH LARANJINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+444,153853584,CGH LARANJINHA (NOVO 078120738),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+446,120852230,CGH LIBERA MARIA,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+447,162806513,CGH LIBERA MARIA,data_validade,Licença vencida em 2023-06-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+448,181646209,CGH LIBERA MARIA,data_validade,Licença vencida em 2023-01-31,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+451,186189221,CGH LIELL,data_validade,Licença vencida em 2023-07-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+452,182128333,CGH LIKES,data_validade,Licença vencida em 2022-10-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+455,186148843,CGH LIMEIRA,data_validade,Licença vencida em 2024-12-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+456,157627740,CGH LIMEIRA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+459,138559580,CGH LIRA MEIRELES,data_validade,Licença vencida em 2019-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+460,148050929,CGH LIRA MEIRELES,data_validade,Licença vencida em 2020-10-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+461,180769226,CGH LISE,data_validade,Licença vencida em 2023-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+463,220165590,CGH LISE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+464,57679255,CGH LONTRAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+465,79374199,CGH LONTRAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+466,160940778,CGH LOPEÍ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+470,183849590,CGH MAMBORÊ,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+471,159030067,CGH MANDURI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+472,185352200,CGH MANDURI,data_validade,Licença vencida em 2023-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+474,135325481,CGH MANDURIM - MARRECAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+475,77036830,CGH MANOEL RIBAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+475,77036830,CGH MANOEL RIBAS,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+476,121133180,CGH MANOELA,data_validade,Licença vencida em 2017-03-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+477,141604309,CGH MANOELA,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+478,161591157,CGH MANOELA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+479,181327995,CGH MARAVILHA,data_validade,Licença vencida em 2023-11-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+480,166937515,CGH MARAVILHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+485,138227707,CGH MARCÃO,data_validade,Licença vencida em 2019-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+486,120786385,CGH MARCELÂNDIA,data_validade,Licença vencida em 2018-06-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+487,148205027,CGH MARCELÂNDIA,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+488,163859203,CGH MARCELÂNDIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+489,166503272,CGH MARCELÂNDIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+490,138227685,CGH MARFIL,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+491,135810037,CGH MARIA CAVALEIRA (SALTINHO),data_validade,Licença vencida em 2018-10-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+492,154132287,CGH MARIA CAVALEIRA (SALTINHO),data_validade,Licença vencida em 2024-01-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+493,211003626,CGH MARIA CAVALEIRA (SALTINHO),data_validade,Licença vencida em 2025-07-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+498,146962050,CGH MARREQUINHA,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+499,154220780,CGH MARREQUINHA,data_validade,Licença vencida em 2023-03-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+504,144948319,CGH MARREQUINHA I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+506,146909027,CGH MARREQUINHA II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+507,49471432,CGH MARUMBI,data_validade,Licença vencida em 2007-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+508,78949368,CGH MARUMBI,data_validade,Licença vencida em 2015-11-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+509,137020955,CGH MARUMBI,data_validade,Licença vencida em 2023-05-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+511,182048909,CGH MAURIVAN FREITAS,data_validade,Licença vencida em 2023-07-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+512,19.902.708-5,CGH MAURIVAN FREITAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+514,140229407,CGH MEIRELES,data_validade,Licença vencida em 2025-12-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+518,49471416,CGH MELISSA,data_validade,Licença vencida em 2006-04-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+519,88346866,CGH MELISSA,data_validade,Licença vencida em 2009-03-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+520,119811171,CGH MELISSA,data_validade,Licença vencida em 2023-06-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+522,180972552,CGH MERCEDES,data_validade,Licença vencida em 2023-09-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+524,91651610,CGH MOINHO,data_validade,Licença vencida em 2008-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+525,72675851,CGH MOINHO,data_validade,Licença vencida em 2025-07-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+526,120216007,CGH MOINHO,data_validade,Licença vencida em 2015-12-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+527,134572990,CGH MOINHO,data_validade,Licença vencida em 2019-04-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+528,155065460,CGH MOINHO,data_validade,Licença vencida em 2023-05-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+531,143179907,CGH MOINHO CAPANEMA,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+532,159388964,CGH MOINHO CAPANEMA,data_validade,Licença vencida em 2024-05-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+535,154414495,CGH MONDAY,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+536,199318861,CGH MONTANA,data_validade,Licença vencida em 2024-12-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+537,184589923,CGH MORRO BRANCO,data_validade,Licença vencida em 2023-03-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+539,121137623,CGH NASCENTE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+540,77483330,CGH NÉVIO ÚRIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+540,77483330,CGH NÉVIO ÚRIO,latitude/longitude,Mesma coordenada usada por 3 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+541,181175648,CGH NILDO ZIN,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+544,136342142,CGH NOGUEIRA,data_validade,Licença vencida em 2018-10-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+545,143302199,CGH NOGUEIRA,data_validade,Licença vencida em 2019-11-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+546,160140666,CGH NOGUEIRA,data_validade,Licença vencida em 2021-12-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+548,181449462,CGH NOGUEIRA,data_validade,Licença vencida em 2023-12-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+549,142344220,CGH NORTE PIONEIRO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+550,186184319,CGH NOSSA SENHORA APARECIDA,data_validade,Licença vencida em 2024-10-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+552,164884007,CGH NOSSA SENHORA APARECIDA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+553,221073916,CGH NOSSA SENHORA DE FÁTIMA,data_validade,Licença vencida em 2026-03-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+554,79883360,CGH NOSSA SENHORA DE FÁTIMA,data_validade,Licença vencida em 2019-08-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+555,157236547,CGH NOSSA SENHORA DE FÁTIMA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+556,78926910,CGH NOSSA SENHORA DE LOURDES,data_validade,Licença vencida em 2015-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+557,132810133,CGH NOSSA SENHORA DE LOURDES,data_validade,Licença vencida em 2019-06-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+558,161924610,CGH NOSSA SENHORA DE LOURDES,data_validade,Licença vencida em 2022-01-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+559,162077899,CGH NOSSA SENHORA DE LOURDES,data_validade,Licença vencida em 2021-03-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+560,170085906,CGH NOSSA SENHORA DE LOURDES,data_validade,Licença vencida em 2026-04-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+561,150361419,CGH NOVA AURORA,data_validade,Licença vencida em 2023-05-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+561,150361419,CGH NOVA AURORA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+562,23.51.671-0,CGH NOVA AURORA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+563,160005050,CGH NOVA ESPERANÇA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+565,75856814,CGH NOVA FÁTIMA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+566,181365064,CGH NOVA GERAÇÃO,data_validade,Licença vencida em 2022-12-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+569,130715818,CGH NOVA RIQUEZA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+571,139349156,CGH NOVO HORIZONTE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+572,121990555,CGH ORION 1,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+573,121990563,CGH ORION 2,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+574,138227812,CGH OSMÁRIO SARAIVA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+575,50379337,CGH OURO BRANCO,data_validade,Licença vencida em 2015-11-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+576,134664584,CGH OURO BRANCO,data_validade,Licença vencida em 2019-06-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+577,157742850,CGH OURO BRANCO,data_validade,Licença vencida em 2019-05-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+579,56031103,CGH OURO VERDE,data_validade,Licença vencida em 2021-07-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+580,170305671,CGH OURO VERDE,data_validade,Licença vencida em 2024-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+584,82903437,CGH PADOVANI,data_validade,Licença vencida em 2006-06-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+585,89673194,CGH PADOVANI,data_validade,Licença vencida em 2009-06-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+586,76330042,CGH PADOVANI,data_validade,Licença vencida em 2013-11-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+587,118388364,CGH PADOVANI,data_validade,Licença vencida em 2017-08-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+588,146851258,CGH PADOVANI,data_validade,Licença vencida em 2022-08-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+589,88358589,CGH PAINA II,data_validade,Licença vencida em 2011-04-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+590,78539445,CGH PAINA II,data_validade,Licença vencida em 2015-04-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+591,134350032,CGH PAINA II,data_validade,Licença vencida em 2020-10-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+594,219344562,CGH PALMERINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+595,184303221,CGH PALMITAL,data_validade,Licença vencida em 2023-03-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+596,138861678,CGH PALMITAL,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+597,56067752,CGH PALMITAL 1,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+598,56067760,CGH PALMITAL 2,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+599,56067779,CGH PALMITAL 3,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+600,53214894,CGH PALMITAL DO MEIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+601,118015509,CGH PAMPEANA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+602,147143630,CGH PAMPEANA,data_validade,Licença vencida em 2021-09-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+603,199447378,CGH PAMPEANA,data_validade,Licença vencida em 2025-02-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+606,120374672,CGH PARQUE,data_validade,Licença vencida em 2016-10-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+607,140970832,CGH PARQUE,data_validade,Licença vencida em 2018-09-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+608,149881395,CGH PARQUE,data_validade,Licença vencida em 2022-04-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+610,187528453,CGH PARQUE DA CACHOEIRA DE CIMA,data_validade,Licença vencida em 2023-07-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+613,186248236,CGH PATO,data_validade,Licença vencida em 2023-06-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+615,183469460,CGH PAU D'ALHO,data_validade,Licença vencida em 2022-12-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+616,227796669,CGH PEABIRU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+617,181243392,CGH PEABIRU,data_validade,Licença vencida em 2023-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+618,151488471,CGH PEABIRU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+620,138025578,CGH PEDRA GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+622,140717770,CGH PERBONE,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+623,152145020,CGH PERBONE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+624,188973175,CGH PERBONE,data_validade,Licença vencida em 2023-11-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+627,159859045,CGH PERDONCINI,data_validade,Licença vencida em 2023-02-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+629,144880498,CGH PICA PAU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+631,152875126,CGH PIEDADE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+633,181209690,CGH PINDAÚVA,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+634,155902370,CGH PINDAÚVA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+635,140707333,CGH PINDORAMA,data_validade,Licença vencida em 2019-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+636,151565379,CGH PINDORAMA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+637,177389293,CGH PINDORAMA,data_validade,Licença vencida em 2023-02-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+639,121816539,CGH PINHALÃO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+641,120961713,CGH PINHEIROS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+642,146739075,CGH PINHO FLECK,data_validade,Licença vencida em 2022-08-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+644,133946934,CGH PINHO PAST,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+647,120850547,CGH PIQUIRI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+649,156165298,CGH PIRÂMIDE,data_validade,Licença vencida em 2024-07-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+652,185517683,CGH PITANGA,data_validade,Licença vencida em 2024-10-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+654,189109806,CGH PITANGA (CITO),data_validade,Licença vencida em 2023-07-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+655,152873719,CGH PITANGA (CITO),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+656,203954190,CGH PITANGA (CITO),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+659,164200035,CGH PITANGA 1,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+660,40187650,CGH PITANGUI,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+661,49471424,CGH PITANGUI,data_validade,Licença vencida em 2007-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+662,93837339,CGH PITANGUI,data_validade,Licença vencida em 2011-06-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+663,78675780,CGH PITANGUI,data_validade,Licença vencida em 2015-06-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+664,134899492,CGH PITANGUI,data_validade,Licença vencida em 2019-07-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+666,138227804,CGH PITICO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+667,180824073,CGH POCLAIN,data_validade,Licença vencida em 2023-09-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+668,170601696,CGH POCLAIN,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+669,131988893,CGH PONTE,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+671,139427483,CGH PONTE (MARMELEIRO),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+673,137626616,CGH PRAIA DAS VACAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+674,186189280,CGH PRESOTTO,data_validade,Licença vencida em 2023-07-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+675,164037320,CGH PRESOTTO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+676,159361454,CGH PROCHNAU,data_validade,Licença vencida em 2023-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+677,149809945,CGH PROGRESSO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+677,149809945,CGH PROGRESSO,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+681,140710075,CGH RANCHO MUNDO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+683,182191221,CGH REALEZA,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+684,174064113,CGH REALEZA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+686,185885640,CGH REINHOFER,data_validade,Licença vencida em 2023-02-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+687,72679490,CGH REINHOFER,data_validade,Licença vencida em 2014-04-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+688,130840787,CGH REINHOFER,data_validade,Licença vencida em 2018-04-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+689,149708944,CGH REINHOFER,data_validade,Licença vencida em 2022-05-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+690,183176757,CGH RESTINGA,data_validade,Licença vencida em 2022-12-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+691,77036792,CGH RIBEIRÃO DO PINHAL,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+692,138340449,CGH RINCÃO DA PONTE,data_validade,Licença vencida em 2023-01-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+693,99305789,CGH RINCÃO DA PONTE,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+694,78531940,CGH RINCÃO DA PONTE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+696,191293533,CGH RINCÃO DO BICHO,data_validade,Licença vencida em 2026-04-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+697,157821040,CGH RINCÃO DO BICHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+701,88369130,CGH RIO BONITO II,data_validade,Licença vencida em 2008-10-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+702,72457943,CGH RIO BONITO II,data_validade,Licença vencida em 2012-02-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+703,79279633,CGH RIO BONITO II,data_validade,Licença vencida em 2018-07-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+706,79147516,CGH RIO BONITO III,data_validade,Licença vencida em 2020-07-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+708,149779230,CGH RIO CACHOEIRA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+708,149779230,CGH RIO CACHOEIRA,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+709,148856281,CGH RIO CASCAVEL,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+709,148856281,CGH RIO CASCAVEL,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+710,158899833,CGH RIO DA ILHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+712,149626352,CGH RIO DAS CINZAS 2,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+713,72678583,CGH RIO DAS MORTES,data_validade,Licença vencida em 2014-04-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+714,130265936,CGH RIO DAS MORTES,data_validade,Licença vencida em 2018-04-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+715,150960517,CGH RIO DAS MORTES,data_validade,Licença vencida em 2022-08-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+717,183157434,CGH RIO DO CAMPO,data_validade,Licença vencida em 2022-12-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+718,171200024,CGH RIO DO CAMPO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+720,78418370,CGH RIO DO SALTO,data_validade,Licença vencida em 2013-03-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+721,144965345,CGH RIO DO SALTO,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+722,157770071,CGH RIO DO SALTO,data_validade,Licença vencida em 2021-10-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+724,49471467,CGH RIO DOS PATOS,data_validade,Licença vencida em 2007-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+725,93837347,CGH RIO DOS PATOS,data_validade,Licença vencida em 2011-07-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+726,78685654,CGH RIO DOS PATOS,data_validade,Licença vencida em 2019-07-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+727,161703869,CGH RIO JARACATIÁ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+729,163191199,CGH RIO VERDE II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+730,229989910,CGH RIO VERDE II,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+731,188053130,CGH RODRIGO GONÇALVES,data_validade,Licença vencida em 2025-05-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+735,77036784,CGH RONCADOR,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+736,150933633,CGH RONCADOR,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+740,135080063,CGH ROTA DAS ARAUCÁRIAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+741,163182963,CGH RP CAFELÂNDIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+741,163182963,CGH RP CAFELÂNDIA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+742,59687140,CGH SACI,data_validade,Licença vencida em 2010-09-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+743,78275049,CGH SACI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+744,185210669,CGH SAFRA,data_validade,Licença vencida em 2023-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+746,180760121,CGH SALMOURA,data_validade,Licença vencida em 2023-09-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+747,166364183,CGH SALMOURA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+750,45160025,CGH SALTO BANDEIRANTE,data_validade,Licença vencida em 2002-03-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+751,77025197,CGH SALTO BANDEIRANTE,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+752,141870998,CGH SALTO BANDEIRANTE,data_validade,Licença vencida em 2020-10-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+753,142543885,CGH SALTO BANDEIRANTE,data_validade,Licença vencida em 2018-09-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+755,160438045,CGH SALTO CLAUDELINO,data_validade,Licença vencida em 2025-11-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+757,147015844,CGH SALTO COSCHINHAKI,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+758,154842225,CGH SALTO COSCHINHAKI,data_validade,Licença vencida em 2023-03-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+759,196575200,CGH SALTO COSCHINHAKI,data_validade,Licença vencida em 2025-02-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+760,233923214,CGH SALTO COSCHINHAKI,data_validade,Licença vencida em 2026-01-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+763,78432624,CGH SALTO DA BANANA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+764,49470851,CGH SALTO DO VAU,data_validade,Licença vencida em 2006-04-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+765,88346882,CGH SALTO DO VAU,data_validade,Licença vencida em 2009-03-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+766,72690885,CGH SALTO DO VAU,data_validade,Licença vencida em 2013-09-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+769,143707881,CGH SALTO ESTRELA,data_validade,Licença vencida em 2022-04-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+770,182569712,CGH SALTO ESTRELA,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+771,97641048,CGH SALTO ESTRELA,data_validade,Licença vencida em 2012-04-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+777,154788395,CGH SALTO SÃO PEDRO,data_validade,Licença vencida em 2021-12-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+778,50369935,CGH SALTO SÃO PEDRO,data_validade,Licença vencida em 2007-12-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+780,25.876.657-1,CGH SALTO SÃO PEDRO,data_validade,Licença vencida em 2021-12-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+780,25.876.657-1,CGH SALTO SÃO PEDRO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+782,50369951,CGH SANTA CLARA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+782,50369951,CGH SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+783,50369960,CGH SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+784,53300391,CGH SANTA CLARA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+784,53300391,CGH SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+785,53300405,CGH SANTA CLARA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+785,53300405,CGH SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+786,74803458,CGH SANTA CLARA,data_validade,Licença vencida em 2013-05-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+786,74803458,CGH SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+787,79370070,CGH SANTA CLARA,data_validade,Licença vencida em 2017-04-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+787,79370070,CGH SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+788,176283742,CGH SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+789,117047458,CGH SANTA CRUZ,data_validade,Licença vencida em 2023-05-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+792,138239713,CGH SANTA CURA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+794,120786377,CGH SANTA FÉ,data_validade,Licença vencida em 2017-03-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+795,141606409,CGH SANTA FÉ,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+796,161573493,CGH SANTA FÉ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+797,180760547,CGH SANTA JACINTA,data_validade,Licença vencida em 2023-11-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+799,182359602,CGH SANTA MARIA,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+801,88367260,CGH SANTA PAULA,data_validade,Licença vencida em 2017-04-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+802,143381935,CGH SANTA PAULA,data_validade,Licença vencida em 2021-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+803,175635742,CGH SANTA PAULA,data_validade,Licença vencida em 2022-09-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+805,73734487,CGH SANTA RITA,data_validade,Licença vencida em 2010-12-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+808,181312890,CGH SANTA TEREZA,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+809,120786369,CGH SANTA TEREZINHA,data_validade,Licença vencida em 2018-06-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+810,148205183,CGH SANTA TEREZINHA,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+811,161591742,CGH SANTA TEREZINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+812,51322533,CGH SANTANA,data_validade,Licença vencida em 2004-12-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+813,52272009,CGH SANTANA,data_validade,Licença vencida em 2001-12-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+814,83673249,CGH SANTANA,data_validade,Licença vencida em 2008-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+815,72719450,CGH SANTANA,data_validade,Licença vencida em 2013-03-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+816,118636953,CGH SANTANA,data_validade,Licença vencida em 2019-11-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+817,188686796,CGH SANT'ANA,data_validade,Licença vencida em 2023-07-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+820,142483548,CGH SANTIN,data_validade,Licença vencida em 2022-08-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+820,142483548,CGH SANTIN,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+821,138996000,CGH SANTINI,data_validade,Licença vencida em 2026-05-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+821,138996000,CGH SANTINI,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+822,259332796,CGH SANTINI,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+823,120786350,CGH SANTO ANTÔNIO,data_validade,Licença vencida em 2017-03-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+824,141605070,CGH SANTO ANTÔNIO,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+825,161580228,CGH SANTO ANTÔNIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+826,165436059,CGH SANTO ANTÔNIO (CORBÉLIA),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+829,138349993,CGH SANTO ANTÔNIO I (IGUAÇÚ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+830,139445732,CGH SANTO ANTÔNIO I (PITANGA),data_validade,Licença vencida em 2021-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+832,138801187,CGH SANTO ANTÔNIO II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+834,189964790,CGH SANTO EXPEDITO,data_validade,Licença vencida em 2023-06-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+837,151194192,CGH SANTO REIS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+838,141551116,CGH SÃO BENTO,data_validade,Licença vencida em 2021-10-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+839,182496650,CGH SÃO BENTO,data_validade,Licença vencida em 2024-05-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+841,181364378,CGH SÃO BRÁS,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+844,132200629,CGH SÃO FRANCISCO,data_validade,Licença vencida em 2021-05-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+845,165184939,CGH SÃO FRANCISCO,data_validade,Licença vencida em 2025-05-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+846,178925997,CGH SÃO FRANCISCO,data_validade,Licença vencida em 2023-06-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+848,79061417,CGH SÃO FRANCISCO DE SALES,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+849,79851973,CGH SÃO FRANCISCO DE SALES,data_validade,Licença vencida em 2019-06-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+850,158192462,CGH SÃO FRANCISCO DE SALES,data_validade,Licença vencida em 2022-10-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+851,188429866,CGH SÃO FRANCISCO DE SALES,data_validade,Licença vencida em 2023-06-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+854,162913867,CGH SÃO JOÃO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+855,163576864,CGH SÃO JOAQUIM,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+856,49471440,CGH SÃO JORGE,data_validade,Licença vencida em 2006-04-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+857,88346840,CGH SÃO JORGE,data_validade,Licença vencida em 2009-03-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+858,72690893,CGH SÃO JORGE,data_validade,Licença vencida em 2013-09-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+859,119811180,CGH SÃO JORGE,data_validade,Licença vencida em 2020-07-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+861,48775535,CGH SÃO JORGE I,data_validade,Licença vencida em 2021-10-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+862,138989704,CGH SÃO JORGE II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+864,147829043,CGH SÃO JOSÉ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+865,133562389,CGH SÃO MANOEL I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+866,133562206,CGH SÃO MANOEL II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+867,133562320,CGH SÃO MANOEL III,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+868,77646167,CGH SÃO PEDRO,data_validade,Licença vencida em 2018-04-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+869,140707740,CGH SATURNO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+871,132664005,CGH SERRA DAS FURNAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+871,132664005,CGH SERRA DAS FURNAS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+872,184144972,CGH SÍTIO ALEGRIA,data_validade,Licença vencida em 2023-07-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+873,167431771,CGH SÍTIO ALEGRIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+875,121137658,CGH SOCORRO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+876,185732509,CGH SOLIGO,data_validade,Licença vencida em 2023-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+877,161768707,CGH SOLIGO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+880,147828853,CGH TAGUAZINHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+881,150755867,CGH TAMANDUÁ,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+881,150755867,CGH TAMANDUÁ,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+882,180767886,CGH TAMARANA,data_validade,Licença vencida em 2023-09-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+885,140651524,CGH TAPERA,data_validade,Licença vencida em 2025-03-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+886,175529993,CGH TAPERA,data_validade,Licença vencida em 2026-05-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+887,22.330.096-0,CGH TAPERA,data_validade,Licença vencida em 2026-05-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+889,140775673,CGH TAPERA 2A,data_validade,Licença vencida em 2022-08-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+890,171884217,CGH TAPERA 2A,data_validade,Licença vencida em 2024-08-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+890,171884217,CGH TAPERA 2A,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+891,196850333,CGH TAPERA 2A,data_validade,Licença vencida em 2023-12-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+891,196850333,CGH TAPERA 2A,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+892,207198730,CGH TAPERA 2A,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+893,148593825,CGH TAPERA I,data_validade,Licença vencida em 2023-06-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+897,152400586,CGH TELES DE PROENÇA,data_validade,Licença vencida em 2025-01-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+898,168101740,CGH TELES DE PROENÇA,data_validade,Licença vencida em 2025-10-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+899,233704270,CGH TELES DE PROENÇA,data_validade,Licença vencida em 2026-02-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+901,78428309,CGH TESOURO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+903,77009485,CGH THERMAS SULINA,data_validade,Licença vencida em 2011-05-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+904,77830766,CGH THERMAS SULINA,data_validade,Licença vencida em 2011-06-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+906,154991778,CGH TIGRE AZUL,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+907,189988249,CGH TIGRE PRETO,data_validade,Licença vencida em 2023-08-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+909,157629034,CGH TIGRE PRETO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+911,137626357,CGH TORRE DE PEDRA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+913,83438932,CGH TRÊS CAPÕES,data_validade,Licença vencida em 2007-11-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+913,83438932,CGH TRÊS CAPÕES,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+914,96192983,CGH TRÊS CAPÕES,data_validade,Licença vencida em 2011-10-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+914,96192983,CGH TRÊS CAPÕES,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+915,78822970,CGH TRÊS CAPÕES,data_validade,Licença vencida em 2018-11-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+915,78822970,CGH TRÊS CAPÕES,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+916,154261958,CGH TRÊS CAPÕES,data_validade,Licença vencida em 2021-12-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+916,154261958,CGH TRÊS CAPÕES,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+917,186072057,CGH TRÊS PALMEIRAS,data_validade,Licença vencida em 2025-01-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+919,158249766,CGH TRÊS PEDRAS,data_validade,Licença vencida em 2023-04-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+921,183176706,CGH TRICOLOR VI,data_validade,Licença vencida em 2024-07-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+922,52291950,CGH TUNEIRAS II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+923,187818443,CGH TURVO,data_validade,Licença vencida em 2024-10-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+925,182569623,CGH UBIRATA,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+927,180758364,CGH UNIÃO,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+928,142689090,CGH USINA DE BAIXO,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+928,142689090,CGH USINA DE BAIXO,latitude/longitude,Mesma coordenada usada por 3 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+929,142689260,CGH USINA DE CIMA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+930,77783349,CGH USINA DE CIMA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+931,195145172,CGH USINA DE CIMA (SANFRANCESCO),latitude/longitude,Mesma coordenada usada por 3 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+932,135841889,CGH USINA VELHA,data_validade,Licença vencida em 2022-01-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+932,135841889,CGH USINA VELHA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+933,191852532,CGH USINA VELHA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+935,182359530,CGH VEGA,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+936,140716995,CGH VEGA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+940,184323974,CGH VICENTINA,data_validade,Licença vencida em 2023-08-31,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+942,180758461,CGH VILA LOBOS,data_validade,Licença vencida em 2023-09-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+943,172922341,CGH VILA LOBOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+945,156976156,CGH VILA NOVA,data_validade,Licença vencida em 2021-11-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+946,164210766,CGH VILA NOVA,data_validade,Licença vencida em 2023-06-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+947,175319042,CGH VILA NOVA,data_validade,Licença vencida em 2022-06-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+950,121133172,CGH VITÓRIA DO VERDE,data_validade,Licença vencida em 2017-08-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+951,141606344,CGH VITÓRIA DO VERDE,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+952,161579688,CGH VITÓRIA DO VERDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+954,83670410,CGH VOLTA GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+955,182127590,CGH WARMLING,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+956,187839947,CGH WARMLING,data_validade,Licença vencida em 2025-10-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+958,144634675,CGH ZATTAR,data_validade,Licença vencida em 2021-08-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+961,257674061,CGH ZÉ RENATO,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+970,195196400,MCH VAZÃO SANITARIA SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+973,149903577,MGH 111,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+981,235016710,MGH MOINHO NOVA AURORA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+984,235012910,MGH RP ENERGIA CAFELÂNDIA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+990,143905047,MGH SÃO JOÃO (Carambeí),latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+991,25.338.437-9,MGH SÃO JOÃO (Carambeí),latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+995,136247980,PCH AÇUNGUI 2C,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1000,141339869,PCH AÇUNGUI 2F,data_validade,Licença vencida em 2019-11-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1004,132663513,PCH ÁGUA BONITA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1005,185518388,PCH ÁGUA BRANCA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1007,54988001,PCH ÁGUA BRANCA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1009,51291719,PCH ÁGUA LIMPA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1011,182359637,PCH ÁGUA TREMIDA,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1013,205155074,PCH ALIANÇA,data_validade,Licença vencida em 2025-09-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1014,168980850,PCH ALIANÇA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1017,48253202,PCH ALTO CHOPIM,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1018,49493827,PCH ALTO CHOPIM,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1019,162833057,PCH ALTO CHOPIM,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1020,197843241,PCH AMPÉRE,data_validade,Licença vencida em 2026-03-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1021,160007095,PCH AMPÉRE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1023,181500549,PCH APUCARANA,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1024,158099667,PCH APUCARANA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1026,49470908,PCH APUCARANINHA,data_validade,Licença vencida em 2007-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1026,49470908,PCH APUCARANINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1027,93839943,PCH APUCARANINHA,data_validade,Licença vencida em 2010-01-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1027,93839943,PCH APUCARANINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1028,77474277,PCH APUCARANINHA,data_validade,Licença vencida em 2016-03-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1028,77474277,PCH APUCARANINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1030,42993271,PCH ARTURO ANDREOLI (FOZ DO CHOPIM),data_validade,Licença vencida em 1999-12-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1031,46309120,PCH ARTURO ANDREOLI (FOZ DO CHOPIM),data_validade,Licença vencida em 2001-03-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1032,56228918,PCH ARTURO ANDREOLI (FOZ DO CHOPIM),data_validade,Licença vencida em 2007-10-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1033,94975409,PCH ARTURO ANDREOLI (FOZ DO CHOPIM),data_validade,Licença vencida em 2011-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1034,78920513,PCH ARTURO ANDREOLI (FOZ DO CHOPIM),data_validade,Licença vencida em 2015-06-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1035,135075779,PCH ARTURO ANDREOLI (FOZ DO CHOPIM),data_validade,Licença vencida em 2023-07-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1036,154676830,PCH ARTURO ANDREOLI (FOZ DO CHOPIM),data_validade,Licença vencida em 2023-07-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1040,79487023,PCH BANDEIRA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1042,120857568,PCH BANDEIRANTES DO NORTE,data_validade,Licença vencida em 2016-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1043,162889516,PCH BARBOSA FERRAZ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1044,54899963,PCH BEDIM,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1045,156288667,PCH BEDIM,data_validade,Licença vencida em 2022-11-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1046,166843863,PCH BEDIM,data_validade,Licença vencida em 2022-08-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1047,168961553,PCH BEDIM,data_validade,Licença vencida em 2024-10-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1050,191602480,PCH BEIRA RIO,data_validade,Licença vencida em 2026-04-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1052,79488062,PCH BELA VISTA,data_validade,Licença vencida em 2015-11-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1053,138234835,PCH BELA VISTA,data_validade,Licença vencida em 2021-05-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1054,169692505,PCH BELA VISTA,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1055,172995780,PCH BELA VISTA,data_validade,Licença vencida em 2026-05-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1057,133549447,PCH BOA VISTA II,data_validade,Licença vencida em 2019-09-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1058,78431342,PCH BOA VISTA II,data_validade,Licença vencida em 2023-08-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1059,146071333,PCH BOA VISTA II,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1060,149362754,PCH BOA VISTA II,data_validade,Licença vencida em 2021-12-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1061,189590407,PCH BOA VISTA II,data_validade,Licença vencida em 2023-09-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1062,136445111,PCH BOM RETIRO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1063,59698257,PCH BONANZA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1064,78403411,PCH BONITO A,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1065,79483923,PCH BONITO A,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1066,79486981,PCH BONITO B,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1068,52310741,PCH BURRO BRANCO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1069,55805652,PCH BURRO BRANCO,data_validade,Licença vencida em 2012-11-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1070,78410671,PCH BURRO BRANCO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1071,170035593,PCH BURRO BRANCO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1072,136135147,PCH BUTIÁ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1073,55790213,PCH CANHADÃO,data_validade,Licença vencida em 2015-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1074,133397981,PCH CANHADÃO,data_validade,Licença vencida em 2016-11-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1075,141860674,PCH CANHADÃO,data_validade,Licença vencida em 2018-12-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1076,148007497,PCH CANHADÃO,data_validade,Licença vencida em 2021-10-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1077,177123200,PCH CANHADÃO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1078,203127529,PCH CANTU 1,data_validade,Licença vencida em 2025-09-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1079,77794956,PCH CANTU 1,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1080,117055426,PCH CANTU 1,data_validade,Licença vencida em 2017-11-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1083,52291160,PCH CANTU 2,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1084,79839841,PCH CANTU 2,data_validade,Licença vencida em 2015-10-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1085,135737917,PCH CANTU 2,data_validade,Licença vencida em 2016-05-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1086,137946807,PCH CANTU 2,data_validade,Licença vencida em 2019-12-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1089,77794964,PCH CANTU 3,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1090,118186710,PCH CANTU 3,data_validade,Licença vencida em 2017-11-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1092,121137640,PCH CAPELA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1093,53310761,PCH CARATUVA,data_validade,Licença vencida em 2012-12-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1094,118186281,PCH CARATUVA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1096,78403438,PCH CASCUDO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1097,79483915,PCH CASCUDO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1098,179485109,PCH CATANDUVA,data_validade,Licença vencida em 2023-08-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1099,153248427,PCH CATANDUVA,situacao,Situação do processo ausente,MEDIO,Preencher situação atual do processo
+1099,153248427,PCH CATANDUVA,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+1099,153248427,PCH CATANDUVA,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1101,77485015,PCH CAVERNOSO II,data_validade,Licença vencida em 2012-07-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1102,78392185,PCH CAVERNOSO II,data_validade,Licença vencida em 2012-12-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1103,79641596,PCH CAVERNOSO II,data_validade,Licença vencida em 2018-09-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1104,151908470,PCH CAVERNOSO II,data_validade,Licença vencida em 2022-09-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1106,149895426,PCH CAVERNOSO III,data_validade,Licença vencida em 2021-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1107,168331576,PCH CAVERNOSO III,data_validade,Licença vencida em 2024-05-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1108,194628188,PCH CAVERNOSO III,data_validade,Licença vencida em 2023-10-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1110,145540372,PCH CAVERNOSO IV,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1111,163751496,PCH CAVERNOSO IV,data_validade,Licença vencida em 2024-03-31,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1112,189257333,PCH CAVERNOSO IV,data_validade,Licença vencida em 2023-09-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1114,146559131,PCH CAVERNOSO VIII,data_validade,Licença vencida em 2026-02-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1116,49470894,PCH CHAMINÉ,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1117,78834455,PCH CHAMINÉ,data_validade,Licença vencida em 2015-10-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1118,156352497,PCH CHAMINÉ,data_validade,Licença vencida em 2023-05-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1120,119967260,PCH CIANORTE,data_validade,Licença vencida em 2019-08-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1122,188049141,PCH CINCO CANTOS,data_validade,Licença vencida em 2023-06-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1123,138440796,PCH CINCO CANTOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1125,136675230,PCH CLAIRTO ZONTA,data_validade,Licença vencida em 2018-01-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1126,147301782,PCH CLAIRTO ZONTA,data_validade,Licença vencida em 2019-12-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1128,131802200,PCH COBRE KM 19,data_validade,Licença vencida em 2018-01-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1129,142508745,PCH COBRE KM 19,data_validade,Licença vencida em 2020-10-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1130,166696852,PCH COBRE KM 19,data_validade,Licença vencida em 2024-08-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1131,205585605,PCH COBRE KM 19,data_validade,Licença vencida em 2026-04-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1133,88741331,PCH CONFLUÊNCIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1134,73734479,PCH CONFLUÊNCIA,data_validade,Licença vencida em 2014-01-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1135,116680432,PCH CONFLUÊNCIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1136,130347363,PCH CONFLUÊNCIA,data_validade,Licença vencida em 2023-12-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1139,23.510.661-2,PCH CONFLUÊNCIA,data_validade,Licença vencida em 2026-03-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1141,143708390,PCH COQUEIRO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1141,143708390,PCH COQUEIRO,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1142,56017372,PCH CÓRREGO FUNDO,data_validade,Licença vencida em 2017-01-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1143,137536641,PCH CÓRREGO FUNDO,data_validade,Licença vencida em 2018-05-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1144,151253024,PCH CÓRREGO FUNDO,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1145,162441965,PCH CÓRREGO FUNDO,data_validade,Licença vencida em 2026-04-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1148,197317469,PCH COXILHA BONITA,data_validade,Licença vencida em 2025-05-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1149,25.975.410-0,PCH CURUCACA,latitude/longitude,Registro sem coordenada geográfica válida,CRITICO,Verificar e preencher latitude/longitude no Paraná (WGS84)
+1150,79384224,PCH DA BARRA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1152,196770038,PCH DA POTINGA,data_validade,Licença vencida em 2024-12-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1153,161939978,PCH DA POTINGA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1155,72450981,PCH DAS ALMAS,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1157,78403446,PCH DO COBRE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1158,79486990,PCH DO COBRE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1159,55789304,PCH DO TIGRE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1160,78945516,PCH DO TIGRE,data_validade,Licença vencida em 2015-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1161,131278691,PCH DO TIGRE,data_validade,Licença vencida em 2016-06-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1162,139112075,PCH DO TIGRE,data_validade,Licença vencida em 2017-02-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1163,141413880,PCH DO TIGRE,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1165,24.950.601-0,PCH DOIS FARÓIS,latitude/longitude,Registro sem coordenada geográfica válida,CRITICO,Verificar e preencher latitude/longitude no Paraná (WGS84)
+1167,44410125,PCH DOIS SALTOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1167,44410125,PCH DOIS SALTOS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1168,46307500,PCH DOIS SALTOS,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1168,46307500,PCH DOIS SALTOS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1169,78540281,PCH DOIS SALTOS,data_validade,Licença vencida em 2014-08-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1169,78540281,PCH DOIS SALTOS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1170,131553293,PCH DOIS SALTOS,data_validade,Licença vencida em 2018-09-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1170,131553293,PCH DOIS SALTOS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1171,157980939,PCH DOIS SALTOS,data_validade,Licença vencida em 2019-06-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1171,157980939,PCH DOIS SALTOS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1172,177489794,PCH DOIS SALTOS,data_validade,Licença vencida em 2022-09-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1174,140229601,PCH DOM ANTÔNIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1176,140229822,PCH DONA AMÉLIA II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1178,79742503,PCH ENGENHEIRO BELTRÃO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1179,202657168,PCH ENGENHO VELHO,data_validade,Licença vencida em 2025-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1180,73734452,PCH ENGENHO VELHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1181,78403454,PCH ERVALZINHO DE BAIXO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1182,79483907,PCH ERVALZINHO DE BAIXO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1185,73734436,PCH FAXINAL DOS SANTOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1186,136098772,PCH FORQUILHA,data_validade,Licença vencida em 2018-08-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1187,145933790,PCH FORQUILHA,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1188,171416108,PCH FORQUILHA,data_validade,Licença vencida em 2022-02-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1189,172936032,PCH FORQUILHA,data_validade,Licença vencida em 2026-03-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1191,78403845,PCH FORTALEZA,data_validade,Licença vencida em 2019-08-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1192,152476825,PCH FORTALEZA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1195,134039752,PCH FOZ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1197,58730092,PCH FOZ DA ANTA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1199,183176609,PCH FOZ DO BANDEIRANTES,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1201,79771147,PCH FOZ DO CAPÃO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1202,132514925,PCH FOZ DO CAPÃO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1203,216500377,PCH FOZ DO CURUCACA,data_validade,Licença vencida em 2026-06-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1204,49493819,PCH FOZ DO CURUCACA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1205,53296890,PCH FOZ DO ESTRELA,data_validade,Licença vencida em 2016-01-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1206,136084518,PCH FOZ DO ESTRELA,data_validade,Licença vencida em 2018-09-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1207,151698123,PCH FOZ DO ESTRELA,data_validade,Licença vencida em 2021-05-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1208,171261511,PCH FOZ DO ESTRELA,data_validade,Licença vencida em 2022-07-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1209,176853395,PCH FOZ DO ESTRELA,data_validade,Licença vencida em 2023-02-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1211,181324201,PCH FOZ DO PATO BRANCO,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1212,120786512,PCH FOZ DO SANTANA,data_validade,Licença vencida em 2016-06-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1216,52310750,PCH FOZ DO TURVO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1217,55805601,PCH FOZ DO TURVO,data_validade,Licença vencida em 2012-05-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1218,78410680,PCH FOZ DO TURVO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1219,167993079,PCH FOZ DO TURVO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1220,79122610,PCH FOZ DOS BANDEIRANTES,data_validade,Licença vencida em 2016-07-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1221,139233565,PCH FOZ DOS BANDEIRANTES,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1223,211561882,PCH GODOY MOREIRA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1226,59703145,PCH GUARATUBA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1227,190687856,PCH IAPÓ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1228,205872647,PCH IAPÓ,data_validade,Licença vencida em 2026-04-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1229,133924515,PCH IAPÓ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1230,54899971,PCH INVERNADINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1231,131602715,PCH INVERNADINHA,data_validade,Licença vencida em 2018-08-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1232,146006167,PCH INVERNADINHA,data_validade,Licença vencida em 2021-06-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1233,171415586,PCH INVERNADINHA,data_validade,Licença vencida em 2022-11-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1235,53296300,PCH ITAGUAÇU,data_validade,Licença vencida em 2003-11-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1236,53298524,PCH ITAGUAÇU,data_validade,Licença vencida em 2006-04-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1237,77804412,PCH ITAGUAÇU,data_validade,Licença vencida em 2012-06-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1238,79237779,PCH ITAGUAÇU,data_validade,Licença vencida em 2014-05-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1239,79573531,PCH ITAGUAÇU,data_validade,Licença vencida em 2014-05-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1240,118194845,PCH ITAGUAÇU,data_validade,Licença vencida em 2017-07-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1241,145372909,PCH ITAGUAÇU,data_validade,Licença vencida em 2021-08-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1242,175412000,PCH ITAGUAÇU,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1243,182359629,PCH ITAGUAJÉ,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1244,78954710,PCH ITAGUAJÉ,data_validade,Licença vencida em 2016-01-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1245,133697250,PCH ITAGUAJÉ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1246,139234065,PCH ITAGUAJÉ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1248,93345908,PCH JACARÉ,data_validade,Licença vencida em 2015-11-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1249,132426961,PCH JACARÉ,data_validade,Licença vencida em 2017-06-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1250,144612353,PCH JACARÉ,data_validade,Licença vencida em 2019-08-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1251,148508127,PCH JACARÉ,data_validade,Licença vencida em 2018-08-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1252,149514082,PCH JACARÉ,data_validade,Licença vencida em 2022-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1255,93843185,PCH JAGUARICATU 1,data_validade,Licença vencida em 2012-01-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1256,78786663,PCH JAGUARICATU 1,data_validade,Licença vencida em 2016-09-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1257,140935590,PCH JAGUARICATU 1,data_validade,Licença vencida em 2020-10-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1259,93843177,PCH JAGUARICATU 2,data_validade,Licença vencida em 2012-01-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1260,78786671,PCH JAGUARICATU 2,data_validade,Licença vencida em 2016-09-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1261,140935140,PCH JAGUARICATU 2,data_validade,Licença vencida em 2020-10-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1263,59669532,PCH JAGUATIRICA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1266,142105616,PCH JOÃO PAULO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1267,56128298,PCH JOSÉ LUIZ SGUARIO – MANDINGA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1268,59702483,PCH KALENA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1268,59702483,PCH KALENA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1270,133981683,PCH KM 14,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1271,233306061,PCH KM 19,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1272,135538531,PCH KM 19,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1274,42647578,PCH LÚCIA CHEROBIM,data_validade,Licença vencida em 2015-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1275,137892090,PCH LÚCIA CHEROBIM,data_validade,Licença vencida em 2022-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1276,192654513,PCH LÚCIA CHEROBIM,data_validade,Licença vencida em 2025-07-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1277,227844701,PCH LÚCIA CHEROBIM,data_validade,Licença vencida em 2025-09-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1279,142870398,PCH MACACOS,data_validade,Licença vencida em 2020-01-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1280,156289302,PCH MACACOS,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1281,168365233,PCH MACACOS,data_validade,Licença vencida em 2021-05-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1282,171773377,PCH MACACOS,data_validade,Licença vencida em 2026-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1287,147898100,PCH MARIA THEREZA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1290,135120499,PCH MEIRELES,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1290,135120499,PCH MEIRELES,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1291,141104748,PCH MINUCCI,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1291,141104748,PCH MINUCCI,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1293,182569666,PCH MONTE NEGRO,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1296,185881890,PCH MOQUEM,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1297,49471475,PCH MOURÃO I,data_validade,Licença vencida em 2006-04-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1298,88346858,PCH MOURÃO I,data_validade,Licença vencida em 2009-03-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1299,137637669,PCH MOURÃO I,data_validade,Licença vencida em 2022-04-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1301,153124426,PCH MUQUILÃO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1303,46678265,PCH NOVO HORIZONTE,data_validade,Licença vencida em 2002-12-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1304,51445422,PCH NOVO HORIZONTE,data_validade,Licença vencida em 2004-11-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1305,81125210,PCH NOVO HORIZONTE,data_validade,Licença vencida em 2009-02-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1306,87393194,PCH NOVO HORIZONTE,data_validade,Licença vencida em 2009-11-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1307,77040382,PCH NOVO HORIZONTE,data_validade,Licença vencida em 2010-11-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1308,78115971,PCH NOVO HORIZONTE,data_validade,Licença vencida em 2011-11-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1309,78534044,PCH NOVO HORIZONTE,data_validade,Licença vencida em 2017-03-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1310,143390381,PCH NOVO HORIZONTE,data_validade,Licença vencida em 2023-10-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1315,141246739,PCH ORTIGUEIRA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1317,146267319,PCH ORTIGUEIRA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1318,208861743,PCH PADRE PONCIANO,data_validade,Licença vencida em 2024-12-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1320,194361947,PCH PAIOL GRANDE,data_validade,Licença vencida em 2025-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1321,83669705,PCH PAIOL GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1324,180664360,PCH PARANHOS MONTANTE,data_validade,Licença vencida em 2023-10-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1327,79144479,PCH PAREDINHA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1328,155068620,PCH PAREDINHA,data_validade,Licença vencida em 2021-02-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1332,161666122,PCH PATRIMÔNIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1335,34879281,PCH PEDRINHO I,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1336,43987356,PCH PEDRINHO I,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1337,49483732,PCH PEDRINHO I,data_validade,Licença vencida em 2004-08-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1338,53291864,PCH PEDRINHO I,data_validade,Licença vencida em 2006-03-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1339,88387325,PCH PEDRINHO I,data_validade,Licença vencida em 2009-03-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1340,120780700,PCH PEDRINHO I,data_validade,Licença vencida em 2019-11-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1341,50364089,PCH PESQUEIRO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1342,51451252,PCH PESQUEIRO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1343,53217605,PCH PESQUEIRO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1344,59691279,PCH PESQUEIRO,data_validade,Licença vencida em 2009-03-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1345,74098800,PCH PESQUEIRO,data_validade,Licença vencida em 2013-02-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1346,117436861,PCH PESQUEIRO,data_validade,Licença vencida em 2018-03-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1347,150456363,PCH PESQUEIRO,data_validade,Licença vencida em 2022-05-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1350,83670401,PCH PINHAL RALO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1351,79486973,PCH PINHALITO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1353,55805644,PCH PINHALZINHO,data_validade,Licença vencida em 2012-11-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1354,78410698,PCH PINHALZINHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1355,173920342,PCH PINHALZINHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1356,121989468,PCH PITUQUINHAS,data_validade,Licença vencida em 2024-09-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1358,79682047,PCH PORTO DA BOTA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1359,78395907,PCH PULO,data_validade,Licença vencida em 2016-07-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1360,139632176,PCH PULO,data_validade,Licença vencida em 2018-06-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1361,151204589,PCH PULO,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1362,154909311,PCH PULO,data_validade,Licença vencida em 2023-04-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1364,59703137,PCH QUATI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1365,184624737,PCH RANCHO GRANDE,data_validade,Licença vencida em 2023-06-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1366,49493843,PCH RANCHO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1367,162861107,PCH RANCHO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1368,141246909,PCH RECOMEÇO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1368,141246909,PCH RECOMEÇO,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1369,141246968,PCH RECOMEÇO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1369,141246968,PCH RECOMEÇO,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1372,72453603,PCH RIBEIRÃO BONITO,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1375,78402644,PCH RIO DO FORNO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1376,79483931,PCH RIO DO FORNO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1377,185732711,PCH RIO DOS ÍNDIOS,data_validade,Licença vencida em 2023-06-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1378,88325982,PCH RIO DOS ÍNDIOS,data_validade,Licença vencida em 2012-12-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1379,121777770,PCH RIO DOS ÍNDIOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1380,117156109,PCH RIO VITORINO,data_validade,Licença vencida em 2015-04-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1381,135823317,PCH RIO VITORINO,data_validade,Licença vencida em 2019-05-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1382,156306380,PCH RIO VITORINO,data_validade,Licença vencida em 2023-06-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1385,141247026,PCH SALTINHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1385,141247026,PCH SALTINHO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1385,141247026,PCH SALTINHO,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1387,143602001,PCH SALTINHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1388,49493509,PCH SALTO ALEMÃ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1390,77264191,PCH SALTO CURUCACA I,data_validade,Licença vencida em 2015-12-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1390,77264191,PCH SALTO CURUCACA I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1391,136735438,PCH SALTO CURUCACA I,data_validade,Licença vencida em 2018-03-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1391,136735438,PCH SALTO CURUCACA I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1392,150054753,PCH SALTO CURUCACA I,data_validade,Licença vencida em 2022-04-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1392,150054753,PCH SALTO CURUCACA I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1393,74094945,PCH SALTO CURUCACA II,data_validade,Licença vencida em 2010-12-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1393,74094945,PCH SALTO CURUCACA II,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1394,79834726,PCH SALTO CURUCACA II,data_validade,Licença vencida em 2014-09-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1394,79834726,PCH SALTO CURUCACA II,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1395,131708360,PCH SALTO CURUCACA II,data_validade,Licença vencida em 2016-08-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1395,131708360,PCH SALTO CURUCACA II,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1396,139517954,PCH SALTO CURUCACA II,data_validade,Licença vencida em 2020-08-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1396,139517954,PCH SALTO CURUCACA II,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1398,47523893,PCH SALTO DO JARDIM,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1399,81661669,PCH SALTO DO JARDIM,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1401,183341960,PCH SALTO GRANDE,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1402,78402601,PCH SALTO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1403,79122629,PCH SALTO GRANDE,data_validade,Licença vencida em 2017-11-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1404,79483940,PCH SALTO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1405,133697020,PCH SALTO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1406,139234030,PCH SALTO GRANDE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1408,96058829,PCH SALTO MAUÁ (GETÚLIO VARGAS),data_validade,Licença vencida em 2011-12-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1409,79116548,PCH SALTO MAUÁ (GETÚLIO VARGAS),data_validade,Licença vencida em 2020-10-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1411,28920326,PCH SALTO NATAL,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1412,49483724,PCH SALTO NATAL,data_validade,Licença vencida em 2004-02-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1413,53295045,PCH SALTO NATAL,data_validade,Licença vencida em 2007-10-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1414,95237525,PCH SALTO NATAL,data_validade,Licença vencida em 2011-08-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1415,78686081,PCH SALTO NATAL,data_validade,Licença vencida em 2015-11-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1416,136564056,PCH SALTO NATAL,data_validade,Licença vencida em 2021-09-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1418,40197907,PCH SALTO SÃO LUÍS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1420,82053107,PCH SANTA LÍDIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1421,148705291,PCH SANTA MARIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1423,159373185,PCH SANTA MARIANA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1424,24.829.461-2,PCH SANTO ANTONIO,latitude/longitude,Coordenada informada está fora dos limites do Paraná,CRITICO,"Conferir sinal/ordem de latitude e longitude (WGS84, graus decimais)"
+1425,51445333,PCH SÃO FRANCISCO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1425,51445333,PCH SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1426,52288398,PCH SÃO FRANCISCO,data_validade,Licença vencida em 2003-10-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1426,52288398,PCH SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1427,53294111,PCH SÃO FRANCISCO,data_validade,Licença vencida em 2004-11-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1427,53294111,PCH SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1428,81157731,PCH SÃO FRANCISCO,data_validade,Licença vencida em 2011-07-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1428,81157731,PCH SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1429,78271558,PCH SÃO FRANCISCO,data_validade,Licença vencida em 2012-11-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1429,78271558,PCH SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1430,79878812,PCH SÃO FRANCISCO,data_validade,Licença vencida em 2016-10-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1430,79878812,PCH SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1431,141068237,PCH SÃO FRANCISCO,data_validade,Licença vencida em 2020-11-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1431,141068237,PCH SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1432,49493835,PCH SÃO JERÔNIMO,data_validade,Licença vencida em 2005-05-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1433,156077984,PCH SÃO JERÔNIMO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1434,157797727,PCH SÃO JERÔNIMO,data_validade,Licença vencida em 2023-07-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1437,43955349,PCH SÃO JOÃO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1438,136718134,PCH SÃO JOÃO II,data_validade,Licença vencida em 2018-01-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1439,147301880,PCH SÃO JOÃO II,data_validade,Licença vencida em 2019-11-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1440,160916656,PCH SÃO JOÃO II,data_validade,Licença vencida em 2024-11-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1443,25.245.107-2,PCH SÃO JOÃO II,protocolo,Protocolo duplicado (2 ocorrências),CRITICO,Verificar se registros são fases distintas do mesmo processo ou duplicidade real
+1444,25.245.107-2,PCH SÃO JOÃO II,protocolo,Protocolo duplicado (2 ocorrências),CRITICO,Verificar se registros são fases distintas do mesmo processo ou duplicidade real
+1445,49493495,PCH SÃO LUÍS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1446,149835660,PCH SÃO LUÍS,data_validade,Licença vencida em 2022-03-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1447,171843464,PCH SÃO LUÍS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1448,179764040,PCH SÃO LUÍS,data_validade,Licença vencida em 2023-08-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1449,211679620,PCH SÃO LUÍS,data_validade,Licença vencida em 2025-04-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1451,79487015,PCH SÃO MANOEL,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1452,135122114,PCH SÃO SALVADOR,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1453,140229237,PCH SÃO SALVADOR,data_validade,Licença vencida em 2024-05-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1456,226171894,PCH SERRA DAS FURNAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1456,226171894,PCH SERRA DAS FURNAS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1457,118704320,PCH TAGUÁ,data_validade,Licença vencida em 2019-12-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1458,151011640,PCH TAGUÁ,data_validade,Licença vencida em 2020-10-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1459,166538653,PCH TAGUÁ,data_validade,Licença vencida em 2023-03-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1460,181684445,PCH TAGUÁ,data_validade,Licença vencida em 2022-12-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1462,52301467,PCH TAPERA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1462,52301467,PCH TAPERA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1463,140853291,PCH TAPERA JUSANTE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1466,22.551.941-2,PCH TOMAZINA,latitude/longitude,Registro sem coordenada geográfica válida,CRITICO,Verificar e preencher latitude/longitude no Paraná (WGS84)
+1466,22.551.941-2,PCH TOMAZINA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1467,159372952,PCH TORRÃO DE OURO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1469,144062205,PCH TOURINHO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1469,144062205,PCH TOURINHO,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1471,99562331,PCH TRÊS CAPÕES NOVO,data_validade,Licença vencida em 2017-04-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1471,99562331,PCH TRÊS CAPÕES NOVO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1472,145788820,PCH TRÊS CAPÕES NOVO,data_validade,Licença vencida em 2020-10-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1472,145788820,PCH TRÊS CAPÕES NOVO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1473,166571103,PCH TRÊS CAPÕES NOVO,data_validade,Licença vencida em 2024-02-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1473,166571103,PCH TRÊS CAPÕES NOVO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1474,211296690,PCH TRÊS CAPÕES NOVO,data_validade,Licença vencida em 2025-11-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1474,211296690,PCH TRÊS CAPÕES NOVO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1475,215463907,PCH TRÊS CAPÕES NOVO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1476,180664831,PCH TRINDADE BAIXO JUSANTE,data_validade,Licença vencida em 2023-10-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1479,187072697,PCH TUNEIRAS II,data_validade,Licença vencida em 2023-07-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1479,187072697,PCH TUNEIRAS II,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1480,79245178,PCH TUNEIRAS II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1481,214372568,PCH TUNEIRAS II,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1483,53309747,PCH VILA GALUPO,data_validade,Licença vencida em 2015-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1484,133470247,PCH VILA GALUPO,data_validade,Licença vencida em 2019-12-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1485,155765054,PCH VILA GALUPO,data_validade,Licença vencida em 2019-10-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1486,157894234,PCH VILA GALUPO,data_validade,Licença vencida em 2022-06-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1487,186147545,PCH VILA GALUPO,data_validade,Licença vencida em 1934-05-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1488,202657109,PCH VISTA ALEGRE,data_validade,Licença vencida em 2025-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1489,73734460,PCH VISTA ALEGRE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1491,49401728,PCH VITORINO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1492,78433736,PCH ZECA GOLIN (FAZENDA DO SALTO),data_validade,Licença vencida em 2016-06-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1493,141474456,PCH ZECA GOLIN (FAZENDA DO SALTO),data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1494,162792296,PCH ZECA GOLIN (FAZENDA DO SALTO),data_validade,Licença vencida em 2024-06-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1495,175663720,PCH ZECA GOLIN (FAZENDA DO SALTO),data_validade,Licença vencida em 2022-07-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1497,57200880,REATIVAÇÃO DE CGH,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1498,79126993,UHE APERTADOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1499,79877719,UHE APERTADOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1500,94910684,UHE BAIXO IGUAÇU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1501,99304839,UHE BAIXO IGUAÇU,data_validade,Licença vencida em 2009-07-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1502,77034820,UHE BAIXO IGUAÇU,data_validade,Licença vencida em 2015-06-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1503,135078433,UHE BAIXO IGUAÇU,data_validade,Licença vencida em 2017-08-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1504,145864526,UHE BAIXO IGUAÇU,data_validade,Licença vencida em 2020-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1505,153453276,UHE BAIXO IGUAÇU,data_validade,Licença vencida em 2019-12-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1506,153553742,UHE BAIXO IGUAÇU,data_validade,Licença vencida em 2023-02-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1508,48251307,UHE CACHOEIRINHA,data_validade,Licença vencida em 2012-03-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1509,79500674,UHE CACHOEIRINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1510,3,UHE CANOAS I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1510,3,UHE CANOAS I,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+1511,4,UHE CANOAS II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1511,4,UHE CANOAS II,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+1512,1,UHE CAPIVARA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1512,1,UHE CAPIVARA,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+1513,26622514,UHE CEBOLÃO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1514,2,UHE CHAVANTES,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1514,2,UHE CHAVANTES,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+1515,79877689,UHE COMISSÁRIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1516,116678462,UHE COMISSÁRIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1517,79127000,UHE ERCILÂNDIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1518,79877700,UHE ERCILÂNDIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1519,79877697,UHE FOZ DO PIQUIRI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1520,116678470,UHE FOZ DO PIQUIRI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1522,49477546,UHE FUNDÃO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1523,87077985,UHE FUNDÃO,data_validade,Licença vencida em 2010-03-31,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1524,77263802,UHE FUNDÃO,data_validade,Licença vencida em 2014-12-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1525,132913897,UHE FUNDÃO,data_validade,Licença vencida em 2018-11-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1526,152152680,UHE FUNDÃO,data_validade,Licença vencida em 2022-09-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1528,40187731,UHE GOVERNADOR BENTO MUNHOZ DA ROCHA NETO (FOZ DO AREIA),data_validade,Licença vencida em 2012-06-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1529,79498238,UHE GOVERNADOR BENTO MUNHOZ DA ROCHA NETO (FOZ DO AREIA),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1531,218659918,UHE GOVERNADOR BENTO MUNHOZ DA ROCHA NETO (FOZ DO AREIA),data_validade,Licença vencida em 2026-05-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1533,48269915,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Licença vencida em 2006-12-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1533,48269915,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1534,96040261,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Licença vencida em 2009-10-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1534,96040261,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1535,78408723,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Licença vencida em 2012-09-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1535,78408723,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1536,79488216,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Licença vencida em 2014-10-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1536,79488216,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1537,79964204,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Licença vencida em 2013-03-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1537,79964204,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1538,132365440,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Licença vencida em 2019-04-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1538,132365440,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1539,157434004,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1540,186868390,UHE GOVERNADOR JOSÉ RICHA (SALTO CAXIAS),data_validade,Licença vencida em 2025-10-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1541,15527021,UHE GOVERNADOR JOSÉ RICHA (SALTO CAXIAS),numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1542,46151658,UHE GOVERNADOR JOSÉ RICHA (SALTO CAXIAS),data_validade,Licença vencida em 2008-05-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1543,99289392,UHE GOVERNADOR JOSÉ RICHA (SALTO CAXIAS),data_validade,Licença vencida em 2012-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1544,79498220,UHE GOVERNADOR JOSÉ RICHA (SALTO CAXIAS),data_validade,Licença vencida em 2019-12-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1546,38725262,UHE GOVERNADOR NEY AMINTHAS DE BARROS BRAGA (SEGREDO),data_validade,Licença vencida em 2012-06-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1547,79498211,UHE GOVERNADOR NEY AMINTHAS DE BARROS BRAGA (SEGREDO),data_validade,Licença vencida em 2019-12-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1551,40187723,UHE GOVERNADOR PEDRO VIRIATO PARIGOT DE SOUZA (CAPIVARI/CACHOEIRA),numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1552,53303501,UHE GOVERNADOR PEDRO VIRIATO PARIGOT DE SOUZA (CAPIVARI/CACHOEIRA),data_validade,Licença vencida em 2006-04-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1553,88346890,UHE GOVERNADOR PEDRO VIRIATO PARIGOT DE SOUZA (CAPIVARI/CACHOEIRA),data_validade,Licença vencida em 2009-03-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1554,72690907,UHE GOVERNADOR PEDRO VIRIATO PARIGOT DE SOUZA (CAPIVARI/CACHOEIRA),data_validade,Licença vencida em 2013-09-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1556,226994920,UHE GOVERNADOR PEDRO VIRIATO PARIGOT DE SOUZA (CAPIVARI/CACHOEIRA),data_validade,Licença vencida em 2026-04-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1557,49470886,UHE GUARICANA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1558,93837363,UHE GUARICANA,data_validade,Licença vencida em 2011-07-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1559,78680245,UHE GUARICANA,data_validade,Licença vencida em 2015-06-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1560,135145297,UHE GUARICANA,data_validade,Licença vencida em 2023-05-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1561,19.698.031-8,UHE GUARICANA,latitude/longitude,Registro sem coordenada geográfica válida,CRITICO,Verificar e preencher latitude/longitude no Paraná (WGS84)
+1563,18988429,UHE OURINHOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1564,143961222,UHE PARANHOS,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1564,143961222,UHE PARANHOS,latitude/longitude,"Coordenada de baixa precisão (2.0 casas decimais, ~1 km ou pior)",BAIXO,Refinar a coordenada com mais casas decimais (≥5 ≈ metros)
+1566,7,UHE ROSANA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1566,7,UHE ROSANA,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+1567,50371611,UHE SALTO GRANDE (CHOPIM),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1569,6,UHE SALTO GRANDE (PARANAPANEMA),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1569,6,UHE SALTO GRANDE (PARANAPANEMA),data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+1570,57986093,UHE SALTO OSÓRIO,data_validade,Licença vencida em 2012-06-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1571,79496669,UHE SALTO OSÓRIO,data_validade,Licença vencida em 2019-12-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1573,57986107,UHE SALTO SANTIAGO,data_validade,Licença vencida em 2012-06-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1574,79496677,UHE SALTO SANTIAGO,data_validade,Licença vencida em 2019-12-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1578,135982288,UHE SANTA BRANCA,data_validade,Licença vencida em 2018-01-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1579,143868826,UHE SANTA BRANCA,data_validade,Licença vencida em 2020-01-16,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1580,162235699,UHE SANTA BRANCA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1581,49477554,UHE SANTA CLARA,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1581,49477554,UHE SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1582,74803466,UHE SANTA CLARA,data_validade,Licença vencida em 2013-05-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1582,74803466,UHE SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1583,79370061,UHE SANTA CLARA,data_validade,Licença vencida em 2017-04-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1583,79370061,UHE SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1584,176285303,UHE SANTA CLARA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+1585,40197893,UHE SÃO JOÃO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1586,48251315,UHE SÃO JOÃO,data_validade,Licença vencida em 2012-03-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1587,49470444,UHE SÃO JOÃO,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1588,79500682,UHE SÃO JOÃO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1589,143961133,UHE SÃO JORGE,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1589,143961133,UHE SÃO JORGE,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+1590,5,UHE TAQUARAÇU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1590,5,UHE TAQUARAÇU,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+1591,48269400,UHE TELÊMACO BORBA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1593,119970792,UHE TIBAGI MONTANTE,data_validade,Licença vencida em 2016-07-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1594,138930491,UHE TIBAGI MONTANTE,data_validade,Licença vencida em 2019-08-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1595,157147439,UHE TIBAGI MONTANTE,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1596,159922413,UHE TIBAGI MONTANTE,data_validade,Licença vencida em 2023-09-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1598,235320568,UHE TIBAGI MONTANTE,data_validade,Licença vencida em 2026-03-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1599,143961176,UHE VERÊ,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
+1599,143961176,UHE VERÊ,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
