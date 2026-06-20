@@ -456,7 +456,7 @@ st.markdown(f"""
             color:#64748b;font-size:13px;line-height:1.55">
   Painel desenvolvido por <b style="color:#0c2d54">Rafael Valgrande Augusto</b><br>
   Engenheiro Sanitarista e Ambiental · Instituto Água e Terra (IAT/PR) ·
-  <a href="mailto:bol.rafaelaugusto@iat.pr.gov.br" style="color:#1e5aa0;text-decoration:none;font-weight:600">bol.rafaelaugusto@iat.pr.gov.br</a>
+  <a href="mailto:bol.rafaelaugusto@iat.pr.gov.br" target="_self" style="color:#1e5aa0;text-decoration:none;font-weight:600">bol.rafaelaugusto@iat.pr.gov.br</a>
 </div>
 """, unsafe_allow_html=True)
 
@@ -487,7 +487,7 @@ with st.sidebar:
         '<div style="text-align:center;color:#cbd9ea;font-size:11.5px;line-height:1.5;margin-bottom:12px">'
         'Painel desenvolvido por <b style="color:#ffffff">Rafael Valgrande Augusto</b><br>'
         'Engenheiro Sanitarista e Ambiental · Instituto Água e Terra (IAT/PR)<br>'
-        '<a href="mailto:bol.rafaelaugusto@iat.pr.gov.br" style="color:#93c5fd;text-decoration:none;font-weight:600">'
+        '<a href="mailto:bol.rafaelaugusto@iat.pr.gov.br" target="_self" style="color:#93c5fd;text-decoration:none;font-weight:600">'
         'bol.rafaelaugusto@iat.pr.gov.br</a>'
         '</div>', unsafe_allow_html=True)
     if LOGO_PATH.exists():
@@ -987,7 +987,7 @@ elif pagina == "Mais Informações":
       <div style="font-size:14px;color:#334155;margin-bottom:14px">
         Tem <b>dúvidas, sugestões</b> ou ideias de melhoria para o painel? Fale com o <b>Eng. Rafa</b>:
       </div>
-      <a href="mailto:bol.rafaelaugusto@iat.pr.gov.br?subject=Painel%20Hidrel%C3%A9tricas%20IAT"
+      <a href="mailto:bol.rafaelaugusto@iat.pr.gov.br?subject=Painel%20Hidrel%C3%A9tricas%20IAT" target="_self"
          style="display:inline-block;background:#0c2d54;color:#fff;padding:11px 20px;border-radius:8px;
                 text-decoration:none;font-weight:600;font-size:14px;margin:4px 6px 4px 0">✉️ bol.rafaelaugusto@iat.pr.gov.br</a>
       <a href="https://www.iat.pr.gov.br" target="_blank" rel="noopener"
@@ -1031,6 +1031,6 @@ st.markdown(
     'color:#64748b;font-size:12.5px;line-height:1.6">'
     'Painel desenvolvido por <span style="color:#0c2d54;font-weight:700">Rafael Valgrande Augusto</span>'
     '<br>Engenheiro Sanitarista e Ambiental · Instituto Água e Terra (IAT/PR) · '
-    '<a href="mailto:bol.rafaelaugusto@iat.pr.gov.br" style="color:#1e5aa0;text-decoration:none;font-weight:600">'
+    '<a href="mailto:bol.rafaelaugusto@iat.pr.gov.br" target="_self" style="color:#1e5aa0;text-decoration:none;font-weight:600">'
     'bol.rafaelaugusto@iat.pr.gov.br</a></div>',
     unsafe_allow_html=True)

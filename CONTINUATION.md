@@ -278,5 +278,27 @@ Pedido do usuário: o painel do Leaflet (LayerControl `collapsed=False`) ficou G
 passam (`pytest -q`); as 6 páginas carregam sem exceção; console só com warnings de lib (Plotly/popper, inofensivos);
 log do servidor só com `ConnectionResetError` benigno (navegador fecha conexão no reload, Windows/asyncio).
 
+## ✅ CONCLUÍDO — Projeto PRONTO para deploy público (Streamlit Cloud) (2026-06-20)
+Usuário quer link público compartilhável; escolheu **Streamlit Community Cloud** + acesso **público**.
+- **PUBLIC_MODE** (`app.py`): `os.environ.get("IAT_PUBLIC")=="1" or not sys.platform.startswith("win")`. Na nuvem
+  (Linux) ou com `IAT_PUBLIC=1` fica True. Botões de abrir refeitos em `open_buttons(row, key_prefix)`:
+  - PUBLIC_MODE → `st.link_button` (Earth Web `_earth_web_url`, Maps `_maps_url`) que abrem no navegador do VISITANTE;
+    QGIS/Earth Desktop ocultos (só fazem sentido local). Local (Windows) → mantém os 4 botões via `launch_desktop`.
+  - Substituídos os 2 blocos antigos (painel do mapa `open_buttons(row,"open")`; Relatório `open_buttons(srow,"rel")`).
+- **requirements.txt** ENXUTO (só dashboard: streamlit, streamlit-folium, folium, plotly, pandas, pyyaml). Tirado
+  `arcgis` (gigante, estoura o build) e libs de pipeline → movidas p/ **requirements-pipeline.txt**. Streamlit Cloud
+  usa sempre o requirements.txt da raiz, por isso ele tem que ser o do dashboard.
+- **.gitignore**: `data/processed/` voltou a ser ignorado MAS com exceções `!` p/ os 4 arquivos que o dashboard lê
+  (`processos_hidreletricas.csv`, `resumo_indicadores.json`, `metadados_execucao.json`, `erros_validacao.csv`);
+  `data/bacias_parana.geojson` já não era ignorado. Adicionado `.claude/`. O `.geojson` GRANDE de pontos NÃO é
+  usado pelo dashboard (mapa é montado do CSV) → fica de fora.
+- **git** inicializado (branch main, 1º commit, 59 arquivos; identidade local Rafael/bol.rafaelaugusto@iat.pr.gov.br).
+  Falta só: criar repo no GitHub + push + conectar no share.streamlit.io (main file `dashboard/app.py`). Passo a passo
+  completo em **DEPLOY.md**.
+- Validado: `py_compile` OK; 6 páginas sem exceção após refactor (modo local, 4 botões intactos); PUBLIC_MODE testado
+  por env (False no Windows, True com IAT_PUBLIC=1); `.gitignore` sobe só os 5 arquivos de dados certos.
+- ⚠️ Para futuro: se quiser senha, usar `st.secrets` (acesso hoje é público). Atualizar dados = rodar pipeline local +
+  commit/push → Streamlit Cloud redeploya sozinho.
+
 Frente futura: publicar no ArcGIS; opcional incluir Uso/Cobertura MapBiomas via esri-leaflet; minZoom nas camadas
 pesadas (carregar só com zoom alto) se a lentidão estadual incomodar.

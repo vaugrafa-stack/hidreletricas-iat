@@ -10,9 +10,9 @@
 
 ## Estado atual
 
-- **Locais únicos conferidos:** 28 / 726
-- **Registros conferidos (com propagação):** 132 / 1598
-- Últimos revisados: Arturo Andreoli (Validado/Alto), Lúcia Cherobim (em obra), Confluência (Validado/Alto). Próximos no lote: Safira, Foz do Curucaca; depois rodar `12_gerar_lote_revisao.py 20` para o próximo lote.
+- **Locais únicos conferidos:** 30 / 726
+- **Registros conferidos (com propagação):** 135 / 1598
+- Lote anterior (16) CONCLUÍDO. Próximo passo: rodar `py src/geo_review/12_gerar_lote_revisao.py 20` para gerar o próximo lote e revisar.
 - Planilha de conferência: `data/processed/conferencia_coordenadas.xlsx` (46 colunas; 32 originais + 14 de conferência, ao lado das originais).
 - O `.xlsm` original **NUNCA** é alterado (MD5 conferido: `3183d4907d125853daeb273c9b7a4770`).
 - **CAMINHO DO .xlsm MUDOU (2026-06-19):** o original foi movido para `C:\Users\rafae\Downloads\IAT\Central_de_Processos_HIDRELETRICAS_COM_MACRO e Links.xlsm` (MD5 idêntico). `config.yaml` já aponta para lá. Há também uma versão NOVA diferente na raiz de Downloads: `...COM_MACRO e Links_COM_QGIS.xlsm` (MD5 `7f9d4e2f…`) — PERGUNTAR ao usuário se a conferência deve migrar para a versão QGIS. Resiliência: o gerador cacheia as colunas em `data/processed/origem_xlsm_cache.pkl` e usa o cache se o arquivo sumir de novo.
