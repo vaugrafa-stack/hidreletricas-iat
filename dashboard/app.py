@@ -309,8 +309,9 @@ def open_buttons(row, key_prefix):
                                    use_container_width=True, key=f"{key_prefix}_qgs")
             except OSError:
                 pass
-        st.caption("🖥️ e 🗺️ baixam um arquivo que abre o programa **no seu computador** "
-                   "(se estiver instalado). 🌐 e 📍 abrem no navegador.")
+        st.caption("**Google Earth Desktop** e **QGIS** baixam um arquivo que abre o programa "
+                   "**no seu computador** (se estiver instalado). **Google Earth Web** e "
+                   "**Google Maps** abrem no navegador.")
     else:
         if st.button("🌐 Google Earth Web", key=f"{key_prefix}_nav", use_container_width=True):
             launch_desktop("navegador", row)
@@ -552,24 +553,18 @@ with st.sidebar:
         st.image(str(LOGO_PATH), use_container_width=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
     filtros_header = st.empty()  # preenchido depois com o contador de resultados
-    f_tipologia = st.multiselect("Tipologia", opts("tipologia"), key="f_tipologia")
-    f_situacao = st.multiselect("Situação", opts("situacao"), key="f_situacao")
-    f_licenca = st.multiselect("Tipo de Licença", opts("tipo_licenca"), key="f_licenca")
-    f_bacia = st.multiselect("Bacia Hidrográfica", opts("bacia_hidrografica"), key="f_bacia")
-    f_tecnico = st.multiselect("Técnico Responsável", opts("tecnico_responsavel"), key="f_tecnico")
-    f_municipio = st.multiselect("Município", opts("municipio")[:300], key="f_municipio")
+    _PH = "Selecione uma ou mais opções"
+    f_tipologia = st.multiselect("Tipologia", opts("tipologia"), key="f_tipologia", placeholder=_PH)
+    f_situacao = st.multiselect("Situação", opts("situacao"), key="f_situacao", placeholder=_PH)
+    f_licenca = st.multiselect("Tipo de licença", opts("tipo_licenca"), key="f_licenca", placeholder=_PH)
+    f_bacia = st.multiselect("Bacia hidrográfica", opts("bacia_hidrografica"), key="f_bacia", placeholder=_PH)
+    f_tecnico = st.multiselect("Técnico responsável", opts("tecnico_responsavel"), key="f_tecnico", placeholder=_PH)
+    f_municipio = st.multiselect("Município", opts("municipio")[:300], key="f_municipio", placeholder=_PH)
     anos = sorted(df_full["data_protocolo"].dropna().apply(
         lambda d: d.year if hasattr(d, "year") else None).dropna().unique().astype(int).tolist())
-    f_ano = st.multiselect("Ano do Protocolo", [str(a) for a in anos], key="f_ano")
-    f_alerta = st.multiselect("Validade da Licença", opts("alerta_validade"), key="f_alerta")
-    f_precisao = st.multiselect("Precisão da Coordenada", opts("precisao_coord"), key="f_precisao")
-
-    st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("🔄 Limpar Filtros", use_container_width=True):
-        for k in list(st.session_state.keys()):
-            if k.startswith("f_"):
-                del st.session_state[k]
-        st.rerun()
+    f_ano = st.multiselect("Ano do protocolo", [str(a) for a in anos], key="f_ano", placeholder=_PH)
+    f_alerta = st.multiselect("Validade da licença", opts("alerta_validade"), key="f_alerta", placeholder=_PH)
+    f_precisao = st.multiselect("Precisão da coordenada", opts("precisao_coord"), key="f_precisao", placeholder=_PH)
 
 # Aplicar filtros
 df = apply_filters(df_full.copy(), {
@@ -585,15 +580,25 @@ if f_ano:
 
 n_filtrado, n_total = len(df), len(df_full)
 
-# Cabeçalho dos filtros com contador dinâmico de resultados
+# Cabeçalho dos filtros: título + contador e o botão "Limpar" lado a lado (compacto)
 _cor_badge = "#1e5aa0" if n_filtrado == n_total else "#16a34a"
-filtros_header.markdown(
-    f'<div style="font-size:16px;font-weight:700;color:#fff;margin:2px 0 4px 0">🔍 Filtros</div>'
-    f'<div style="font-size:11px;color:#cbd9ea;line-height:1.3;margin-bottom:4px">'
-    f'Número de projetos encontrados com esses parâmetros:</div>'
-    f'<div style="margin-bottom:8px"><span style="background:{_cor_badge};color:#fff;font-size:15px;font-weight:800;'
-    f'padding:3px 14px;border-radius:12px">{fmt_int(n_filtrado)} de {fmt_int(n_total)}</span></div>',
-    unsafe_allow_html=True)
+with filtros_header.container():
+    st.markdown('<div style="font-size:16px;font-weight:700;color:#fff;margin:2px 0 2px 0">🔍 Filtros</div>',
+                unsafe_allow_html=True)
+    _hc1, _hc2 = st.columns([1.5, 1], vertical_alignment="center")
+    with _hc1:
+        st.markdown(
+            f'<div style="font-size:10.5px;color:#cbd9ea;line-height:1.1;margin-bottom:3px">Projetos encontrados</div>'
+            f'<span style="background:{_cor_badge};color:#fff;font-size:14px;font-weight:800;'
+            f'padding:2px 11px;border-radius:11px;white-space:nowrap">{fmt_int(n_filtrado)} de {fmt_int(n_total)}</span>',
+            unsafe_allow_html=True)
+    with _hc2:
+        if st.button("🔄 Limpar", key="limpar_filtros", use_container_width=True,
+                     help="Limpar todos os filtros"):
+            for _k in list(st.session_state.keys()):
+                if _k.startswith("f_"):
+                    del st.session_state[_k]
+            st.rerun()
 
 # Chips de filtros ativos
 ativos = []
@@ -635,7 +640,7 @@ if pagina == "Visão Geral":
         ("✅", "Licenças Vigentes", fmt_int(vigentes), "dentro da validade", "green"),
         ("🔴", "Licenças Vencidas", fmt_int(vencidas), "requer verificação", "red"),
         ("⏰", "A Vencer (90d)", fmt_int(a_vencer), "atenção próxima", "yellow"),
-        ("⚠️", "Pendências Críticas", fmt_int(criticos), "registros c/ erro", "red"),
+        ("⚠️", "Registros c/ Crítica", fmt_int(criticos), "empreend. com erro crítico", "red"),
         ("📍", "Sem Coordenada", fmt_int(sem_coord), "fora do mapa", "gray"),
         ("⚡", "Potência Total", pot, "MW · instalada", "purple"),
     ]
@@ -995,6 +1000,17 @@ elif pagina == "Relatório Analítico":
                 "data_validade", "alerta_validade",
                 "link_google_earth", "link_gearth", "link_qgis"] if c in df_view.columns]
     colcfg = {
+        "protocolo": st.column_config.TextColumn("Protocolo"),
+        "empreendimento": st.column_config.TextColumn("Empreendimento"),
+        "empreendedor": st.column_config.TextColumn("Empreendedor"),
+        "municipio": st.column_config.TextColumn("Município"),
+        "rio": st.column_config.TextColumn("Rio"),
+        "bacia_hidrografica": st.column_config.TextColumn("Bacia hidrográfica"),
+        "tipologia": st.column_config.TextColumn("Tipologia"),
+        "tipo_licenca": st.column_config.TextColumn("Tipo de licença"),
+        "situacao": st.column_config.TextColumn("Situação"),
+        "tecnico_responsavel": st.column_config.TextColumn("Técnico responsável"),
+        "numero_licenca": st.column_config.TextColumn("Nº da licença"),
         "potencia": st.column_config.NumberColumn("Potência (MW)", format="%.1f"),
         "data_protocolo": st.column_config.DateColumn("Protocolo", format="DD/MM/YYYY"),
         "data_emissao": st.column_config.DateColumn("Emissão", format="DD/MM/YYYY"),
@@ -1073,7 +1089,7 @@ elif pagina == "Mais Informações":
         st.markdown(
             """
 Os **filtros** (barra lateral) valem para **todo o painel** — mapa, gráficos e tabela reagem juntos.
-Troque de seção pelas **abas** no topo; **Limpar Filtros** (fim da barra lateral) recomeça.
+Troque de seção pelas **abas** no topo; **🔄 Limpar** (ao lado do contador, no topo da barra lateral) zera os filtros.
 
 - **Mapa:** **clique num ponto** → detalhes + botões para abrir o local: **🌐 Google Earth Web** e **📍 Maps**
   (abrem no navegador) e **🖥️ Google Earth Desktop / 🗺️ QGIS** (baixam um arquivo `.kml`/`.qgs` que abre o
