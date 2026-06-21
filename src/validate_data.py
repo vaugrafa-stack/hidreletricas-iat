@@ -16,6 +16,23 @@ _SIT_ATIVAS = {"DEFERIDO", "VIGENTE", "REGULAR"}
 # Situações encerradas (vencimento de licença deixa de ser inconsistência relevante)
 _SIT_ENCERRADAS = {"ARQUIVADO", "ENCERRADO", "CANCELADO", "INDEFERIDO", "DEVOLVIDO"}
 
+# Faixas de potência (MW) por tipologia, para checar coerência tipologia × potência
+_FAIXAS_TIP = {"MCH", "MGH", "CGH", "PCH", "UHE"}
+
+
+def _tip_ok(tip: str, pot: float) -> bool:
+    if tip == "MCH":
+        return pot <= 0.075
+    if tip == "MGH":
+        return 0.075 < pot <= 0.5
+    if tip == "CGH":
+        return 0.5 < pot <= 5
+    if tip == "PCH":
+        return 5 < pot <= 30
+    if tip == "UHE":
+        return pot > 30
+    return True
+
 
 def _is_null(v) -> bool:
     if v is None:
@@ -99,9 +116,17 @@ def validate(df: pd.DataFrame, config: dict) -> tuple[pd.DataFrame, dict]:
                        f"Protocolo duplicado ({protocolo_counter[proto]} ocorrências)", CRITICO,
                        "Verificar se registros são fases distintas do mesmo processo ou duplicidade real")
 
-        # Validade vencida — relevante apenas para processos não encerrados
+        # Datas de validade: SUSPEITA (erro de base) vs VENCIDA real
         validade = row.get("data_validade")
-        if validade and validade < hoje and not encerrado:
+        alerta = row.get("alerta_validade")
+        if alerta == "data_suspeita":
+            _motivo = ("anterior a 1980" if validade and validade.year < 1980 else
+                       ("muito futura" if validade and validade.year > hoje.year + 40 else
+                        "anterior à data de emissão"))
+            _add_error(errors, linha, proto, emp, "data_validade",
+                       f"Data de validade suspeita ({_motivo}): {validade}", CRITICO,
+                       "Conferir/corrigir a data de validade (provável erro de digitação ou conversão)")
+        elif validade and validade < hoje and not encerrado:
             _add_error(errors, linha, proto, emp, "data_validade",
                        f"Licença vencida em {validade}", CRITICO,
                        "Verificar se houve renovação não registrada ou se o processo está encerrado")
@@ -136,6 +161,14 @@ def validate(df: pd.DataFrame, config: dict) -> tuple[pd.DataFrame, dict]:
             _add_error(errors, linha, proto, emp, "numero_licenca",
                        "Processo deferido sem número de licença", MEDIO,
                        "Preencher o número do documento de licença emitido")
+
+        # Tipologia incompatível com a potência informada (faixas legais)
+        pot = row.get("potencia")
+        tip = str(row.get("tipologia") or "").upper().strip()
+        if pot is not None and tip in _FAIXAS_TIP and not _tip_ok(tip, pot):
+            _add_error(errors, linha, proto, emp, "tipologia/potencia",
+                       f"Potência {pot} MW incompatível com a tipologia {tip}", MEDIO,
+                       "Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)")
 
         # ───────────── BAIXOS ─────────────
         if not row.get("rio"):
@@ -180,10 +213,17 @@ def validate(df: pd.DataFrame, config: dict) -> tuple[pd.DataFrame, dict]:
     duplicados = int(sum(1 for k, v in protocolo_counter.items() if v > 1))
 
     vencidas = a_vencer = vigentes = 0
+    vencidas_ativas = vencidas_encerradas = datas_suspeitas = 0
     if "alerta_validade" in df.columns:
         vencidas = int((df["alerta_validade"] == "vencida").sum())
         a_vencer = int((df["alerta_validade"] == "a_vencer").sum())
         vigentes = int((df["alerta_validade"] == "vigente").sum())
+        datas_suspeitas = int((df["alerta_validade"] == "data_suspeita").sum())
+        _enc = (df["processo_encerrado"] if "processo_encerrado" in df.columns
+                else pd.Series(False, index=df.index))
+        _venc = df["alerta_validade"] == "vencida"
+        vencidas_ativas = int((_venc & ~_enc).sum())
+        vencidas_encerradas = int((_venc & _enc).sum())
 
     criticos = int((df_errors["gravidade"] == CRITICO).sum()) if not df_errors.empty else 0
     medios = int((df_errors["gravidade"] == MEDIO).sum()) if not df_errors.empty else 0
@@ -220,6 +260,9 @@ def validate(df: pd.DataFrame, config: dict) -> tuple[pd.DataFrame, dict]:
         "sem_tecnico": sem_tecnico,
         "duplicados": duplicados,
         "licencas_vencidas": vencidas,
+        "licencas_vencidas_ativas": vencidas_ativas,
+        "licencas_vencidas_encerradas": vencidas_encerradas,
+        "datas_suspeitas": datas_suspeitas,
         "a_vencer_90_dias": a_vencer,
         "licencas_vigentes": vigentes,
         "inconsistencias_criticas": criticos,

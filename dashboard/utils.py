@@ -30,8 +30,9 @@ def load_data() -> tuple:
         if dc in df.columns:
             df[dc] = pd.to_datetime(df[dc], errors="coerce").dt.date
 
-    if "tem_coordenada" in df.columns:
-        df["tem_coordenada"] = df["tem_coordenada"].astype(str).str.lower().isin(["true", "1", "yes"])
+    for bc in ["tem_coordenada", "processo_encerrado"]:
+        if bc in df.columns:
+            df[bc] = df[bc].astype(str).str.lower().isin(["true", "1", "yes"])
 
     indicadores = {}
     if ind_path.exists():

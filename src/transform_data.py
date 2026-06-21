@@ -20,6 +20,9 @@ _SITUACAO_NORM = {
 
 _NULL_TOKENS = {"", "nan", "none", "nat", "null", "n/a", "na", "-", "--", "#n/d", "x"}
 
+# Situações encerradas — vencimento de licença deixa de ser urgência operacional
+_SIT_ENCERRADAS = {"ARQUIVADO", "ENCERRADO", "CANCELADO", "INDEFERIDO", "DEVOLVIDO"}
+
 
 def _isna(v) -> bool:
     """True para None, np.nan, pd.NaT e tokens textuais que representam vazio."""
@@ -279,20 +282,43 @@ def transform(df_raw: pd.DataFrame, config: dict) -> pd.DataFrame:
             lambda v: "SGA" if v and "SGA" in str(v).upper() else None
         )
 
-    # Coluna de alerta de validade
+    # Processo encerrado (situação) — usado para distinguir vencida real de histórica
+    if "situacao" in df.columns:
+        df["processo_encerrado"] = df["situacao"].apply(
+            lambda s: (not _isna(s)) and str(s).upper().strip() in _SIT_ENCERRADAS)
+    else:
+        df["processo_encerrado"] = False
+
+    # Alerta de validade — distingue datas SUSPEITAS (erro de base) de vencida real
     hoje = pd.Timestamp.today().normalize().date()
     dias = config.get("dias_alerta_vencimento", 90)
+
+    def _data_suspeita(val, emi):
+        """True para validade implausível: anterior a 1980, muito futura, ou antes da emissão."""
+        if val is None:
+            return False
+        if val.year < 1980 or val.year > hoje.year + 40:
+            return True
+        if emi is not None and val < emi:
+            return True
+        return False
+
     if "data_validade" in df.columns:
-        def _alerta(d):
+        def _alerta_row(r):
+            d = r.get("data_validade")
+            emi = r.get("data_emissao")
+            d = None if (d is None or (not isinstance(d, str) and pd.isna(d))) else d
+            emi = None if (emi is None or (not isinstance(emi, str) and pd.isna(emi))) else emi
             if d is None:
                 return "sem_validade"
+            if _data_suspeita(d, emi):
+                return "data_suspeita"
             if d < hoje:
                 return "vencida"
-            delta = (d - hoje).days
-            if delta <= dias:
+            if (d - hoje).days <= dias:
                 return "a_vencer"
             return "vigente"
-        df["alerta_validade"] = df["data_validade"].apply(_alerta)
+        df["alerta_validade"] = df.apply(_alerta_row, axis=1)
     else:
         df["alerta_validade"] = "sem_validade"
 

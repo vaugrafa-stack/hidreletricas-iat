@@ -10,6 +10,7 @@ import subprocess
 import webbrowser
 import urllib.request
 from pathlib import Path
+from collections import Counter
 from urllib.parse import quote
 from xml.sax.saxutils import escape as _xesc
 
@@ -147,6 +148,34 @@ def _load():
 config, df_full, indicadores, meta, df_errors = _load()
 dash_cfg = config.get("dashboard", {})
 NO_DATA = df_full.empty
+
+# Gravidades de inconsistência por registro (linha_original) → semáforo técnico
+_GRAV_LINHA = {}
+if not df_errors.empty and "linha_original" in df_errors.columns:
+    for _ln, _grp in df_errors.groupby("linha_original"):
+        try:
+            _GRAV_LINHA[int(_ln)] = Counter(_grp["gravidade"])
+        except (TypeError, ValueError):
+            continue
+
+
+def _grav_de(row):
+    try:
+        return _GRAV_LINHA.get(int(row.get("linha_original")), Counter())
+    except (TypeError, ValueError):
+        return Counter()
+
+
+def semaforo(row):
+    """Semáforo técnico do empreendimento: (emoji, rótulo, cor)."""
+    g = _grav_de(row)
+    if g.get("CRITICO"):
+        return ("🔴", "Crítico", "#ef4444")
+    if bool(row.get("processo_encerrado")):
+        return ("⚪", "Histórico", "#94a3b8")
+    if g.get("MEDIO"):
+        return ("🟡", "Atenção", "#f59e0b")
+    return ("🟢", "OK", "#22c55e")
 
 
 # ── Helpers de UI ─────────────────────────────────────────────────────────────
@@ -335,6 +364,62 @@ def prec_label(p, nd=None):
     return f'<span style="color:{c};font-weight:700">{PREC_LABEL.get(p, p)}{dec}</span>'
 
 
+def render_ficha(row, key_prefix):
+    """Ficha padronizada do empreendimento (mapa e relatório): semáforo técnico, situação,
+    pendências, botões de abrir, coordenada copiável e dados cadastrais."""
+    emoji, sem_lbl, sem_cor = semaforo(row)
+    g = _grav_de(row)
+    nc, nm, nb = g.get("CRITICO", 0), g.get("MEDIO", 0), g.get("BAIXO", 0)
+    cor = cor_situacao(row.get("situacao"), config)
+    badge = {"vencida": ("🔴 Vencida", "#ef4444"), "a_vencer": ("⏰ A vencer", "#f59e0b"),
+             "vigente": ("✅ Vigente", "#22c55e"), "data_suspeita": ("📅 Data suspeita", "#ef4444"),
+             "sem_validade": ("➖ Sem validade", "#94a3b8")}.get(row.get("alerta_validade"), ("", "#94a3b8"))
+    alert_html = f'<span class="tag" style="background:{badge[1]}">{badge[0]}</span>' if badge[0] else ""
+
+    def r_(k, v):
+        v = "—" if v is None or str(v) in ("nan", "NaT", "None", "") else v
+        return f'<div class="detail-row"><span class="k">{k}</span><span class="v">{v}</span></div>'
+
+    st.markdown(
+        f'<div style="font-weight:700;color:#0c2d54;font-size:16px;line-height:1.2">{emoji} {row.get("empreendimento", "—")}</div>'
+        f'<div style="margin:4px 0 6px 0">'
+        f'<span class="tag" style="background:{sem_cor}">Semáforo: {sem_lbl}</span> '
+        f'<span class="tag" style="background:{cor}">{row.get("situacao", "—")}</span> {alert_html}</div>',
+        unsafe_allow_html=True)
+    if nc or nm or nb:
+        st.markdown(
+            f'<div style="font-size:11.5px;color:#475569;margin-bottom:6px">Pendências: '
+            f'<b style="color:#ef4444">{nc} crítica(s)</b> · '
+            f'<b style="color:#d97706">{nm} média(s)</b> · {nb} baixa(s)</div>',
+            unsafe_allow_html=True)
+    st.markdown("<div style='font-weight:600;font-size:12px;color:#334155'>Abrir este local em:</div>",
+                unsafe_allow_html=True)
+    open_buttons(row, key_prefix)
+    if _ok(row.get("latitude")) and _ok(row.get("longitude")):
+        st.caption("Coordenada (passe o mouse → ícone de copiar):")
+        st.code(f"{float(row['latitude']):.6f}, {float(row['longitude']):.6f}", language=None)
+    st.markdown(f"""
+    <div class="detail-card" style="margin-top:6px">
+      {r_("Protocolo", row.get('protocolo'))}
+      {r_("Tipologia", row.get('tipologia'))}
+      {r_("Tipo de Licença", row.get('tipo_licenca'))}
+      {r_("Nº da Licença", row.get('numero_licenca'))}
+      {r_("Potência", fmt_mw(row.get('potencia')))}
+      {r_("Município", row.get('municipio'))}
+      {r_("Rio", row.get('rio'))}
+      {r_("Bacia", row.get('bacia_hidrografica'))}
+      {r_("Empreendedor", row.get('empreendedor'))}
+      {r_("Técnico", row.get('tecnico_responsavel'))}
+      {r_("Protocolo em", fmt_data(row.get('data_protocolo')))}
+      {r_("Emissão", fmt_data(row.get('data_emissao')))}
+      {r_("Validade", fmt_data(row.get('data_validade')))}
+      {r_("Latitude", f"{float(row.get('latitude')):.6f}" if _ok(row.get('latitude')) else None)}
+      {r_("Longitude", f"{float(row.get('longitude')):.6f}" if _ok(row.get('longitude')) else None)}
+      {r_("Precisão coord.", prec_label(row.get('precisao_coord'), row.get('n_decimais_coord')))}
+      {r_("Fonte coord.", row.get('fonte_coord'))}
+    </div>""", unsafe_allow_html=True)
+
+
 _ESRI_SAT = ("https://server.arcgisonline.com/ArcGIS/rest/services/"
              "World_Imagery/MapServer/tile/{z}/{y}/{x}")
 _ESRI_LABELS = ("https://server.arcgisonline.com/ArcGIS/rest/services/"
@@ -471,8 +556,12 @@ def build_folium_map(_records, signature, cor_por, _config, base_map="🗺️ Ma
 
     cluster = MarkerCluster(name="📍 Empreendimentos").add_to(m)
     for row in _records:
-        cor = (cor_situacao(row.get("situacao"), _config) if cor_por == "Situação"
-               else cor_tipologia(row.get("tipologia"), _config))
+        if cor_por == "Semáforo":
+            cor = semaforo(row)[2]
+        elif cor_por == "Tipologia":
+            cor = cor_tipologia(row.get("tipologia"), _config)
+        else:
+            cor = cor_situacao(row.get("situacao"), _config)
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
             radius=radius, color=cor, weight=2.4, opacity=0.95,
@@ -618,9 +707,11 @@ if ativos:
 # ══════════════════════════════════════════════════════════════════════════════
 if pagina == "Visão Geral":
     av = df["alerta_validade"] if "alerta_validade" in df.columns else pd.Series([], dtype=str)
-    vencidas = int((av == "vencida").sum())
+    _enc = df["processo_encerrado"] if "processo_encerrado" in df.columns else pd.Series(False, index=df.index)
+    vencidas_ativas = int(((av == "vencida") & ~_enc).sum())
     a_vencer = int((av == "a_vencer").sum())
     vigentes = int((av == "vigente").sum())
+    data_susp = int((av == "data_suspeita").sum())
     sem_coord = int((~df["tem_coordenada"]).sum()) if "tem_coordenada" in df.columns else 0
     em_analise = int((df["situacao"].fillna("").str.upper() == "EM ANALISE").sum()) if "situacao" in df.columns else 0
     linhas_f = set(df["linha_original"]) if "linha_original" in df.columns else set()
@@ -628,21 +719,23 @@ if pagina == "Visão Geral":
                   (df_errors["linha_original"].isin(linhas_f))]["linha_original"].nunique()) if not df_errors.empty else 0
     pot = fmt_int(df["potencia"].sum()) if "potencia" in df.columns else "—"
 
-    if vencidas:
-        st.markdown(f'<div class="alert-banner alert-red">🔴 <strong>{fmt_int(vencidas)} licenças vencidas</strong> no conjunto filtrado — veja "Licenças e Vencimentos".</div>', unsafe_allow_html=True)
+    if vencidas_ativas:
+        st.markdown(f'<div class="alert-banner alert-red">🔴 <strong>{fmt_int(vencidas_ativas)} licenças vencidas em processos ativos</strong> no conjunto filtrado — veja "Licenças e Vencimentos".</div>', unsafe_allow_html=True)
     if a_vencer:
         st.markdown(f'<div class="alert-banner alert-yellow">⚠️ <strong>{fmt_int(a_vencer)} licenças</strong> vencem nos próximos 90 dias.</div>', unsafe_allow_html=True)
+    if data_susp:
+        st.markdown(f'<div class="alert-banner alert-red">📅 <strong>{fmt_int(data_susp)} datas de validade suspeitas</strong> (erro de base) — veja "Qualidade dos Dados".</div>', unsafe_allow_html=True)
 
     section("Indicadores Principais")
     cards = [
         ("📋", "Total de Processos", fmt_int(n_filtrado), "no filtro atual", "blue"),
         ("🔬", "Em Análise", fmt_int(em_analise), "aguardando decisão", "yellow"),
         ("✅", "Licenças Vigentes", fmt_int(vigentes), "dentro da validade", "green"),
-        ("🔴", "Licenças Vencidas", fmt_int(vencidas), "requer verificação", "red"),
+        ("🔴", "Licenças Vencidas", fmt_int(vencidas_ativas), "em processos ativos", "red"),
         ("⏰", "A Vencer (90d)", fmt_int(a_vencer), "atenção próxima", "yellow"),
         ("⚠️", "Registros c/ Crítica", fmt_int(criticos), "empreend. com erro crítico", "red"),
         ("📍", "Sem Coordenada", fmt_int(sem_coord), "fora do mapa", "gray"),
-        ("⚡", "Potência Total", pot, "MW · instalada", "purple"),
+        ("⚡", "Potência Total", pot, "MW instalados", "purple"),
     ]
     for col, (ico, lbl, val, sub, color) in zip(st.columns(8), cards):
         col.markdown(kpi(ico, lbl, val, sub, color), unsafe_allow_html=True)
@@ -692,7 +785,7 @@ elif pagina == "Mapa":
     section("Mapa de Empreendimentos")
     c_cor, c_tr = st.columns([1.1, 2])
     with c_cor:
-        cor_por = st.radio("Colorir pontos por:", ["Situação", "Tipologia"], horizontal=True)
+        cor_por = st.radio("Colorir pontos por:", ["Situação", "Tipologia", "Semáforo"], horizontal=True)
     with c_tr:
         transp = st.slider("Transparência dos pontos (%) — aumente para ver a construção no satélite",
                            0, 95, 70, 5)
@@ -716,7 +809,7 @@ elif pagina == "Mapa":
     def _cam_key(s):
         return "cam_" + "".join(ch if ch.isalnum() else "_" for ch in str(s))
 
-    with st.container(border=True):
+    with st.expander("🗺️ Mapa base e camadas", expanded=True):
         base_map = st.radio("🗺️ Mapa base", list(BASE_MAPS.keys()),
                             horizontal=True, key="mapa_base")
 
@@ -778,48 +871,15 @@ elif pagina == "Mapa":
                         row = r
                         break
         if row:
-            cor = cor_situacao(row.get("situacao"), config)
-            alerta = row.get("alerta_validade", "")
-            badge = {"vencida": ("🔴 Vencida", "#ef4444"), "a_vencer": ("⏰ A vencer", "#f59e0b"),
-                     "vigente": ("✅ Vigente", "#22c55e")}.get(alerta, ("", "#94a3b8"))
-
-            def r_(k, v):
-                v = "—" if v is None or str(v) in ("nan", "NaT", "None", "") else v
-                return f'<div class="detail-row"><span class="k">{k}</span><span class="v">{v}</span></div>'
-
-            alert_html = f'<span class="tag" style="background:{badge[1]}">{badge[0]}</span>' if badge[0] else ""
-            # 1. Título (nome + situação)
-            st.markdown(
-                f'<div style="font-weight:700;color:#0c2d54;font-size:16px;line-height:1.2">{row.get("empreendimento", "—")}</div>'
-                f'<div style="margin:4px 0 8px 0"><span class="tag" style="background:{cor}">{row.get("situacao", "—")}</span> {alert_html}</div>',
-                unsafe_allow_html=True)
-            # 2. Botões de abrir — ACIMA da caixa descritiva
-            st.markdown("<div style='font-weight:600;font-size:12px;color:#334155'>Abrir este local em:</div>", unsafe_allow_html=True)
-            open_buttons(row, "open")
-            # 3. Caixa descritiva (sem repetir o nome)
-            st.markdown(f"""
-            <div class="detail-card" style="margin-top:10px">
-              {r_("Protocolo", row.get('protocolo'))}
-              {r_("Tipologia", row.get('tipologia'))}
-              {r_("Tipo de Licença", row.get('tipo_licenca'))}
-              {r_("Nº da Licença", row.get('numero_licenca'))}
-              {r_("Potência", fmt_mw(row.get('potencia')))}
-              {r_("Município", row.get('municipio'))}
-              {r_("Rio", row.get('rio'))}
-              {r_("Bacia", row.get('bacia_hidrografica'))}
-              {r_("Empreendedor", row.get('empreendedor'))}
-              {r_("Técnico", row.get('tecnico_responsavel'))}
-              {r_("Protocolo em", fmt_data(row.get('data_protocolo')))}
-              {r_("Emissão", fmt_data(row.get('data_emissao')))}
-              {r_("Validade", fmt_data(row.get('data_validade')))}
-              {r_("Precisão coord.", prec_label(row.get('precisao_coord'), row.get('n_decimais_coord')))}
-              {r_("Fonte coord.", row.get('fonte_coord'))}
-              {r_("Coordenada", f"{row.get('latitude'):.6f}, {row.get('longitude'):.6f}" if _ok(row.get('latitude')) else None)}
-            </div>""", unsafe_allow_html=True)
+            render_ficha(row, "open")
         else:
-            st.info("👆 Clique em um ponto para ver os detalhes e os botões de abrir aqui (🌐 Navegador · 📍 Maps · 🖥️ Earth · 🗺️ QGIS).")
+            st.info("👆 Clique em um ponto para ver a **ficha** (semáforo, pendências, coordenadas e botões de abrir).")
             st.markdown("**Legenda**")
-            itens = config.get("cores_situacao", {}) if cor_por == "Situação" else config.get("cores_tipologia", {})
+            if cor_por == "Semáforo":
+                itens = {"Crítico (pendência crítica)": "#ef4444", "Atenção (pendência média)": "#f59e0b",
+                         "OK (consistente)": "#22c55e", "Histórico (arquivado/cancelado)": "#94a3b8"}
+            else:
+                itens = config.get("cores_situacao", {}) if cor_por == "Situação" else config.get("cores_tipologia", {})
             seen = set()
             for nome, c in itens.items():
                 if nome == "DEFAULT" or c in seen:
@@ -836,33 +896,82 @@ elif pagina == "Licenças e Vencimentos":
     if "alerta_validade" not in df.columns:
         st.warning("Campo de validade não disponível na base.")
     else:
-        v_venc = df[df["alerta_validade"] == "vencida"]
+        hoje_lic = pd.Timestamp.today().normalize().date()
+        _enc = df["processo_encerrado"] if "processo_encerrado" in df.columns else pd.Series(False, index=df.index)
+        v_venc_at = df[(df["alerta_validade"] == "vencida") & ~_enc]    # vencida em processo ATIVO
+        v_venc_arq = df[(df["alerta_validade"] == "vencida") & _enc]    # vencida em processo encerrado
         v_av = df[df["alerta_validade"] == "a_vencer"]
         v_vig = df[df["alerta_validade"] == "vigente"]
         v_sem = df[df["alerta_validade"] == "sem_validade"]
-        for col, (ico, lbl, d, color) in zip(st.columns(4), [
-            ("🔴", "Licenças Vencidas", v_venc, "red"), ("⏰", "A Vencer (90 dias)", v_av, "yellow"),
-            ("✅", "Vigentes", v_vig, "green"), ("➖", "Sem Data de Validade", v_sem, "gray")]):
-            col.markdown(kpi(ico, lbl, fmt_int(len(d)), "", color), unsafe_allow_html=True)
+        v_susp = df[df["alerta_validade"] == "data_suspeita"]
+
+        st.caption("A prioridade real é **licença vencida em processo ativo**. Arquivados/cancelados e "
+                   "**datas suspeitas** (erro de base) aparecem separados, sem virar falso alerta.")
+        for col, (ico, lbl, d, sub, color) in zip(st.columns(4), [
+            ("🔴", "Vencidas (ativas)", v_venc_at, "processos não encerrados", "red"),
+            ("⏰", "A Vencer (90d)", v_av, "gestão preventiva", "yellow"),
+            ("✅", "Vigentes", v_vig, "dentro da validade", "green"),
+            ("➖", "Sem Validade", v_sem, "saneamento cadastral", "gray")]):
+            col.markdown(kpi(ico, lbl, fmt_int(len(d)), sub, color), unsafe_allow_html=True)
+        for col, (ico, lbl, d, sub, color) in zip(st.columns(4), [
+            ("📦", "Arquivadas Vencidas", v_venc_arq, "histórico, sem urgência", "gray"),
+            ("📅", "Datas Suspeitas", v_susp, "erro de base (crítico)", "red")]):
+            col.markdown(kpi(ico, lbl, fmt_int(len(d)), sub, color), unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
         cols_lic = [c for c in ["protocolo", "empreendimento", "municipio", "tipologia", "tipo_licenca",
                                  "situacao", "data_validade", "tecnico_responsavel"] if c in df.columns]
-        colcfg = {"data_validade": st.column_config.DateColumn("Validade", format="DD/MM/YYYY")}
-        t1, t2, t3 = st.tabs([f"🔴 Vencidas ({len(v_venc)})", f"⏰ A Vencer ({len(v_av)})", "📈 Análise Temporal"])
+
+        def _com_dias(d, vencida=True):
+            t = d[cols_lic].copy()
+            if "data_validade" in d.columns:
+                t["dias"] = d["data_validade"].apply(
+                    lambda x: ((hoje_lic - x).days if vencida else (x - hoje_lic).days)
+                    if (x is not None and not pd.isna(x)) else None)
+            return t.sort_values("dias", ascending=not vencida, na_position="last")
+
+        _cfg_venc = {"data_validade": st.column_config.DateColumn("Validade", format="DD/MM/YYYY"),
+                     "dias": st.column_config.NumberColumn("Dias vencida", format="%d")}
+        _cfg_av = {"data_validade": st.column_config.DateColumn("Validade", format="DD/MM/YYYY"),
+                   "dias": st.column_config.NumberColumn("Dias p/ vencer", format="%d")}
+
+        t1, t2, t3, t4, t5 = st.tabs([
+            f"🔴 Vencidas ativas ({len(v_venc_at)})", f"⏰ A vencer ({len(v_av)})",
+            f"📅 Datas suspeitas ({len(v_susp)})", f"📦 Arquivadas vencidas ({len(v_venc_arq)})",
+            "📈 Análise temporal"])
         with t1:
-            if not v_venc.empty:
-                st.dataframe(v_venc[cols_lic].sort_values("data_validade"), use_container_width=True,
-                             height=420, hide_index=True, column_config=colcfg)
+            if not v_venc_at.empty:
+                st.dataframe(_com_dias(v_venc_at, True), use_container_width=True, height=420,
+                             hide_index=True, column_config=_cfg_venc)
             else:
-                st.success("Nenhuma licença vencida no filtro.")
+                st.success("Nenhuma licença vencida em processo ativo no filtro. ✅")
         with t2:
             if not v_av.empty:
-                st.dataframe(v_av[cols_lic].sort_values("data_validade"), use_container_width=True,
-                             height=420, hide_index=True, column_config=colcfg)
+                st.dataframe(_com_dias(v_av, False), use_container_width=True, height=420,
+                             hide_index=True, column_config=_cfg_av)
             else:
                 st.success("Nenhuma licença a vencer em 90 dias.")
         with t3:
+            if not v_susp.empty:
+                st.warning("Datas de validade implausíveis (anterior a 1980, muito futura ou anterior à emissão) — "
+                           "provável erro de digitação/conversão. **Corrigir na base.**")
+                cols_s = [c for c in ["protocolo", "empreendimento", "municipio", "situacao",
+                                      "data_emissao", "data_validade", "tecnico_responsavel"] if c in df.columns]
+                st.dataframe(v_susp[cols_s].sort_values("data_validade"), use_container_width=True, height=380,
+                             hide_index=True, column_config={
+                                 "data_emissao": st.column_config.DateColumn("Emissão", format="DD/MM/YYYY"),
+                                 "data_validade": st.column_config.DateColumn("Validade", format="DD/MM/YYYY")})
+            else:
+                st.success("Nenhuma data de validade suspeita. ✅")
+        with t4:
+            if not v_venc_arq.empty:
+                st.caption("Licença vencida em processo **arquivado/cancelado/indeferido/devolvido** — "
+                           "histórico, sem urgência automática de renovação.")
+                st.dataframe(_com_dias(v_venc_arq, True), use_container_width=True, height=380,
+                             hide_index=True, column_config=_cfg_venc)
+            else:
+                st.success("Nenhuma licença vencida em processo encerrado.")
+        with t5:
             c1, c2 = st.columns(2)
             dv = df[df["data_validade"].notna()].copy()
             if not dv.empty and "tipologia" in dv.columns:
@@ -994,12 +1103,15 @@ elif pagina == "Relatório Analítico":
         df_view = df[mask]
     st.caption(f"**{fmt_int(len(df_view))}** registros exibidos")
 
-    cols_tab = [c for c in ["protocolo", "empreendimento", "empreendedor", "municipio", "rio",
+    df_view = df_view.copy()
+    df_view["semaforo"] = df_view.apply(lambda r: semaforo(r)[0], axis=1)
+    cols_tab = ["semaforo"] + [c for c in ["protocolo", "empreendimento", "empreendedor", "municipio", "rio",
                 "bacia_hidrografica", "tipologia", "potencia", "tipo_licenca", "situacao",
                 "tecnico_responsavel", "numero_licenca", "data_protocolo", "data_emissao",
                 "data_validade", "alerta_validade",
                 "link_google_earth", "link_gearth", "link_qgis"] if c in df_view.columns]
     colcfg = {
+        "semaforo": st.column_config.TextColumn("🚦", help="Semáforo técnico — 🔴 crítico · 🟡 atenção · 🟢 ok · ⚪ histórico", width="small"),
         "protocolo": st.column_config.TextColumn("Protocolo"),
         "empreendimento": st.column_config.TextColumn("Empreendimento"),
         "empreendedor": st.column_config.TextColumn("Empreendedor"),
@@ -1020,7 +1132,7 @@ elif pagina == "Relatório Analítico":
         "link_gearth": st.column_config.LinkColumn("Google Earth desktop", display_text="🖥️ Abrir"),
         "link_qgis": st.column_config.LinkColumn("Abrir no QGIS", display_text="🗺️ Abrir"),
     }
-    st.caption("Dica: **selecione uma linha** (caixa à esquerda) para abrir o empreendimento nos botões abaixo.")
+    st.caption("Dica: **selecione uma linha** (caixa à esquerda) para abrir a **ficha do empreendimento** abaixo.")
     ev = st.dataframe(df_view[cols_tab], use_container_width=True, height=520, hide_index=True,
                       column_config=colcfg, on_select="rerun", selection_mode="single-row", key="tab_rel")
 
@@ -1031,12 +1143,10 @@ elif pagina == "Relatório Analítico":
         sel_rows = (ev or {}).get("selection", {}).get("rows", [])
     if sel_rows:
         srow = df_view.iloc[sel_rows[0]].to_dict()
-        nome = srow.get("empreendimento", "—")
-        if srow.get("tem_coordenada"):
-            st.markdown(f"**Abrir _{nome}_ em:**")
-            open_buttons(srow, "rel")
-        else:
-            st.info(f"_{nome}_ não tem coordenada válida — não é possível abrir no mapa.")
+        section("Ficha do Empreendimento")
+        fc1, fc2 = st.columns([1, 1])
+        with fc1:
+            render_ficha(srow, "rel")
 
     e1, e2, _ = st.columns([1, 1, 4])
     e1.download_button("⬇️ Exportar CSV", df_view[cols_tab].to_csv(index=False, encoding="utf-8-sig").encode("utf-8-sig"),

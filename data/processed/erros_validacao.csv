@@ -17,6 +17,7 @@
 22,141139320,CGH ÁGUA SANTA (CONSTRUNÍVEL),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 24,188687040,CGH AGUAS PERDIDAS,data_validade,Licença vencida em 2023-07-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 25,163752360,CGH ALBERTI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+25,163752360,CGH ALBERTI,tipologia/potencia,Potência 0.2 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 26,136727885,CGH ALCEU VIGANÓ I,data_validade,Licença vencida em 2020-02-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 26,136727885,CGH ALCEU VIGANÓ I,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 27,153596581,CGH ALCEU VIGANÓ I,data_validade,Licença vencida em 2021-05-27,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -32,6 +33,7 @@
 39,185298000,CGH ALTO TRICOLOR,data_validade,Licença vencida em 2025-09-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 41,187476011,CGH ALVORADA,data_validade,Licença vencida em 2025-03-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 43,150826314,CGH AMANAYTU,data_validade,Licença vencida em 2021-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+44,161833924,CGH AMANAYTU,tipologia/potencia,Potência 0.3 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 46,187077311,CGH ARARAS,data_validade,Licença vencida em 2023-07-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 47,154991204,CGH ARARAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 49,189955995,CGH ARIRANHA,data_validade,Licença vencida em 2023-06-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -39,6 +41,7 @@
 52,185277852,CGH ARVOREDO,data_validade,Licença vencida em 2023-06-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 54,77036806,CGH ASSIS CHATEAUBRIAND,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 55,135939544,CGH AVECON,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+56,228953849,CGH AZUL,tipologia/potencia,Potência 0.5 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 58,157709682,CGH AZUL I,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 61,181331518,CGH AZUL II,data_validade,Licença vencida em 2023-09-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 62,162807331,CGH AZUL II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
@@ -47,6 +50,7 @@
 64,140228788,CGH BAIXO ANDRADA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 65,146181147,CGH BAIXO ANDRADA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 66,257675335,CGH BANDEIRA,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+66,257675335,CGH BANDEIRA,tipologia/potencia,Potência 0.55 MW incompatível com a tipologia MGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 70,147291027,CGH BANDIERA RONFIM,data_validade,Licença vencida em 2020-09-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 72,166967708,CGH BANDIERA RONFIM,data_validade,Licença vencida em 2023-05-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 73,184622823,CGH BARRA DO AMPERE,data_validade,Licença vencida em 2023-03-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -69,10 +73,12 @@
 103,78431334,CGH BOA VISTA I,data_validade,Licença vencida em 2017-09-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 104,145283876,CGH BOA VISTA I,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
 106,166315611,CGH BOM JESUS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+106,166315611,CGH BOM JESUS,tipologia/potencia,Potência 0.5 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 108,166688329,CGH BOM RETIRO,data_validade,Licença vencida em 2026-06-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 110,180824863,CGH BOM SUCESSO,data_validade,Licença vencida em 2023-09-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 111,173076371,CGH BOM SUCESSO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 113,165061403,CGH BONETI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+113,165061403,CGH BONETI,tipologia/potencia,Potência 0.3 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 114,185809749,CGH BORBOLETA,data_validade,Licença vencida em 2023-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 116,96391617,CGH BRAÇO DO POTINGA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 117,117851982,CGH BRAÇO DO POTINGA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
@@ -119,6 +125,7 @@
 167,165775309,CGH CANTINHO DO CÉU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 168,121990520,CGH CÃO MENOR,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 169,164507149,CGH CAPELETE,data_validade,Licença vencida em 2026-06-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+169,164507149,CGH CAPELETE,tipologia/potencia,Potência 0.258 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 170,78429690,CGH CAPIVARA,data_validade,Licença vencida em 2015-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 171,130838570,CGH CAPIVARA,data_validade,Licença vencida em 2017-09-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 172,146502512,CGH CAPIVARA,data_validade,Licença vencida em 2019-11-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -126,6 +133,7 @@
 174,162208519,CGH CAPIVARA,data_validade,Licença vencida em 2025-01-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 176,166725178,CGH CAPIVARI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 176,166725178,CGH CAPIVARI,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
+177,225520763,CGH CARATUVA,tipologia/potencia,Potência 0.35 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 178,72679504,CGH CARAZINHO,data_validade,Licença vencida em 2012-04-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 180,133216502,CGH CARMINATTI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 181,140284610,CGH CASALI,data_validade,Licença vencida em 2020-10-13,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -227,6 +235,7 @@
 317,164809641,CGH ESPINGARDA I,data_validade,Licença vencida em 2025-09-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 318,181549289,CGH ESPINGARDA I,data_validade,Licença vencida em 2024-10-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 320,167425402,CGH ESPINGARDA II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+320,167425402,CGH ESPINGARDA II,tipologia/potencia,Potência 0.3 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 322,79565245,CGH EVO,data_validade,Licença vencida em 2016-06-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 323,140970611,CGH EVO,data_validade,Licença vencida em 2019-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 325,159539458,CGH EVO,data_validade,Licença vencida em 2023-06-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -246,6 +255,7 @@
 346,197386991,CGH FOZ DO IRATIM,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
 347,182223131,CGH FOZ DO LAJEADO,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 349,25.275.757-0,CGH FUNDÃO I,latitude/longitude,Registro sem coordenada geográfica válida,CRITICO,Verificar e preencher latitude/longitude no Paraná (WGS84)
+349,25.275.757-0,CGH FUNDÃO I,tipologia/potencia,Potência 2.7 MW incompatível com a tipologia PCH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 350,7726381,CGH FUNDÃO I,data_validade,Licença vencida em 2014-12-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 351,132913951,CGH FUNDÃO I,data_validade,Licença vencida em 2018-11-21,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 352,152152620,CGH FUNDÃO I,data_validade,Licença vencida em 2022-09-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -324,6 +334,7 @@
 464,57679255,CGH LONTRAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 465,79374199,CGH LONTRAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 466,160940778,CGH LOPEÍ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+466,160940778,CGH LOPEÍ,tipologia/potencia,Potência 0.15 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 470,183849590,CGH MAMBORÊ,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 471,159030067,CGH MANDURI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 472,185352200,CGH MANDURI,data_validade,Licença vencida em 2023-02-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -434,7 +445,9 @@
 622,140717770,CGH PERBONE,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 623,152145020,CGH PERBONE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 624,188973175,CGH PERBONE,data_validade,Licença vencida em 2023-11-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+626,203067607,CGH PERDONCINI,tipologia/potencia,Potência 0.75 MW incompatível com a tipologia MCH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 627,159859045,CGH PERDONCINI,data_validade,Licença vencida em 2023-02-15,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+627,159859045,CGH PERDONCINI,tipologia/potencia,Potência 0.75 MW incompatível com a tipologia MCH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 629,144880498,CGH PICA PAU,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 631,152875126,CGH PIEDADE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 633,181209690,CGH PINDAÚVA,data_validade,Licença vencida em 2022-11-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -467,6 +480,7 @@
 674,186189280,CGH PRESOTTO,data_validade,Licença vencida em 2023-07-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 675,164037320,CGH PRESOTTO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 676,159361454,CGH PROCHNAU,data_validade,Licença vencida em 2023-10-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+676,159361454,CGH PROCHNAU,tipologia/potencia,Potência 0.31 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 677,149809945,CGH PROGRESSO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 677,149809945,CGH PROGRESSO,potencia,Potência (MW) ausente,BAIXO,Preencher a potência solicitada em MW
 681,140710075,CGH RANCHO MUNDO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
@@ -512,6 +526,7 @@
 736,150933633,CGH RONCADOR,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 740,135080063,CGH ROTA DAS ARAUCÁRIAS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 741,163182963,CGH RP CAFELÂNDIA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+741,163182963,CGH RP CAFELÂNDIA,tipologia/potencia,Potência 0.258 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 741,163182963,CGH RP CAFELÂNDIA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 742,59687140,CGH SACI,data_validade,Licença vencida em 2010-09-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 743,78275049,CGH SACI,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
@@ -533,7 +548,7 @@
 766,72690885,CGH SALTO DO VAU,data_validade,Licença vencida em 2013-09-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 769,143707881,CGH SALTO ESTRELA,data_validade,Licença vencida em 2022-04-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 770,182569712,CGH SALTO ESTRELA,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
-771,97641048,CGH SALTO ESTRELA,data_validade,Licença vencida em 2012-04-14,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+771,97641048,CGH SALTO ESTRELA,data_validade,Data de validade suspeita (anterior à data de emissão): 2012-04-14,CRITICO,Conferir/corrigir a data de validade (provável erro de digitação ou conversão)
 777,154788395,CGH SALTO SÃO PEDRO,data_validade,Licença vencida em 2021-12-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 778,50369935,CGH SALTO SÃO PEDRO,data_validade,Licença vencida em 2007-12-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 780,25.876.657-1,CGH SALTO SÃO PEDRO,data_validade,Licença vencida em 2021-12-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -566,20 +581,28 @@
 810,148205183,CGH SANTA TEREZINHA,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 811,161591742,CGH SANTA TEREZINHA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 812,51322533,CGH SANTANA,data_validade,Licença vencida em 2004-12-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+812,51322533,CGH SANTANA,tipologia/potencia,Potência 0.6 MW incompatível com a tipologia MGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 813,52272009,CGH SANTANA,data_validade,Licença vencida em 2001-12-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+813,52272009,CGH SANTANA,tipologia/potencia,Potência 0.6 MW incompatível com a tipologia MGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 814,83673249,CGH SANTANA,data_validade,Licença vencida em 2008-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+814,83673249,CGH SANTANA,tipologia/potencia,Potência 0.6 MW incompatível com a tipologia MGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 815,72719450,CGH SANTANA,data_validade,Licença vencida em 2013-03-11,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+815,72719450,CGH SANTANA,tipologia/potencia,Potência 0.6 MW incompatível com a tipologia MGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 816,118636953,CGH SANTANA,data_validade,Licença vencida em 2019-11-19,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+816,118636953,CGH SANTANA,tipologia/potencia,Potência 0.6 MW incompatível com a tipologia MGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 817,188686796,CGH SANT'ANA,data_validade,Licença vencida em 2023-07-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 820,142483548,CGH SANTIN,data_validade,Licença vencida em 2022-08-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 820,142483548,CGH SANTIN,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 821,138996000,CGH SANTINI,data_validade,Licença vencida em 2026-05-25,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 821,138996000,CGH SANTINI,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+822,259332796,CGH SANTINI,tipologia/potencia,Potência 0.3 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 822,259332796,CGH SANTINI,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 823,120786350,CGH SANTO ANTÔNIO,data_validade,Licença vencida em 2017-03-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 824,141605070,CGH SANTO ANTÔNIO,data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 825,161580228,CGH SANTO ANTÔNIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 826,165436059,CGH SANTO ANTÔNIO (CORBÉLIA),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+826,165436059,CGH SANTO ANTÔNIO (CORBÉLIA),tipologia/potencia,Potência 0.5 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
+827,244733220,CGH SANTO ANTÔNIO (CORBÉLIA),tipologia/potencia,Potência 0.5 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 829,138349993,CGH SANTO ANTÔNIO I (IGUAÇÚ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 830,139445732,CGH SANTO ANTÔNIO I (PITANGA),data_validade,Licença vencida em 2021-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 832,138801187,CGH SANTO ANTÔNIO II,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
@@ -659,6 +682,7 @@
 928,142689090,CGH USINA DE BAIXO,latitude/longitude,Mesma coordenada usada por 3 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 929,142689260,CGH USINA DE CIMA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 930,77783349,CGH USINA DE CIMA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+931,195145172,CGH USINA DE CIMA (SANFRANCESCO),tipologia/potencia,Potência 0.5 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 931,195145172,CGH USINA DE CIMA (SANFRANCESCO),latitude/longitude,Mesma coordenada usada por 3 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 932,135841889,CGH USINA VELHA,data_validade,Licença vencida em 2022-01-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 932,135841889,CGH USINA VELHA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
@@ -679,11 +703,15 @@
 956,187839947,CGH WARMLING,data_validade,Licença vencida em 2025-10-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 958,144634675,CGH ZATTAR,data_validade,Licença vencida em 2021-08-02,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 961,257674061,CGH ZÉ RENATO,data_protocolo,Data de protocolo ausente,MEDIO,Preencher a data de protocolo do processo
+964,213285505,MCH CAMIFRA,tipologia/potencia,Potência 0.75 MW incompatível com a tipologia MCH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
+965,207681016,MCH CAMPINA DO SIMÃO,tipologia/potencia,Potência 0.75 MW incompatível com a tipologia MCH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 970,195196400,MCH VAZÃO SANITARIA SÃO FRANCISCO,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 973,149903577,MGH 111,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 981,235016710,MGH MOINHO NOVA AURORA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 984,235012910,MGH RP ENERGIA CAFELÂNDIA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+990,143905047,MGH SÃO JOÃO (Carambeí),tipologia/potencia,Potência 0.8 MW incompatível com a tipologia MGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 990,143905047,MGH SÃO JOÃO (Carambeí),latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
+991,25.338.437-9,MGH SÃO JOÃO (Carambeí),tipologia/potencia,Potência 0.8 MW incompatível com a tipologia MGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 991,25.338.437-9,MGH SÃO JOÃO (Carambeí),latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 995,136247980,PCH AÇUNGUI 2C,numero_licenca,Processo deferido sem número de licença,MEDIO,Preencher o número do documento de licença emitido
 1000,141339869,PCH AÇUNGUI 2F,data_validade,Licença vencida em 2019-11-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -716,6 +744,7 @@
 1036,154676830,PCH ARTURO ANDREOLI (FOZ DO CHOPIM),data_validade,Licença vencida em 2023-07-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1040,79487023,PCH BANDEIRA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1042,120857568,PCH BANDEIRANTES DO NORTE,data_validade,Licença vencida em 2016-08-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1042,120857568,PCH BANDEIRANTES DO NORTE,tipologia/potencia,Potência 4.2 MW incompatível com a tipologia PCH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 1043,162889516,PCH BARBOSA FERRAZ,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1044,54899963,PCH BEDIM,data_validade,Licença vencida em 2021-08-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1045,156288667,PCH BEDIM,data_validade,Licença vencida em 2022-11-05,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -753,7 +782,7 @@
 1084,79839841,PCH CANTU 2,data_validade,Licença vencida em 2015-10-22,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1085,135737917,PCH CANTU 2,data_validade,Licença vencida em 2016-05-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1086,137946807,PCH CANTU 2,data_validade,Licença vencida em 2019-12-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
-1089,77794964,PCH CANTU 3,data_validade,Licença vencida em 2013-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1089,77794964,PCH CANTU 3,data_validade,Data de validade suspeita (anterior à data de emissão): 2013-12-20,CRITICO,Conferir/corrigir a data de validade (provável erro de digitação ou conversão)
 1090,118186710,PCH CANTU 3,data_validade,Licença vencida em 2017-11-10,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1092,121137640,PCH CAPELA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1093,53310761,PCH CARATUVA,data_validade,Licença vencida em 2012-12-29,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -820,7 +849,7 @@
 1169,78540281,PCH DOIS SALTOS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 1170,131553293,PCH DOIS SALTOS,data_validade,Licença vencida em 2018-09-12,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1170,131553293,PCH DOIS SALTOS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
-1171,157980939,PCH DOIS SALTOS,data_validade,Licença vencida em 2019-06-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1171,157980939,PCH DOIS SALTOS,data_validade,Data de validade suspeita (anterior à data de emissão): 2019-06-17,CRITICO,Conferir/corrigir a data de validade (provável erro de digitação ou conversão)
 1171,157980939,PCH DOIS SALTOS,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 1172,177489794,PCH DOIS SALTOS,data_validade,Licença vencida em 2022-09-01,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1174,140229601,PCH DOM ANTÔNIO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
@@ -850,6 +879,7 @@
 1208,171261511,PCH FOZ DO ESTRELA,data_validade,Licença vencida em 2022-07-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1209,176853395,PCH FOZ DO ESTRELA,data_validade,Licença vencida em 2023-02-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1211,181324201,PCH FOZ DO PATO BRANCO,data_validade,Licença vencida em 2022-12-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1211,181324201,PCH FOZ DO PATO BRANCO,tipologia/potencia,Potência 2.5 MW incompatível com a tipologia PCH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 1212,120786512,PCH FOZ DO SANTANA,data_validade,Licença vencida em 2016-06-30,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1216,52310750,PCH FOZ DO TURVO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1217,55805601,PCH FOZ DO TURVO,data_validade,Licença vencida em 2012-05-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
@@ -1052,6 +1082,7 @@
 1459,166538653,PCH TAGUÁ,data_validade,Licença vencida em 2023-03-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1460,181684445,PCH TAGUÁ,data_validade,Licença vencida em 2022-12-06,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1462,52301467,PCH TAPERA,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
+1462,52301467,PCH TAPERA,tipologia/potencia,Potência 1.0 MW incompatível com a tipologia PCH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 1462,52301467,PCH TAPERA,latitude/longitude,Mesma coordenada usada por 2 empreendimentos distintos,MEDIO,Conferir se a coordenada é genérica/placeholder e individualizar cada ponto
 1463,140853291,PCH TAPERA JUSANTE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1466,22.551.941-2,PCH TOMAZINA,latitude/longitude,Registro sem coordenada geográfica válida,CRITICO,Verificar e preencher latitude/longitude no Paraná (WGS84)
@@ -1077,7 +1108,7 @@
 1484,133470247,PCH VILA GALUPO,data_validade,Licença vencida em 2019-12-18,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1485,155765054,PCH VILA GALUPO,data_validade,Licença vencida em 2019-10-24,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1486,157894234,PCH VILA GALUPO,data_validade,Licença vencida em 2022-06-17,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
-1487,186147545,PCH VILA GALUPO,data_validade,Licença vencida em 1934-05-09,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1487,186147545,PCH VILA GALUPO,data_validade,Data de validade suspeita (anterior a 1980): 1934-05-09,CRITICO,Conferir/corrigir a data de validade (provável erro de digitação ou conversão)
 1488,202657109,PCH VISTA ALEGRE,data_validade,Licença vencida em 2025-12-20,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1489,73734460,PCH VISTA ALEGRE,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1491,49401728,PCH VITORINO,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
@@ -1085,6 +1116,7 @@
 1493,141474456,PCH ZECA GOLIN (FAZENDA DO SALTO),data_validade,Licença vencida em 2020-02-23,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1494,162792296,PCH ZECA GOLIN (FAZENDA DO SALTO),data_validade,Licença vencida em 2024-06-08,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1495,175663720,PCH ZECA GOLIN (FAZENDA DO SALTO),data_validade,Licença vencida em 2022-07-26,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1495,175663720,PCH ZECA GOLIN (FAZENDA DO SALTO),tipologia/potencia,Potência 9.85 MW incompatível com a tipologia CGH,MEDIO,"Conferir tipologia × potência (MCH ≤0,075; MGH ≤0,5; CGH ≤5; PCH ≤30; UHE >30 MW)"
 1497,57200880,REATIVAÇÃO DE CGH,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1498,79126993,UHE APERTADOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1499,79877719,UHE APERTADOS,tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
@@ -1120,7 +1152,7 @@
 1528,40187731,UHE GOVERNADOR BENTO MUNHOZ DA ROCHA NETO (FOZ DO AREIA),data_validade,Licença vencida em 2012-06-04,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1529,79498238,UHE GOVERNADOR BENTO MUNHOZ DA ROCHA NETO (FOZ DO AREIA),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1531,218659918,UHE GOVERNADOR BENTO MUNHOZ DA ROCHA NETO (FOZ DO AREIA),data_validade,Licença vencida em 2026-05-03,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
-1533,48269915,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Licença vencida em 2006-12-07,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
+1533,48269915,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Data de validade suspeita (anterior à data de emissão): 2006-12-07,CRITICO,Conferir/corrigir a data de validade (provável erro de digitação ou conversão)
 1533,48269915,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
 1534,96040261,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),data_validade,Licença vencida em 2009-10-28,CRITICO,Verificar se houve renovação não registrada ou se o processo está encerrado
 1534,96040261,UHE GOVERNADOR JAYME CANET JUNIOR (MAUÁ),tecnico_responsavel,Técnico responsável ausente,MEDIO,Atribuir técnico responsável pelo processo
