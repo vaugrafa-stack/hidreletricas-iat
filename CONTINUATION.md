@@ -321,5 +321,36 @@ instalado (sem handler/protocolo/Python por visitante). Associações confirmada
   (commit c75a208) e Streamlit Cloud redeployou sozinho.
 - Limitação aceita: sem marcador no QGIS (só satélite centralizado); marcador exigiria `.qgz` com geojson embutido.
 
+## ✅ CONCLUÍDO — UI pt-BR, regras de gestão, semáforo, ficha, marcador QGIS (2026-06-21)
+Pedidos do usuário: traduzir inglês, mover Limpar, e "fazer tudo" da avaliação técnica (manter dados públicos).
+**UI:** `st.multiselect` placeholder → "Selecione uma ou mais opções" (era "Choose options"); labels pt-BR;
+botão "🔄 Limpar" movido do fim p/ o TOPO ao lado do contador (compacto, `filtros_header.container()` + colunas);
+card Visão Geral "Pendências Críticas"→"Registros c/ Crítica" (682 = registros; 683 = inconsistências, eram conceitos
+distintos — não bug); rótulos pt-BR nas colunas do Relatório.
+**Pipeline (regras de gestão):** `transform_data.py` → `processo_encerrado` (situação encerrada) + `alerta_validade`
+ganhou valor **`data_suspeita`** (validade <1980, >hoje+40 anos, ou < emissão). `validate_data.py` → datas suspeitas
+viram CRÍTICO (não "vencida"); vencida real só p/ não-encerrados; **tipologia × potência** (MCH≤0,075 / MGH≤0,5 /
+CGH≤5 / PCH≤30 / UHE>30 MW) vira MÉDIO. Resumo: `licencas_vencidas_ativas` (666), `_encerradas` (14),
+`datas_suspeitas` (5). Reprocessado: 683 críticos / 512 médios / 26 baixos. 14 testes passam.
+**Aba Licenças:** cards "Vencidas (ativas) / A vencer / Vigentes / Sem validade" + "Arquivadas vencidas / Datas
+suspeitas"; abas: Vencidas ativas (coluna **dias vencida**), A vencer (**dias p/ vencer**), Datas suspeitas,
+Arquivadas vencidas, Análise temporal. Visão Geral "Licenças Vencidas" agora = vencidas ATIVAS; banner de datas suspeitas.
+**Semáforo técnico** (`semaforo(row)` + `_GRAV_LINHA` por linha): 🔴 crítico > ⚪ histórico(encerrado) > 🟡 médio > 🟢 ok.
+Usado no mapa (3ª opção "Colorir por: Semáforo" + legenda), na tabela do Relatório (coluna 🚦) e na ficha.
+**Ficha do Empreendimento** (`render_ficha(row, key_prefix)`): semáforo + situação + pendências (N críticas/médias) +
+botões de abrir + **coordenada copiável** (`st.code`) + lat/lon separados + dados. Usada no painel do mapa e no
+Relatório (ao selecionar linha → "Ficha do Empreendimento"). Camadas do mapa agora em `st.expander` (recolhível).
+**Marcador no QGIS (.qgs autossuficiente):** ⚠️ `.qgz` com geojson embutido NÃO funciona (QGIS não extrai dados de
+camada de dentro do .qgz → "camadas indisponíveis"). SOLUÇÃO: **GeoJSON INLINE como datasource** —
+`QgsVectorLayer('{...geojson...}', nome, "ogr")` é válido (testado: `INLINE_VALID: True 1`) e o `.qgs` salva a string
+embutida → autossuficiente. Template gerado pelo QGIS (`src/gerar_template_qgis.py`, roda no Console Python: satélite
++ ponto inline com marcador vermelho + rótulo `nome`), parametrizado em `dashboard/assets/qgis_template.qgs` com
+`__IAT_XMIN/YMIN/XMAX/YMAX__` (extent 3857), `__IAT_LON__`/`__IAT_LAT__` (3x cada) e `__IAT_NOME__` (3x). `build_qgs`
+substitui tudo (nome sanitizado p/ JSON+XML: remove `" \\ < > &`). VALIDADO no QGIS 4.0.3: abre com satélite +
+marcador vermelho + nome "PCH TESTE OESTE" centralizado. Para regenerar template: rodar `gerar_template_qgis.py` no
+Console Python do QGIS → reparametrizar (extent do mapcanvas + nome 3x + lon 3x + lat 3x).
+Commits: f85f57b (frentes 1-4) + 6bc0d8a (marcador QGIS) + 580487d (UI). Tudo no GitHub; Streamlit Cloud redeploya.
+
 Frente futura: publicar no ArcGIS; opcional incluir Uso/Cobertura MapBiomas via esri-leaflet; minZoom nas camadas
-pesadas (carregar só com zoom alto) se a lentidão estadual incomodar; opcional marcador no .qgs via .qgz.
+pesadas; itens da avaliação ainda não feitos (coordenada "tecnicamente suficiente" barragem/casa de força/restituição;
+paleta institucional unificada; cards da Visão Geral reagrupados por lógica de decisão).
