@@ -304,15 +304,20 @@ def build_kml(lat, lon, nome="Empreendimento"):
 
 
 def build_qgs(lat, lon, nome="Empreendimento", half_m=600.0):
-    """Projeto QGIS (satélite Esri centralizado no ponto) a partir do template gerado
-    pelo próprio QGIS (dashboard/assets/qgis_template.qgs)."""
+    """Projeto QGIS autossuficiente: satélite Esri + marcador vermelho rotulado com o
+    nome (GeoJSON inline), centralizado no ponto. Template gerado pelo próprio QGIS
+    (dashboard/assets/qgis_template.qgs); aqui só substituímos extent, coordenada e nome."""
     x, y = _to3857(lat, lon)
+    # Nome seguro para JSON (datasource inline) e XML (atributos): remove " \\ < > &
+    nome_safe = re.sub(r'["\\<>&]', " ", str(nome)).strip() or "Empreendimento"
     tpl = (Path(__file__).parent / "assets" / "qgis_template.qgs").read_text(encoding="utf-8")
     return (tpl.replace("__IAT_XMIN__", f"{x - half_m:.5f}")
                .replace("__IAT_YMIN__", f"{y - half_m:.5f}")
                .replace("__IAT_XMAX__", f"{x + half_m:.5f}")
                .replace("__IAT_YMAX__", f"{y + half_m:.5f}")
-               .replace("__IAT_NOME__", _xesc(str(nome)))).encode("utf-8")
+               .replace("__IAT_LON__", f"{float(lon):.6f}")
+               .replace("__IAT_LAT__", f"{float(lat):.6f}")
+               .replace("__IAT_NOME__", nome_safe)).encode("utf-8")
 
 
 def open_buttons(row, key_prefix):
