@@ -1,5 +1,5 @@
 {
-  "data_hora_execucao": "2026-06-21T00:14:07.337258",
+  "data_hora_execucao": "2026-06-21T00:46:34.586042",
   "arquivo_lido": "Central_de_Processos_HIDRELETRICAS_COM_MACRO e Links.xlsm",
   "md5_arquivo": "3183d4907d125853daeb273c9b7a4770",
   "aba_utilizada": "Central de Processos HIDREL",
@@ -15,5 +15,5 @@
   "a_vencer_90_dias": 19,
   "status": "sucesso",
   "erros": [],
-  "duracao_segundos": 1.27
+  "duracao_segundos": 1.24
 }

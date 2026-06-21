@@ -216,7 +216,11 @@ def transform(df_raw: pd.DataFrame, config: dict) -> pd.DataFrame:
             lambda v: _fix_coord(v, coord_cfg["lat_min"], coord_cfg["lat_max"], coord_cfg["lon_min"], coord_cfg["lon_max"], "lon")
         )
 
+    # Presença da coordenada da BARRAGEM (antes do fallback)
+    tem_barragem = df["latitude"].notna() & df["longitude"].notna()
+
     # Fallback para casa de força quando barragem ausente
+    tem_casa = pd.Series(False, index=df.index)
     if "lat_casa_forca" in df.columns and "lon_casa_forca" in df.columns:
         df["lat_casa_forca"] = df["lat_casa_forca"].apply(
             lambda v: _fix_coord(v, coord_cfg["lat_min"], coord_cfg["lat_max"], coord_cfg["lon_min"], coord_cfg["lon_max"], "lat")
@@ -224,11 +228,18 @@ def transform(df_raw: pd.DataFrame, config: dict) -> pd.DataFrame:
         df["lon_casa_forca"] = df["lon_casa_forca"].apply(
             lambda v: _fix_coord(v, coord_cfg["lat_min"], coord_cfg["lat_max"], coord_cfg["lon_min"], coord_cfg["lon_max"], "lon")
         )
+        tem_casa = df["lat_casa_forca"].notna() & df["lon_casa_forca"].notna()
         mask_sem = df["latitude"].isna() | df["longitude"].isna()
         df.loc[mask_sem, "latitude"] = df.loc[mask_sem, "lat_casa_forca"]
         df.loc[mask_sem, "longitude"] = df.loc[mask_sem, "lon_casa_forca"]
 
     df["tem_coordenada"] = df["latitude"].notna() & df["longitude"].notna()
+    # Suficiência técnica da coordenada (barragem + casa de força são essenciais p/ análise hidrelétrica)
+    df["tem_coord_barragem"] = tem_barragem
+    df["tem_coord_casa_forca"] = tem_casa
+    df["suficiencia_coord"] = np.select(
+        [tem_barragem & tem_casa, tem_barragem, tem_casa],
+        ["completa", "so_barragem", "so_casa_forca"], default="ausente")
     # Coordenada informada na planilha mas descartada por estar fora dos limites do PR
     df["coord_fora_pr"] = raw_tem_coord & (~df["tem_coordenada"])
 
@@ -326,8 +337,9 @@ def transform(df_raw: pd.DataFrame, config: dict) -> pd.DataFrame:
     df["linha_original"] = df.index + 2  # +2 porque header é linha 1 e index começa em 0
 
     # Remover colunas puramente auxiliares do KMZ e link texto
+    # Mantém lat_casa_forca/lon_casa_forca (usados na suficiência da coordenada)
     cols_drop = [c for c in ["lat_kmz", "lon_kmz", "lat_casa_forca_kmz", "lon_casa_forca_kmz",
-                              "_link_earth_texto", "lat_casa_forca", "lon_casa_forca"] if c in df.columns]
+                              "_link_earth_texto"] if c in df.columns]
     df = df.drop(columns=cols_drop)
 
     logger.info("Transformação concluída. Shape: %s", df.shape)

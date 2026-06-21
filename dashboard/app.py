@@ -369,6 +369,19 @@ def prec_label(p, nd=None):
     return f'<span style="color:{c};font-weight:700">{PREC_LABEL.get(p, p)}{dec}</span>'
 
 
+_SUF_LABEL = {
+    "completa": ("✅ Completa (barragem + casa de força)", "#22c55e"),
+    "so_barragem": ("◑ Só barragem", "#f59e0b"),
+    "so_casa_forca": ("◑ Só casa de força", "#f59e0b"),
+    "ausente": ("— Sem coordenada", "#94a3b8"),
+}
+
+
+def suf_label(s):
+    txt, cor = _SUF_LABEL.get(s, ("—", "#64748b"))
+    return f'<span style="color:{cor};font-weight:700">{txt}</span>'
+
+
 def render_ficha(row, key_prefix):
     """Ficha padronizada do empreendimento (mapa e relatório): semáforo técnico, situação,
     pendências, botões de abrir, coordenada copiável e dados cadastrais."""
@@ -420,6 +433,8 @@ def render_ficha(row, key_prefix):
       {r_("Validade", fmt_data(row.get('data_validade')))}
       {r_("Latitude", f"{float(row.get('latitude')):.6f}" if _ok(row.get('latitude')) else None)}
       {r_("Longitude", f"{float(row.get('longitude')):.6f}" if _ok(row.get('longitude')) else None)}
+      {r_("Casa de força", f"{float(row.get('lat_casa_forca')):.6f}, {float(row.get('lon_casa_forca')):.6f}" if (_ok(row.get('lat_casa_forca')) and _ok(row.get('lon_casa_forca'))) else None)}
+      {r_("Suficiência coord.", suf_label(row.get('suficiencia_coord')))}
       {r_("Precisão coord.", prec_label(row.get('precisao_coord'), row.get('n_decimais_coord')))}
       {r_("Fonte coord.", row.get('fonte_coord'))}
     </div>""", unsafe_allow_html=True)
@@ -732,17 +747,25 @@ if pagina == "Visão Geral":
         st.markdown(f'<div class="alert-banner alert-red">📅 <strong>{fmt_int(data_susp)} datas de validade suspeitas</strong> (erro de base) — veja "Qualidade dos Dados".</div>', unsafe_allow_html=True)
 
     section("Indicadores Principais")
-    cards = [
+    st.markdown('<div style="font-size:12px;font-weight:600;color:#64748b;margin:2px 0">Base e situação</div>',
+                unsafe_allow_html=True)
+    cards_base = [
         ("📋", "Total de Processos", fmt_int(n_filtrado), "no filtro atual", "blue"),
         ("🔬", "Em Análise", fmt_int(em_analise), "aguardando decisão", "yellow"),
+        ("📍", "Sem Coordenada", fmt_int(sem_coord), "fora do mapa", "gray"),
+        ("⚡", "Potência Total", pot, "MW instalados", "purple"),
+    ]
+    for col, (ico, lbl, val, sub, color) in zip(st.columns(4), cards_base):
+        col.markdown(kpi(ico, lbl, val, sub, color), unsafe_allow_html=True)
+    st.markdown('<div style="font-size:12px;font-weight:600;color:#64748b;margin:10px 0 2px">Licenças e qualidade</div>',
+                unsafe_allow_html=True)
+    cards_lic = [
         ("✅", "Licenças Vigentes", fmt_int(vigentes), "dentro da validade", "green"),
         ("🔴", "Licenças Vencidas", fmt_int(vencidas_ativas), "em processos ativos", "red"),
         ("⏰", "A Vencer (90d)", fmt_int(a_vencer), "atenção próxima", "yellow"),
         ("⚠️", "Registros c/ Crítica", fmt_int(criticos), "empreend. com erro crítico", "red"),
-        ("📍", "Sem Coordenada", fmt_int(sem_coord), "fora do mapa", "gray"),
-        ("⚡", "Potência Total", pot, "MW instalados", "purple"),
     ]
-    for col, (ico, lbl, val, sub, color) in zip(st.columns(8), cards):
+    for col, (ico, lbl, val, sub, color) in zip(st.columns(4), cards_lic):
         col.markdown(kpi(ico, lbl, val, sub, color), unsafe_allow_html=True)
 
     section("Distribuição dos Processos")
@@ -1053,6 +1076,19 @@ elif pagina == "Qualidade dos Dados":
         ("⚠️", "Precisão Baixa", n_baixa, "≤2 casas (~1 km)", "red"),
         ("📌", "Coord. Repetida", n_compart, f"em {n_grupos} grupos", "purple")]):
         col.markdown(kpi(ico, lbl, fmt_int(val), sub, color), unsafe_allow_html=True)
+
+    # Suficiência técnica da coordenada (barragem + casa de força)
+    if "suficiencia_coord" in df_full.columns:
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("**Suficiência técnica da coordenada** — para análise hidrelétrica o ideal é ter "
+                    "**barragem e casa de força**:")
+        sc = df_full["suficiencia_coord"].value_counts()
+        for col, (ico, lbl, key, sub, color) in zip(st.columns(4), [
+            ("✅", "Completa", "completa", "barragem + casa de força", "green"),
+            ("◑", "Só Barragem", "so_barragem", "falta casa de força", "yellow"),
+            ("◐", "Só Casa de Força", "so_casa_forca", "falta barragem", "yellow"),
+            ("➖", "Sem Coordenada", "ausente", "sem ponto", "gray")]):
+            col.markdown(kpi(ico, lbl, fmt_int(int(sc.get(key, 0))), sub, color), unsafe_allow_html=True)
 
     if "precisao_coord" in df_full.columns and (n_baixa or n_media or n_compart):
         st.markdown("<br>", unsafe_allow_html=True)
