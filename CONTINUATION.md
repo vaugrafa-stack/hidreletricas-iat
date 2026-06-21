@@ -362,5 +362,19 @@ Commits: f85f57b (frentes 1-4) + 6bc0d8a (marcador QGIS) + 580487d (UI). Tudo no
   paletas CATEGÓRICAS (situação/tipologia) precisam de muitas cores p/ distinção, então NÃO foram achatadas (achatar
   pioraria). Não houve mudança de paleta (risco cosmético sem ganho claro).
 
-Frente futura: publicar no ArcGIS; opcional incluir Uso/Cobertura MapBiomas via esri-leaflet; minZoom nas camadas
-pesadas. Avaliação técnica essencialmente toda implementada.
+## ✅ CONCLUÍDO — +8 camadas WMS, min_zoom, e status ArcGIS/MapBiomas (2026-06-21, commit 2a962f6)
+- **+8 camadas temáticas** (WMS verificado 200 + GetMap real): 🗺️ Uso e Cobertura da Terra (FBDS 2013),
+  🦋 Áreas Estratégicas de Conservação, 🪶 Terras Indígenas (CAR), 💧 Hidrografia/Rios, 🏔️ Geomorfologia (ZEE),
+  🌾 Aptidão do Solo (ZEE), 📐 Declividade (ZEE), 🌿 RPPN Federais. Total: **16 camadas** em `config.yaml`.
+- **min_zoom: 8** nas 7 pesadas (uso/cobertura, solos, geologia, geomorfologia, aptidão, declividade, hidrografia) —
+  só carregam ao aproximar (mapa estadual rápido). `build_folium_map` passa `min_zoom` (folium renderiza `minZoom`).
+  Caption avisa. Validado: Terras Indígenas → 12 tiles WMS.
+- ⚠️ **MapBiomas** (`Uso_e_Cobertura_MapBiomas_2023`) e **Limites_Municipais**: WMS DESLIGADO (400) no GeoPR — não
+  dá p/ adicionar como WMS. Usei **FBDS Uso e Cobertura 2013** (WMS ok) como camada de uso/cobertura. MapBiomas exigiria
+  integração com o tile service GEE deles (token instável) — fora de escopo.
+- ⚠️ **ArcGIS Online**: `src/publish_arcgis.py` pronto, mas exige credenciais do usuário (`ARCGIS_USERNAME`/`PASSWORD`
+  ou `ARCGIS_TOKEN` no `.env`) + lib `arcgis`. NÃO executável por mim (não posso ter/digitar senha). Passo p/ o usuário:
+  pôr as credenciais no `.env`, `pip install arcgis`, `python src/publish_arcgis.py`.
+
+Auditoria final (2026-06-21): `py_compile` OK; **14 testes passam**; **6 páginas sem exceção**; **0 erros de console**;
+camadas novas renderizam. Tudo no GitHub (vaugrafa-stack/hidreletricas-iat); Streamlit Cloud redeploya automático.
