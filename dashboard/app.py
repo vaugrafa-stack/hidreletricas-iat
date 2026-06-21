@@ -565,13 +565,16 @@ def build_folium_map(_records, signature, cor_por, _config, base_map="🗺️ Ma
             svc = cam.get("service")
             if not svc or svc not in _on:
                 continue
+            _kw = {}
+            if cam.get("min_zoom") is not None:   # camadas pesadas só carregam ao aproximar
+                _kw["min_zoom"] = int(cam["min_zoom"])
             folium.raster_layers.WmsTileLayer(
                 url=f"{_wms_base}/{svc}/MapServer/WMSServer",
                 layers="0", name=cam.get("nome", svc),
                 fmt="image/png", transparent=True, version="1.1.1",
                 overlay=True, control=False, show=True,
                 opacity=float(cam.get("opacidade", 0.7)),
-                attr="GeoPR · IAT/PR",
+                attr="GeoPR · IAT/PR", **_kw,
             ).add_to(m)
 
     cluster = MarkerCluster(name="📍 Empreendimentos").add_to(m)
@@ -843,7 +846,8 @@ elif pagina == "Mapa":
 
         st.markdown("**Camadas temáticas do GeoPR/IAT** · _marque para ligar no mapa_")
         st.caption("Vêm por streaming do servidor do IAT — a 1ª vez pode levar alguns segundos "
-                   "(depois ficam em cache).")
+                   "(depois ficam em cache). As **camadas pesadas** (uso/cobertura, solos, geologia, "
+                   "geomorfologia, aptidão, declividade, hidrografia) só aparecem ao **aproximar o zoom**.")
         wms_on = []
         _cb_cols = st.columns(2)
         for _i, _c in enumerate(_cams):

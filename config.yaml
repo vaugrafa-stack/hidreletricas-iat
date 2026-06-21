@@ -147,9 +147,41 @@ camadas_wms:
   - nome: "🌿 RPPN Estaduais"
     service: "00_PUBLICACOES/iap_rppn_estadual_pr"
     opacidade: 0.70
+  - nome: "🌿 RPPN Federais"
+    service: "00_PUBLICACOES/iap_rppn_federal_pr"
+    opacidade: 0.70
+  - nome: "🦋 Áreas Estratégicas de Conservação"
+    service: "00_PUBLICACOES/Areas_Estrategicas_para_a_Conservacao_e_Restauracao_da_Biodiversidade"
+    opacidade: 0.55
+  - nome: "🪶 Terras Indígenas (CAR)"
+    service: "00_PUBLICACOES/area_indigena_car"
+    opacidade: 0.60
+  # --- Camadas PESADAS: min_zoom para só carregarem ao aproximar (mapa estadual rápido) ---
+  - nome: "🗺️ Uso e Cobertura da Terra (FBDS 2013)"
+    service: "00_PUBLICACOES/fbds_uso_cobertura_2013"
+    opacidade: 0.60
+    min_zoom: 8
   - nome: "⛰️ Solos (EMBRAPA)"
     service: "00_PUBLICACOES/solos_parana_embrapa"
     opacidade: 0.55
+    min_zoom: 8
   - nome: "🪨 Geologia (ZEE)"
     service: "00_PUBLICACOES/zee_geologia"
     opacidade: 0.55
+    min_zoom: 8
+  - nome: "🏔️ Geomorfologia (ZEE)"
+    service: "00_PUBLICACOES/zee_unidades_geomorfologicas"
+    opacidade: 0.55
+    min_zoom: 8
+  - nome: "🌾 Aptidão do Solo (ZEE)"
+    service: "00_PUBLICACOES/zee_aptidao_solo"
+    opacidade: 0.55
+    min_zoom: 8
+  - nome: "📐 Declividade (ZEE)"
+    service: "00_PUBLICACOES/zee_declividade"
+    opacidade: 0.55
+    min_zoom: 8
+  - nome: "💧 Hidrografia / Rios"
+    service: "00_PUBLICACOES/baseinteg_rios_sudersha"
+    opacidade: 0.75
+    min_zoom: 8
