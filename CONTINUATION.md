@@ -351,6 +351,16 @@ marcador vermelho + nome "PCH TESTE OESTE" centralizado. Para regenerar template
 Console Python do QGIS → reparametrizar (extent do mapcanvas + nome 3x + lon 3x + lat 3x).
 Commits: f85f57b (frentes 1-4) + 6bc0d8a (marcador QGIS) + 580487d (UI). Tudo no GitHub; Streamlit Cloud redeploya.
 
+## ✅ CONCLUÍDO — Suficiência da coordenada + cards reagrupados (2026-06-21, commit 5d60db7)
+- **Suficiência técnica da coordenada:** `transform_data.py` mantém `lat_casa_forca`/`lon_casa_forca` (não dropa mais)
+  e gera `tem_coord_barragem`, `tem_coord_casa_forca`, `suficiencia_coord` (completa=732 / so_barragem=854 /
+  so_casa_forca=4 / ausente=8). Ficha (`render_ficha`) mostra coord da casa de força + `suf_label()`; aba Qualidade
+  ganhou seção "Suficiência técnica da coordenada" (4 cards). (Restituição/tomada d'água NÃO existem na fonte.)
+- **Visão Geral:** cards reagrupados em 2 linhas rotuladas — "Base e situação" (Total / Em Análise / Sem Coordenada /
+  Potência) e "Licenças e qualidade" (Vigentes / Vencidas ativas / A Vencer / Registros c/ Crítica).
+- **Paleta:** avaliada — cores SEMÂNTICAS já consistentes (semáforo vermelho/amarelo/verde/cinza + banners); as
+  paletas CATEGÓRICAS (situação/tipologia) precisam de muitas cores p/ distinção, então NÃO foram achatadas (achatar
+  pioraria). Não houve mudança de paleta (risco cosmético sem ganho claro).
+
 Frente futura: publicar no ArcGIS; opcional incluir Uso/Cobertura MapBiomas via esri-leaflet; minZoom nas camadas
-pesadas; itens da avaliação ainda não feitos (coordenada "tecnicamente suficiente" barragem/casa de força/restituição;
-paleta institucional unificada; cards da Visão Geral reagrupados por lógica de decisão).
+pesadas. Avaliação técnica essencialmente toda implementada.
