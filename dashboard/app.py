@@ -1036,10 +1036,10 @@ elif pagina == "Qualidade dos Dados":
         med = df_errors[df_errors["gravidade"] == "MEDIO"]
         bax = df_errors[df_errors["gravidade"] == "BAIXO"]
         for col, (ico, lbl, d, sub, color) in zip(st.columns(4), [
-            ("🔴", "Críticas", crit, "impedem uso", "red"),
-            ("🟡", "Médias", med, "reduzem qualidade", "yellow"),
-            ("⚪", "Baixas", bax, "impacto menor", "gray"),
-            ("📊", "Registros Afetados", df_errors.drop_duplicates("linha_original"), "linhas únicas", "blue")]):
+            ("🔴", "Inconsist. Críticas", crit, "impedem uso", "red"),
+            ("🟡", "Inconsist. Médias", med, "reduzem qualidade", "yellow"),
+            ("⚪", "Inconsist. Baixas", bax, "impacto menor", "gray"),
+            ("📊", "Registros Afetados", df_errors.drop_duplicates("linha_original"), "empreend. com ≥1 inconsist.", "blue")]):
             col.markdown(kpi(ico, lbl, fmt_int(len(d)), sub, color), unsafe_allow_html=True)
 
         st.markdown("<br>", unsafe_allow_html=True)
