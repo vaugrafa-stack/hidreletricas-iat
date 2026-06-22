@@ -6,6 +6,7 @@ import ssl
 import json
 import math
 import base64
+import hashlib
 import subprocess
 import webbrowser
 import urllib.request
@@ -32,6 +33,11 @@ from utils import (
 # servidor não pode abrir programas na máquina de quem acessa. Local (Windows) mantém
 # os botões que abrem QGIS/Google Earth na própria máquina. Força com env IAT_PUBLIC=1.
 PUBLIC_MODE = os.environ.get("IAT_PUBLIC", "").strip() == "1" or not sys.platform.startswith("win")
+
+# Caminhos das logos (também usados na tela de login, antes do cabeçalho)
+ASSETS = Path(__file__).parent / "assets"
+LOGO_PATH = ASSETS / "logos_combinado.png"               # cartão branco → sidebar (fundo escuro)
+LOGO_HEADER_PATH = ASSETS / "logos_combinado_header.png"  # mesclada → cabeçalho (fundo claro)
 
 # ── Configuração da página ────────────────────────────────────────────────────
 st.set_page_config(
@@ -138,6 +144,55 @@ st.markdown("""
   div[data-testid="stHorizontalBlock"] { gap:0.55rem; }
 </style>
 """, unsafe_allow_html=True)
+
+
+# ── Acesso restrito (login) ───────────────────────────────────────────────────
+# Apenas quem tem o usuário e a senha corretos acessa o painel. A senha não fica
+# em texto puro no código — guardamos só o hash SHA-256. Para trocar a senha:
+# gere o novo hash com  python -c "import hashlib;print(hashlib.sha256('NOVA'.encode()).hexdigest())"
+# e cole abaixo em _AUTH_HASH (o usuário fica em _AUTH_USER).
+_AUTH_USER = "DILIO"
+_AUTH_HASH = "e77ee883b634cd3709640535d526ba7d9b7e6121df87abd8021481a9d5fdadae"  # sha256("iat2026")
+
+
+def _exigir_login():
+    if st.session_state.get("_autenticado"):
+        return
+    # Esconde a barra lateral (vazia) enquanto a tela de login estiver ativa.
+    st.markdown(
+        "<style>[data-testid='stSidebar'],"
+        "[data-testid='stSidebarCollapsedControl']{display:none!important}</style>",
+        unsafe_allow_html=True)
+    st.markdown("<div style='height:6vh'></div>", unsafe_allow_html=True)
+    _, meio, _ = st.columns([1, 1.25, 1])
+    with meio:
+        if LOGO_PATH.exists():
+            st.image(str(LOGO_PATH), use_container_width=True)
+        st.markdown(
+            "<div style='text-align:center;margin:10px 0 4px 0'>"
+            "<div style='font-size:19px;font-weight:800;color:#0c2d54'>🔒 Acesso restrito</div>"
+            "<div style='font-size:12.5px;color:#64748b;margin-top:2px'>"
+            "Central de Projetos Hidrelétricos do Estado do Paraná — IAT/PR</div>"
+            "</div>", unsafe_allow_html=True)
+        with st.form("login_form", clear_on_submit=False):
+            usuario = st.text_input("Usuário", placeholder="usuário")
+            senha = st.text_input("Senha", type="password", placeholder="senha")
+            entrar = st.form_submit_button("Entrar", use_container_width=True, type="primary")
+        if entrar:
+            ok = (usuario.strip() == _AUTH_USER and
+                  hashlib.sha256(senha.encode("utf-8")).hexdigest() == _AUTH_HASH)
+            if ok:
+                st.session_state["_autenticado"] = True
+                st.rerun()
+            else:
+                st.error("Usuário ou senha incorretos.")
+        st.markdown(
+            "<div style='text-align:center;font-size:11.5px;color:#94a3b8;margin-top:14px'>"
+            "Acesso exclusivo a usuários autorizados.</div>", unsafe_allow_html=True)
+    st.stop()
+
+
+_exigir_login()
 
 
 # ── Dados ────────────────────────────────────────────────────────────────────
@@ -614,11 +669,6 @@ def build_folium_map(_records, signature, cor_por, _config, base_map="🗺️ Ma
 
 
 # ── Header ────────────────────────────────────────────────────────────────────
-ASSETS = Path(__file__).parent / "assets"
-LOGO_PATH = ASSETS / "logos_combinado.png"               # cartão branco → sidebar (fundo escuro)
-LOGO_HEADER_PATH = ASSETS / "logos_combinado_header.png"  # mesclada → cabeçalho (fundo claro)
-
-
 @st.cache_data(show_spinner=False)
 def _logo_uri():
     p = LOGO_HEADER_PATH if LOGO_HEADER_PATH.exists() else LOGO_PATH
@@ -696,6 +746,10 @@ with st.sidebar:
     f_ano = st.multiselect("Ano do protocolo", [str(a) for a in anos], key="f_ano", placeholder=_PH)
     f_alerta = st.multiselect("Validade da licença", opts("alerta_validade"), key="f_alerta", placeholder=_PH)
     f_precisao = st.multiselect("Precisão da coordenada", opts("precisao_coord"), key="f_precisao", placeholder=_PH)
+    st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
+    if st.button("🚪 Sair", key="logout", use_container_width=True, help="Encerrar a sessão e voltar ao login"):
+        st.session_state["_autenticado"] = False
+        st.rerun()
 
 # Aplicar filtros
 df = apply_filters(df_full.copy(), {
@@ -712,6 +766,12 @@ if f_ano:
 n_filtrado, n_total = len(df), len(df_full)
 
 # Cabeçalho dos filtros: título + contador e o botão "Limpar" lado a lado (compacto)
+def _limpar_filtros():
+    # on_click: roda ANTES dos widgets serem recriados → zera os multiselects de verdade
+    # (apagar a chave depois do widget + st.rerun NÃO limpa o chip de forma confiável)
+    for _k in [k for k in st.session_state.keys() if k.startswith("f_")]:
+        del st.session_state[_k]
+
 _cor_badge = "#1e5aa0" if n_filtrado == n_total else "#16a34a"
 with filtros_header.container():
     st.markdown('<div style="font-size:16px;font-weight:700;color:#fff;margin:2px 0 2px 0">🔍 Filtros</div>',
@@ -724,12 +784,8 @@ with filtros_header.container():
             f'padding:2px 11px;border-radius:11px;white-space:nowrap">{fmt_int(n_filtrado)} de {fmt_int(n_total)}</span>',
             unsafe_allow_html=True)
     with _hc2:
-        if st.button("🔄 Limpar", key="limpar_filtros", use_container_width=True,
-                     help="Limpar todos os filtros"):
-            for _k in list(st.session_state.keys()):
-                if _k.startswith("f_"):
-                    del st.session_state[_k]
-            st.rerun()
+        st.button("🔄 Limpar", key="limpar_filtros", use_container_width=True,
+                  help="Limpar todos os filtros", on_click=_limpar_filtros)
 
 # Chips de filtros ativos
 ativos = []
