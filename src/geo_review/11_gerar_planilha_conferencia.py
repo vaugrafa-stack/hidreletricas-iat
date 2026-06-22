@@ -85,7 +85,8 @@ def main():
                  "STATUS CONF. BARRAGEM", "DESLOC. BARRAGEM (m)"]
     novas_cf = ["LAT CASA FORÇA (CONFERIDA)", "LON CASA FORÇA (CONFERIDA)",
                 "STATUS CONF. CASA FORÇA", "DESLOC. CASA FORÇA (m)"]
-    novas_meta = ["GRAU CONFIANÇA", "FASE VERIFICADA", "OBS CONFERÊNCIA",
+    novas_meta = ["ANEEL FASE", "ANEEL LAT", "ANEEL LON", "ANEEL DIST (m)",
+                  "GRAU CONFIANÇA", "FASE VERIFICADA", "OBS CONFERÊNCIA",
                   "DATA CONFERÊNCIA", "ORIGEM CONFERÊNCIA", "REVISADO"]
 
     # Monta a nova ordem de colunas (lista de tuplas: (origem, chave))
@@ -101,7 +102,8 @@ def main():
             for nc, key in zip(novas_cf, ["lat_casaforca_conf", "lon_casaforca_conf",
                                           "status_casaforca_conf", "_dist_cf"]):
                 plano.append(("cf", key, nc))
-    for nm, key in zip(novas_meta, ["grau_confianca", "fase_verificada",
+    for nm, key in zip(novas_meta, ["siga_fase", "siga_lat", "siga_lon", "siga_dist_m",
+                                    "grau_confianca", "fase_verificada",
                                     "obs_conferencia", "data_conferencia",
                                     "origem_conferencia", "revisado"]):
         plano.append(("meta", key, nm))

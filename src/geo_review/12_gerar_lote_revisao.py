@@ -34,10 +34,11 @@ def main():
     rast = pd.read_csv(RASTREADOR, encoding="utf-8-sig", dtype=str).fillna("")
 
     pend = rast[rast["revisado"].str.lower() != "sim"].copy()
-    pend["_fr"] = pend["fase_provavel"].map(lambda x: FASE_RANK.get(x, 9))
+    # prioridade SIGA: 0=Operação, 1=Construção, 2=não iniciada, 3=sem match. Operação primeiro.
+    pend["_pr"] = pend.get("prioridade", "3").map(lambda x: int(x) if str(x).strip().isdigit() else 9)
     pend["_tr"] = pend["tipo"].map(lambda x: TIPO_RANK.get(str(x).strip().upper(), 9))
     pend["_pot"] = pend["potencia_mw"].map(lambda x: safe_float(x) or 0.0)
-    pend = pend.sort_values(["_fr", "_tr", "_pot"], ascending=[True, True, False])
+    pend = pend.sort_values(["_pr", "_tr", "_pot"], ascending=[True, True, False])
 
     # DEDUPLICAÇÃO: 1 representante por localização física única.
     # Mantém o registro de maior prioridade de cada chave_local.
@@ -45,18 +46,24 @@ def main():
 
     lote = pend.head(n).copy()
 
-    # strings de busca p/ colar na caixa do Google Earth
+    # strings de busca p/ colar na caixa do Google Earth — VÁRIAS listas (fallback)
     def busca(la, lo):
         la, lo = safe_float(la), safe_float(lo)
         return f"{la:.6f},{lo:.6f}" if la is not None and lo is not None else ""
-    lote["busca_barragem"] = [busca(r.nav_lat_barragem, r.nav_lon_barragem)
-                              for r in lote.itertuples()]
-    lote["busca_casaforca"] = [busca(r.nav_lat_casaforca, r.nav_lon_casaforca)
-                               for r in lote.itertuples()]
+    g = lambda r, c: getattr(r, c, "")
+    lote["busca_barragem_siga"] = [busca(g(r, "siga_lat"), g(r, "siga_lon")) for r in lote.itertuples()]
+    lote["busca_barragem_iat"] = [busca(r.lat_barragem_orig, r.lon_barragem_orig) for r in lote.itertuples()]
+    lote["busca_barragem_kmz"] = [busca(r.lat_barragem_kmz, r.lon_barragem_kmz) for r in lote.itertuples()]
+    lote["busca_casaforca"] = [busca(r.lat_casaforca_orig, r.lon_casaforca_orig) for r in lote.itertuples()]
+    # ponto PRIMÁRIO p/ abrir = SIGA (oficial) se houver, senão IAT original, senão KMZ
+    lote["busca_barragem"] = [s or i or k for s, i, k in
+                              zip(lote["busca_barragem_siga"], lote["busca_barragem_iat"], lote["busca_barragem_kmz"])]
 
     cols = ["id_emp", "chave_local", "codigo", "protocolo", "empreendimento", "tipo",
-            "situacao", "fase_provavel", "potencia_mw", "rio", "municipio",
-            "busca_barragem", "busca_casaforca"]
+            "situacao", "prioridade", "siga_match", "siga_fase", "potencia_mw", "rio", "municipio",
+            "busca_barragem", "busca_barragem_siga", "busca_barragem_iat", "busca_barragem_kmz",
+            "busca_casaforca"]
+    cols = [c for c in cols if c in lote.columns]
     lote[cols].to_csv(LOTE_CSV, index=False, encoding="utf-8-sig")
 
     # KML
@@ -106,10 +113,11 @@ def main():
     print(f"Lote gerado: {len(lote)} empreendimentos")
     print(f"  CSV: {LOTE_CSV}")
     print(f"  KML: {LOTE_KML}")
-    print("\n--- LOTE ATUAL ---")
+    print("\n--- LOTE ATUAL (ordenado por prioridade SIGA) ---")
     for r in lote.itertuples():
-        print(f"  #{r.id_emp:<4} {r.tipo:<3} {str(r.empreendimento)[:38]:<38} "
-              f"bar={r.busca_barragem or '—':<22} cf={r.busca_casaforca or '—'}")
+        fase = getattr(r, "siga_fase", "") or "(sem SIGA)"
+        print(f"  #{r.id_emp:<4} {r.tipo:<3} {str(r.empreendimento)[:34]:<34} "
+              f"[{fase[:22]:<22}] bar={r.busca_barragem or '—':<22} cf={r.busca_casaforca or '—'}")
 
 
 if __name__ == "__main__":

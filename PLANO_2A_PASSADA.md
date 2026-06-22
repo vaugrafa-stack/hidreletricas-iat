@@ -1,0 +1,279 @@
+# Plano de 2ª passada — pendências da conferência geoespacial
+
+Total de locais pendentes: **129** (de 726). Conferência principal 100% concluída; estes são refinamentos.
+
+Técnica recomendada por tier abaixo. Coordenada = barragem (nav). Abrir no GEP, aproximar (scroll/zoom) até ~600–900 m e, quando o eixo estiver deslocado do marcador, navegar a jusante.
+
+## TIER A — prio-0 "em operação (ANEEL)": usina CONFIRMADA, falta só fixar eixo/casa de força no zoom → provável Validado  (73)
+
+- **#100 CGH BOA ESPERANÇA** (prio0) — `-24.8280979689152,-51.4545324299159`
+  - CGH Boa Esperança (2º processo): mesma região do #99 (Rio Pedrinho). Em operação (ANEEL) — eixo na 2ª passada.
+- **#1043 PCH BEDIM** (prio0) — `-26.091339,-52.955902`
+  - PCH Bedim: em operação (ANEEL); pequeno curso d'água no marcador, estrutura não nítida — eixo a pinar.
+- **#1072 PCH CANHADÃO** (prio0) — `-25.981334,-52.216405`
+  - PCH Canhadão: em operação (ANEEL); região de Mangueirinha; marcador em área agrícola — eixo no rio a pinar com zoom dedicado.
+- **#109 CGH BOM SUCESSO** (prio0) — `-26.075936,-52.81968`
+  - CGH Bom Sucesso: mesma coord de barragem do CGH São Pedro (#867); em operação (ANEEL); eixo a pinar.
+- **#1105 PCH CAVERNOSO III** (prio0) — `-25.479051,-52.192653`
+  - PCH Cavernoso III: em operação (ANEEL); Rio Cavernoso ao norte; marcador em afluente/área florestal (Virmond/Candói) — eixo a pinar.
+- **#1115 PCH CHAMINÉ** (prio0) — `-25.822501,-48.97187`
+  - PCH Chaminé: em operação (ANEEL), mas coords das listas em área agrícola (Ribeirão da Vossoroca/Tabatinga, Campo Alto) e barragem×casa de fo…
+- **#1158 PCH DO TIGRE** (prio0) — `-26.053412,-52.179134`
+  - PCH Do Tigre: em operação (ANEEL); pequeno curso d'água / área agrícola no marcador, estrutura não nítida — eixo a pinar.
+- **#1165 PCH DOIS FARÓIS** (prio0) — `-26.01843,-51.163133`
+  - PCH Dois Faróis: em operação (ANEEL); área florestal, rio a SE; estrutura não nítida no marcador — eixo a pinar.
+- **#1229 PCH INVERNADINHA** (prio0) — `-26.038754,-52.175427`
+  - PCH Invernadinha: em operação (ANEEL); marcador em área agrícola entre PCH Forquilha e PCH Tigres (Rio Bulia a leste); eixo a pinar com zoom…
+- **#1234 PCH ITAGUAÇU** (prio0) — `-24.694646,-51.519291`
+  - PCH Itaguaçu: em operação (ANEEL); marcador em área florestal, etiqueta de 'barragem' na região mas não no ponto exato — eixo a pinar com zo…
+- **#1241 PCH ITAGUAÇU** (prio0) — `-24.730088,-51.532384`
+  - PCH Itaguaçu: mesma coord do #1237; em operação (ANEEL); eixo a pinar.
+- **#125 CGH CABEÇA DE PATO** (prio0) — `-24.822871,-51.447299`
+  - CGH Cabeça de Pato: mesma área de Boa Esperança (Rio Pedrinho), pequeno córrego sem barramento nítido. Em operação (ANEEL) — eixo na 2ª pass…
+- **#1253 PCH JAGUARIAIVA** (prio0) — `-24.241634,-49.691648`
+  - PCH Jaguariaíva: em operação (ANEEL); marcador na cidade de Jaguariaíva, Rio Jaguariaíva a SE; eixo a pinar (não confundir com CGH Nova Jagu…
+- **#126 CGH CABEÇA DE PATO** (prio0) — `-24.819742,-51.446044`
+  - CGH Cabeça de Pato (2º processo): mesma região do cluster Boa Esperança/Cabeça de Pato já revisado (Rio Pedrinho), pequeno córrego sem barra…
+- **#1270 PCH KM 19** (prio0) — `-25.152572,-50.950218`
+  - PCH KM 19: em operação (ANEEL); marcador na 'Cachoeira Barão do Rio Branco' (região de vários saltos no Rio dos Patos); usina não isolada — …
+- **#130 CGH CACHOEIRA** (prio0) — `-24.93314,-51.432596`
+  - CGH Cachoeira: mesma localização da PCH Paredinha (Rio Cachoeira); barramento identificado ~300 m a montante do marcador (em operação, ANEEL…
+- **#1317 PCH PADRE PONCIANO** (prio0) — `-26.421808,-51.783467`
+  - PCH Padre Ponciano: em operação (ANEEL); pequeno reservatório e estruturas a NW do marcador — eixo a pinar.
+- **#1333 PCH PEDRINHO** (prio0) — `-24.777653,-51.429075`
+  - PCH Pedrinho: marcador no 'Salto Santinho' (etiqueta GEP); em operação (ANEEL); estrutura pequena não resolvida no zoom — eixo a pinar.
+- **#1334 PCH PEDRINHO I** (prio0) — `-24.788188,-51.430484`
+  - PCH Pedrinho I: mesma coordenada do #1333 (Salto Santinho); em operação (ANEEL); eixo a pinar.
+- **#1340 PCH PESQUEIRO** (prio0) — `-24.133288,-49.643929`
+  - PCH Pesqueiro: etiqueta GEP 'Pesqueiro' confirma a região (em operação, ANEEL); marcador em área agrícola, eixo no rio a leste a pinar.
+- **#1355 PCH PITUQUINHAS** (prio0) — `-25.752536,-51.979411`
+  - PCH Pituquinhas: em operação (ANEEL); marcador a leste do Rio Jordão em área florestal; estrutura não resolvida — eixo no Rio Jordão a pinar…
+- **#1410 PCH SALTO NATAL** (prio0) — `-24.087222,-52.300325`
+  - PCH Salto Natal: em operação (ANEEL); região do Parque Estadual do Lago Azul / Rio Mourão; marcador em área agrícola — eixo no rio a pinar.
+- **#1417 PCH SALTO SÃO LUÍS** (prio0) — `-25.797275,-52.505767`
+  - PCH Salto São Luís: coord ANEEL junto à fábrica Araucária Indústria e Comércio de Papéis; em operação (ANEEL); eixo do barramento no rio a l…
+- **#144 CGH CACHOEIRINHA** (prio0) — `-24.165224,-49.891962`
+  - CGH Cachoeirinha: vale florestado com córrego no marcador, sem barramento nítido (imagem escura), área agrícola ao redor. Em operação (ANEEL…
+- **#1491 PCH ZECA GOLIN (FAZENDA DO SALTO)** (prio0) — `-24.637593,-53.102687`
+  - PCH Zeca Golin (Fazenda do Salto): em operação (ANEEL); Rio Piquiri a leste; marcador em área agrícola perto de Anahy — eixo no rio a pinar.
+- **#1556 UHE GUARICANA** (prio0) — `-25.71494,-48.972967`
+  - UHE Guaricana, Serra do Mar (Mata Atlântica densa); imagem em sombra profunda, estrutura não resolvível. Usina antiga em operação — requer i…
+- **#165 CGH CANTINHO DO CÉU** (prio0) — `-24.535006,-53.20394`
+  - CGH Cantinho do Céu: área agrícola/florestal com pequenas estruturas/açudes (Rio Melissa), micro barramento não nítido a 2,3 km. Em operação…
+- **#166 CGH CANTINHO DO CÉU** (prio0) — `-24.535485,-53.20454`
+  - CGH Cantinho do Céu (2º processo): mesma região (Rio Melissa). Em operação (ANEEL) — eixo na 2ª passada.
+- **#175 CGH CAPIVARI** (prio0) — `-24.24157,-49.691659`
+  - CGH Capivari: mesma coord de Jaguariaíva Velha (#400) — área residencial urbana de Jaguariaíva, Rio Jaguariaíva a leste. CGH em operação (AN…
+- **#180 CGH CASALI** (prio0) — `-24.013875,-52.340564`
+  - CGH Casali: em operação (ANEEL); borda de cidade / área agrícola, pequeno curso d'água ao sul; estrutura não nítida — eixo a pinar.
+- **#197 CGH CAVERNOSO** (prio0) — `-25.49229,-52.213378`
+  - CGH Cavernoso: área florestal/agrícola com pequenos açudes e edificações, estrutura no marcador não nítida. Em operação (ANEEL); coord casa …
+- **#233 CGH CONDE** (prio0) — `-24.241593,-49.692179`
+  - CGH Conde: mesma coord da PCH Jaguariaíva (#1253); em operação (ANEEL); marcador na cidade de Jaguariaíva — eixo a pinar.
+- **#255 CGH COTIA** (prio0) — `-25.227885,-48.748914`
+  - CGH Cotia: floresta densa de serra (litoral, elev. 82 m), pequenas clareiras/edificações, sem barramento nítido. Em operação (ANEEL). Co-loc…
+- **#257 CGH COVÓ** (prio0) — `-25.97395,-52.151159`
+  - CGH Covó: em operação (ANEEL); rio confirmado + pequena estrutura no marcador — eixo a pinar.
+- **#263 CGH CRISTALINO** (prio0) — `-24.573616,-51.55725`
+  - CGH Cristalino: em operação (ANEEL); área florestal/agrícola, pequeno curso d'água; estrutura não nítida — eixo a pinar.
+- **#279 CGH DALBA** (prio0) — `-25.281048,-51.877285`
+  - CGH Dalba: área agrícola/florestal, rio a leste, sem barramento nítido no marcador. Em operação (ANEEL) — eixo na 2ª passada.
+- **#290 CGH DO GARCIA** (prio0) — `-24.418476,-53.495609`
+  - CGH Do Garcia: área peri-urbana/agrícola, tanques (aquicultura?) a leste, sem barramento de hidrelétrica nítido. Em operação (ANEEL) — eixo …
+- **#3 CGH  NOVA JAGUARIAÍVA** (prio0) — `-24.281655,-49.695021`
+  - CGH Nova Jaguariaíva: Rio Jaguariaíva turvo no marcador, sem barramento nítido (imagem escura). Em operação (ANEEL) — eixo na 2ª passada. Ca…
+- **#308 CGH ENXADRISTA** (prio0) — `-25.386854,-51.387704`
+  - CGH Enxadrista: área rural/agrícola, pequena estrutura junto ao marcador, sem barramento nítido. Em operação (ANEEL); casa de força -25.3878…
+- **#400 CGH JAGUARIAÍVA VELHA** (prio0) — `-24.255147,-49.703051`
+  - CGH Jaguariaíva Velha: marcador em área residencial urbana de Jaguariaíva, Rio Jaguariaíva a leste (estrutura provável no rio). CGH históric…
+- **#458 CGH LIRA MEIRELES** (prio0) — `-24.86868,-53.192168`
+  - CGH Lira Meireles: mesma coord de Bandiera Ronfim (#68) — Rio Piquirizinho meândrico em área agrícola, barramento não nítido. Em operação (A…
+- **#463 CGH LONTRAS** (prio0) — `-26.363953,-52.150402`
+  - CGH Lontras: área de silvicultura/floresta densa, drenagem com feição clara a SW do marcador, barramento não nítido. Em operação (ANEEL) — e…
+- **#506 CGH MARUMBI** (prio0) — `-25.429316,-48.947378`
+  - CGH Marumbi: em operação (ANEEL); Serra do Mar / Mata Atlântica em sombra profunda, estrutura não resolvível na imagem. Casa de força adjace…
+- **#517 CGH MELISSA** (prio0) — `-24.535833,-53.204171`
+  - CGH Melissa: mesma coord do cluster Cantinho do Céu (#165/#622/#635) — área agrícola/florestal com pequenas estruturas/açudes (Rio Melissa),…
+- **#53 CGH ASSIS CHATEAUBRIAND** (prio0) — `-24.417252,-53.487565`
+  - CGH Assis Chateaubriand: mesma coord de Do Garcia (#290) — área peri-urbana/agrícola, tanques (aquicultura?) a leste, sem barramento de hidr…
+- **#539 CGH NÉVIO ÚRIO** (prio0) — `-26.133313,-53.025205`
+  - CGH Usina de Baixo: em operação (ANEEL); pequeno rio em corredor florestal junto à cidade; estrutura não nítida — eixo a pinar.
+- **#582 CGH PADOVANI** (prio0) — `-24.916648,-53.816651`
+  - CGH Padovani: área agrícola com galpões (aviários), drenagem florestada, sem barramento nítido no marcador. Em operação (ANEEL) — eixo na 2ª…
+- **#598 CGH PALMITAL 3** (prio0) — `-26.021944,-51.162222`
+  - CGH Palmital 3: mesma coord da PCH Dois Faróis (#1165); em operação (ANEEL); eixo a pinar.
+- **#599 CGH PALMITAL DO MEIO** (prio0) — `-26.01765,-51.173339`
+  - CGH Palmital do Meio: rio em vale florestado no marcador, sem barramento nítido. Em operação (ANEEL) — eixo na 2ª passada.
+- **#621 CGH PERBONE** (prio0) — `-24.535612,-53.200747`
+  - CGH Perbone: mesma área do Cantinho do Céu (Rio Melissa), micro barramento não nítido. Em operação (ANEEL) — eixo na 2ª passada.
+- **#634 CGH PINDORAMA** (prio0) — `-24.548546,-53.20863`
+  - CGH Pindorama: mesma área do Cantinho do Céu/Perbone (Rio Melissa). Em operação (ANEEL) — eixo na 2ª passada.
+- **#638 CGH PINHALÃO** (prio0) — `-23.779275,-50.043818`
+  - CGH Pinhalão: área agrícola, pequeno córrego no marcador, edificações próximas (casa de força a 250 m NE, coord -23.776840,-50.039961), barr…
+- **#640 CGH PINHEIROS** (prio0) — `-26.063065,-52.943419`
+  - CGH Pinheiros: área agrícola com galpões (aviários), rio no vale florestado, sem barramento nítido no marcador. Em operação (ANEEL) — eixo n…
+- **#643 CGH PINHO PAST** (prio0) — `-25.323922,-51.508185`
+  - CGH Pinho Past: área agrícola/florestal, complexo industrial a leste (junto à rodovia), sem barramento nítido no marcador. Em operação (ANEE…
+- **#648 CGH PIRÂMIDE** (prio0) — `-26.086111,-53.114036`
+  - CGH Pirâmide: em operação (ANEEL); marcador em área agrícola com pequeno curso d'água (CGH Pirâmide já vista ~1 km com etiqueta 'Fábrica de …
+- **#659 CGH PITANGUI** (prio0) — `-25.035386,-50.102806`
+  - CGH Pitangui: área peri-urbana/industrial (Rio Pitangui, Ponta Grossa), edificação no marcador + complexo a NW, barramento não nítido. Em op…
+- **#68 CGH BANDIERA RONFIM** (prio0) — `-24.853638,-53.183446`
+  - CGH Bandiera Ronfim: Rio Piquirizinho meândrico em área agrícola, pequeno barramento não nítido a 2,5 km. Em operação (ANEEL) — eixo na 2ª p…
+- **#700 CGH RIO BONITO II** (prio0) — `-24.949868,-51.50632`
+  - CGH Rio Bonito II: Rio Bonito (pequeno) em área agrícola, estrutura linear a NE não conclusiva. Em operação (ANEEL) — eixo na 2ª passada. Ca…
+- **#705 CGH RIO BONITO III** (prio0) — `-24.914387,-51.502133`
+  - CGH Rio Bonito III: ponto SIGA (-24.916111,-51.518056) cai em terreno agrícola sem estrutura (coord SIGA suspeita — mesma região do falso po…
+- **#741 CGH SACI** (prio0) — `-25.228296,-48.74978`
+  - CGH Saci: mesma coord do CGH Cotia (#255) — floresta densa de serra (litoral). Em operação (ANEEL). Possível duplicidade/complexo — eixo na …
+- **#773 CGH SALTO PAREDINHA** (prio0) — `-24.947225,-51.423947`
+  - CGH Salto Paredinha: rio turvo no marcador, feição clara/corredeira (salto) a NW, barramento não nítido. Em operação (ANEEL) — eixo na 2ª pa…
+- **#775 CGH SALTO RIO BRANCO** (prio0) — `-25.167643,-50.942284`
+  - CGH Salto Rio Branco: mesma localização da PCH KM 19 (Cachoeira Barão do Rio Branco); em operação (ANEEL) — eixo a pinar.
+- **#788 CGH SANTA CRUZ** (prio0) — `-25.151903,-49.412845`
+  - CGH Santa Cruz: terreno florestal íngreme (Rio Tagaçaba, área de serra), pequena edificação a NE da casa de força; estrutura não conclusiva.…
+- **#804 CGH SANTA RITA** (prio0) — `-24.774801,-51.429645`
+  - CGH Santa Rita: mesma coord da PCH Pedrinho (#1333, Salto Santinho); em operação (ANEEL); eixo a pinar.
+- **#855 CGH SÃO JORGE** (prio0) — `-25.019977,-50.061924`
+  - CGH São Jorge: corpo d'água/reservatório a NE do marcador, área urbana adjacente (Rio Pitangui). Em operação (ANEEL); estrutura pequena não …
+- **#867 CGH SÃO PEDRO** (prio0) — `-26.080379,-52.825876`
+  - CGH São Pedro: em operação (ANEEL); borda de cidade, pequeno reservatório ao sul; estrutura não nítida — eixo a pinar.
+- **#896 CGH TELES DE PROENÇA** (prio0) — `-23.849686,-51.369677`
+  - CGH Teles de Proença: pequeno rio/açude (Rio das Antas) em área agrícola, estrutura não nítida a 4,2 km. Em operação (ANEEL) — eixo na 2ª pa…
+- **#90 CGH BENEDITO** (prio0) — `-24.512833,-51.773702`
+  - CGH Benedito: pequeno córrego em área agrícola, edificações próximas ao marcador (casa de força a 170 m NE), barramento não nítido. Em opera…
+- **#928 CGH USINA DE CIMA** (prio0) — `-26.147296,-53.015376`
+  - CGH Usina de Cima: em operação (ANEEL); pequeno rio/reservatório junto à cidade; estrutura não nítida — eixo a pinar. Co-localizada com MCH …
+- **#965 MCH FUNDO DA GROTA** (prio0) — `-26.142905,-53.02269`
+  - MCH Fundo da Grota: mesma coord do CGH Usina de Cima (#928); em operação (ANEEL); eixo a pinar.
+- **#976 MGH CANTAGALO** (prio0) — `-25.358699,-52.081305`
+  - MGH Cantagalo: em operação (ANEEL); pequena estrutura/edificação no marcador + pequeno reservatório a oeste; barramento de micro porte não c…
+- **#99 CGH BOA ESPERANÇA** (prio0) — `-24.834852,-51.454291`
+  - CGH Boa Esperança: pequeno córrego/terreno agrícola-florestal no ponto SIGA (Rio Pedrinho), sem barramento nítido a ~3,7 km. Em operação (AN…
+- **#2 CACHOEIRA BRAVA** (prio3) — `,`
+  - UHE Guaricana: SEM coordenada na base IAT (bar/cf vazios). UHE Guaricana é real e em operação (Serra do Mar, bacia do Rio Arraial/Guaratuba)…
+
+## TIER B — PCH/UHE (Chopim/Iguaçu) com reservatório confirmado: fixar eixo do barramento → provável Validado  (46)
+
+- **#1100 PCH CAVERNOSO II** (prio0) — `-25.488692,-52.216107`
+  - PCH Cavernoso II: Rio Cavernoso confirmado a NE; marcador em terra ~1,5 km ao sul — eixo a pinar junto ao rio.
+- **#1204 PCH FOZ DO ESTRELA** (prio0) — `-26.093544,-51.877833`
+  - PCH Foz do Estrela: Rio Iratim e Rio da Estrela (confluência) + reservatório confirmados; eixo a pinar (parte da vista mascarada por sobrepo…
+- **#1302 PCH NOVO HORIZONTE** (prio0) — `-25.000561,-48.622751`
+  - PCH Novo Horizonte: Serra do Mar / Mata Atlântica densa (Guaratuba); terreno montanhoso escuro sem estrutura resolvível na imagem — possível…
+- **#1326 PCH PAREDINHA** (prio0) — `-24.936142,-51.429659`
+  - PCH Paredinha: Rio Cachoeira confirmado; barramento identificado ~300 m a montante do marcador (marcador nas corredeiras a jusante). Confirm…
+- **#1444 PCH SÃO LUÍS** (prio0) — `-26.243283,-52.425805`
+  - PCH São Luís: reservatório do Rio Chopim confirmado (PCH TITO é usina vizinha distinta); eixo exato e casa de força a pinar com zoom dedicad…
+- **#1539 UHE GOVERNADOR JOSÉ RICHA (SALTO CAXIAS)** (prio0) — `-25.542931,-53.492591`
+  - Reservatório do Rio Iguaçu (UHE Salto Caxias / Gov. José Richa) confirmado; marcador no espelho d'água ~0,8 km a montante do eixo — requer c…
+- **#1566 UHE SALTO GRANDE (CHOPIM)** (prio0) — `-25.992221,-52.739444`
+  - Marcador sobre o Rio Chopim (UHE Salto Grande); sem estrutura nítida na altitude do fly-to — eixo a pinar com zoom dedicado.
+- **#1569 UHE SALTO OSÓRIO** (prio0) — `-25.537567,-53.008971`
+  - Reach do Rio Iguaçu com confluência do Rio Chopim confirmado (UHE Salto Osório); marcador a leste do rio, em terra — requer correção do pont…
+- **#1588 UHE SÃO JORGE** (prio0) — `-25.754099,-52.920199`
+  - UHE São Jorge: pequeno reservatório visível junto ao marcador, área agrícola; eixo do barramento a confirmar com zoom dedicado.
+- **#1048 PCH BEIRA RIO** (prio1) — `-24.096642,-49.621036`
+  - PCH Beira Rio: coordenada aponta para operação de mineração/extração em Jaguariaíva; sem estrutura de barragem/usina identificável. Revisão …
+- **#1190 PCH FORTALEZA** (prio1) — `-24.48357,-50.373264`
+  - PCH Fortaleza: estradas de acesso convergindo ao rio no marcador (preparação de obra) na imagem de 2024; barragem ainda não erguida. Em cons…
+- **#1431 PCH SÃO JERÔNIMO** (prio1) — `-25.6599809,-51.4443`
+  - PCH São Jerônimo: rio presente no vale em ambos os pontos (barragem e casa de força a ~5 km W), sem obra evidente na imagem de 2023 — PCH em…
+- **#1009 PCH ÁGUA TREMIDA** (prio2) — `-23.971972,-52.947972`
+  - PCH Água Tremida: rio natural no marcador, sem obra. Construção não iniciada (ANEEL).
+- **#1077 PCH CANTU 1** (prio2) — `-24.767953,-52.594226`
+  - PCH Cantu 1: Rio Cantu natural no marcador, sem obra. Construção não iniciada (ANEEL); casa de força -24.767523,-52.602658.
+- **#1092 PCH CARATUVA** (prio2) — `-24.97523,-49.595117`
+  - PCH Caratuva: rio natural com bancos de areia no marcador, sem obra. Construção não iniciada (ANEEL); casa de força -24.972593,-49.590483. C…
+- **#1094 PCH CARATUVA** (prio2) — `-24.975137,-49.595651`
+  - PCH Caratuva (2º registro, = #1092): mesma coord, rio natural sem obra. Construção não iniciada (ANEEL).
+- **#1113 PCH CAVERNOSO VIII** (prio2) — `-25.309934,-51.965518`
+  - PCH Cavernoso VIII: área agrícola/florestal (Rio Cavernoso), sem obra. Construção não iniciada (ANEEL); casa de força -25.307290,-51.977676.
+- **#1119 PCH CIANORTE** (prio2) — `-23.684349,-52.514408`
+  - PCH Cianorte: drenagem florestada entre lavouras no marcador, sem obra. Construção não iniciada (ANEEL); casa de força -23.683508,-52.514214…
+- **#1124 PCH CLAIRTO ZONTA** (prio2) — `-24.303483,-51.347429`
+  - PCH Clairto Zonta: área agrícola/florestal, rio a leste, sem obra. Construção não iniciada (ANEEL); casa de força -24.337763,-51.387233 (~5 …
+- **#1196 PCH FOZ DA ANTA** (prio2) — `-23.853333,-49.957777`
+  - PCH Foz da Anta: rio com corredeira natural no marcador, sem obra. Construção não iniciada (ANEEL); casa de força -23.845861,-49.961356.
+- **#1242 PCH ITAGUAJÉ** (prio2) — `-22.617175,-51.996799`
+  - PCH Itaguajé: rio com corredeira natural no marcador, sem obra. Construção não iniciada (ANEEL); casa de força -22.617647,-51.997594. Tripli…
+- **#1243 PCH ITAGUAJÉ** (prio2) — `-22.615519,-51.998852`
+  - PCH Itaguajé (2º registro, = #1242): mesma coord, corredeira natural sem obra. Construção não iniciada (ANEEL).
+- **#1246 PCH ITAGUAJÉ** (prio2) — `-22.617142,-51.996738`
+  - PCH Itaguajé (3º registro, = #1242): mesma coord, corredeira natural sem obra. Construção não iniciada (ANEEL).
+- **#1371 PCH RIBEIRÃO BONITO** (prio2) — `-24.758336,-49.335346`
+  - PCH Ribeirão Bonito: vale florestado/montanhoso com drenagem, sem obra. Construção não iniciada (ANEEL).
+- **#1451 PCH SÃO SALVADOR** (prio2) — `-25.128599,-53.398799`
+  - PCH São Salvador: área agrícola com drenagem florestada no marcador, sem obra. Construção não iniciada (ANEEL).
+- **#1475 PCH TRINDADE BAIXO JUSANTE** (prio2) — `-26.285096,-52.297755`
+  - PCH Trindade Baixo Jusante: Rio Chopim com salto/corredeira natural a NE, acesso presente, SEM obra — confere com 'Construção não iniciada' …
+- **#1476 PCH TRINDADE BAIXO JUSANTE** (prio2) — `-26.28662,-52.29606`
+  - PCH Trindade Baixo Jusante (2º registro, = #1475): Rio Chopim com salto natural, sem obra. Construção não iniciada (ANEEL).
+- **#1577 UHE SANTA BRANCA** (prio2) — `-24.681103,-50.399164`
+  - Área agrícola com pequeno curso d'água; sem estrutura de barragem visível no enquadramento.
+- **#457 CGH LINHA TRINDADE** (prio2) — `-26.281675,-52.31198`
+  - CGH Linha Trindade: mesma coord de Trindade Baixo Jusante (#1475) — Rio Chopim com salto natural, sem obra. Construção não iniciada (ANEEL);…
+- **#600 CGH PAMPEANA** (prio2) — `-26.304119,-52.342153`
+  - CGH Pampeana: mesma coord de Trindade Baixo Jusante (#1475) — Rio Chopim com salto natural, sem obra. Construção não iniciada (ANEEL).
+- **#997 PCH AÇUNGUI 2E** (prio2) — `-25.13823,-49.575758`
+  - PCH Açungui 2E: vale florestado denso (Rio Açungui), sem obra. Construção não iniciada (ANEEL); casa de força -25.133333,-49.573889.
+- **#999 PCH AÇUNGUI 2F** (prio2) — `-25.157099,-49.559917`
+  - PCH Açungui 2F: vale florestado denso (Rio Açungui), sem obra. Construção não iniciada (ANEEL).
+- **#1002 PCH ÁGATA** (prio3) — `-26.221311,-52.455383`
+  - PCH Ágata: há reservatório/corpo d'água amplo + possível barramento/corredeira a NE no marcador (Chopim) — NÃO conclusivo, sem match SIGA. N…
+- **#1202 PCH FOZ DO CURUCACA** (prio3) — `-26.254967,-52.39295`
+  - PCH Foz do Curucaca: rio confirmado no marcador; sem barramento visível — possível obra não iniciada; eixo e casa de força a pinar.
+- **#1223 PCH GRAFENO** (prio3) — `-26.179829,-52.484262`
+  - PCH Grafeno (cluster de PCHs do Rio Chopim): marcador em terra a leste do rio; eixo provavelmente a NW junto ao Chopim — a pinar.
+- **#1287 PCH MARIPOSA** (prio3) — `-26.20868,-52.44659`
+  - PCH Mariposa: trecho do Chopim (cascata) com corpos d'água a leste, sem barramento nítido no marcador — não conclusivo. Próxima a Ágata (#10…
+- **#1323 PCH PARANHOS MONTANTE** (prio3) — `-25.662729,-53.041104`
+  - PCH Paranhos Montante: Rio Chopim confirmado; marcador em área de meandro/planície sem estrutura de barragem identificável. Revisão anterior…
+- **#1383 PCH SAFIRA** (prio3) — `-26.174646,-52.52682`
+  - PCH Safira: Rio Chopim com corredeiras a montante; marcador na margem sem barramento nítido no ponto — possível PCH a fio d'água ou em proje…
+- **#1481 PCH TURMALINA** (prio3) — `-26.193143,-52.472665`
+  - PCH Turmalina: reservatório claramente visível; marcador na margem (não no eixo) — eixo do barramento a pinar a jusante. Mesmo trecho de res…
+- **#1507 UHE CACHOEIRINHA** (prio3) — `-26.157499,-52.529999`
+  - Reservatório/Rio Chopim confirmado no marcador (UHE Cachoeirinha); eixo e casa de força a pinar com zoom dedicado.
+- **#1563 UHE PARANHOS** (prio3) — `-25.607699,-53.05`
+  - Marcador sobre o Rio Chopim (UHE Paranhos); reach natural com bancos de sedimento, sem barramento nítido na altitude do fly-to — eixo a pina…
+- **#1584 UHE SÃO JOÃO** (prio3) — `-26.194459,-52.469829`
+  - Marcador sobre o rio (reach do Rio Chopim/São João), sem barramento evidente nesta imagem. ATENÇÃO: coordenada de CASA DE FORÇA inconsistent…
+- **#1598 UHE VERÊ** (prio3) — `-25.784699,-52.963799`
+  - UHE Verê: marcador sobre o Rio Chopim, sem barramento visível — provável empreendimento não construído (verificar fase de licença); rio conf…
+- **#228 CGH CLÓVIS VIGANÓ II** (prio3) — `-25.583589,-53.059316`
+  - CGH Clóvis Viganó II (-25.583589,-53.059316): mesmo ponto do #30 — marcador sobre o reservatório represado do Rio Chopim (cascata Viganó), s…
+- **#30 CGH ALCEU VIGANÓ II** (prio3) — `-25.586267,-53.05964`
+  - CGH Alceu Viganó II (-25.586267,-53.059640): marcador sobre o reservatório represado do Rio Chopim (mesma represa do #25 Alceu Viganó I, ~2,…
+- **#993 PCH  RANCHO GRANDE** (prio3) — `-26.318541,-52.165949`
+  - PCH Rancho Grande: Rio Chopim confirmado; marcador em área florestal às margens, sem barramento identificável. Revisão anterior, mesma coord…
+
+## TIER C — prio-3 "sem SIGA" com água/estrutura: DECISÃO VISUAL (risco de CGH construída não descoberta, como #445/#234/#25/#490)  (6)
+
+- **#104 CGH BOLZAN** (prio3) — `-25.43055,-52.335906`
+  - CGH Bolzan: marcador (barragem) em pasto sem estruturas, mas há corpo d'água amplo/represado (teal) ~400m a NW separado por mata — não dá pa…
+- **#153 CGH CAMPO BONITO** (prio3) — `-25.010053,-52.975287`
+  - CGH Campo Bonito (-25.010053,-52.975287): pequena edificação + corpo d'água largo no rio Bandeira, sem barramento claro. Ambíguo — reverific…
+- **#254 CGH COTEGIPE III** (prio3) — `-25.703281,-53.383397`
+  - CGH Cotegipe III: Rio Cotegipe (rotulado) com corpo d'água largo de aspecto represado a jusante e linha clara cruzando o canal junto ao marc…
+- **#627 CGH PIAMIRIM** (prio3) — `-23.889859,-51.44893`
+  - CGH Piamirim: corpo d'água amplo e irregular ao norte do marcador (cor esverdeada, aspecto de represa/açude grande), coord da casa de força …
+- **#756 CGH SALTO COSCHINHAKI** (prio3) — `-24.778269,-51.53984`
+  - CGH Salto Coschinhaki (-24.778269,-51.539840): há estrutura/edificações + pequeno corpo d'água represado no Rio Marrequinha + descarga turva…
+- **#831 CGH SANTO ANTÔNIO II** (prio3) — `-25.788566,-51.194778`
+  - CGH Santo Antônio II: rótulo GEP 'Cachoeira dos Nunes' + corpo d'água turvo de forma irregular e edificação junto ao marcador — não foi poss…
+
+## TIER D — imagem escura/insuficiente: precisa do controle de IMAGEM HISTÓRICA (data alternativa) no GEP  (0)
+
+_(nenhum)_
+
+## TIER E — demais pendências (sem reservatório evidente na obs)  (4)
+
+- **#284 CGH DÁRIO** (prio0) — `-26.091181,-53.121015`
+  - CGH Dário: mesma coord do CGH Pirâmide (#648) — área agrícola/pequeno curso d'água; eixo a pinar (verificar relação entre Dário e Pirâmide).
+- **#685 CGH REINHOFER** (prio0) — `-25.744999,-51.961111`
+  - CGH Reinhofer: mesma coord da PCH Pituquinhas (#1356) — marcador a leste do Rio Jordão; estrutura não isolada — eixo a pinar.
+- **#176 CGH CARATUVA** (prio2) — `-24.654811,-52.683656`
+  - CGH Caratuva (registro com coord do Cantu 1, -24.767861,-52.594056): Rio Cantu natural no marcador, sem obra. Construção não iniciada (ANEEL…
+- **#505 CGH MARREQUINHA II** (prio3) — `-24.777033,-51.534734`
+  - CGH Marrequinha II (-24.777033,-51.534734): córrego do Rio Marrequinha com forte carga de sedimento + terra exposta a NW; sem crista/casa de…

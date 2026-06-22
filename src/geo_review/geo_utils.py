@@ -12,6 +12,7 @@ STATUS_VALIDOS = [
     "Pendente de validação",
     "Sem imagem suficiente",
     "Coordenada inconsistente",
+    "Não construído",
     "Não identificado",
 ]
 

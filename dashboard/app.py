@@ -513,7 +513,8 @@ BASE_MAPS = {
 
 
 def build_folium_map(_records, signature, cor_por, _config, base_map="🗺️ Mapa claro",
-                     show_labels=False, show_bacias=False, wms_on=(), fill_op=0.35, radius=7):
+                     show_labels=False, show_bacias=False, wms_on=(), fill_op=0.35, radius=7,
+                     show_barragem=True, show_casa_forca=False):
     """Mapa Folium controlado por widgets EXTERNOS (abaixo do mapa), não pelo painel do Leaflet.
 
     Só adiciona o mapa base escolhido e as sobreposições marcadas (`wms_on` = conjunto de
@@ -577,20 +578,38 @@ def build_folium_map(_records, signature, cor_por, _config, base_map="🗺️ Ma
                 attr="GeoPR · IAT/PR", **_kw,
             ).add_to(m)
 
-    cluster = MarkerCluster(name="📍 Empreendimentos").add_to(m)
-    for row in _records:
-        if cor_por == "Semáforo":
-            cor = semaforo(row)[2]
-        elif cor_por == "Tipologia":
-            cor = cor_tipologia(row.get("tipologia"), _config)
-        else:
-            cor = cor_situacao(row.get("situacao"), _config)
-        folium.CircleMarker(
-            location=[row["latitude"], row["longitude"]],
-            radius=radius, color=cor, weight=2.4, opacity=0.95,
-            fill=True, fill_color=cor, fill_opacity=fill_op,
-            tooltip=f"{row.get('empreendimento', '?')} · {row.get('situacao', '?')}",
-        ).add_to(cluster)
+    # Pontos da BARRAGEM (ponto principal do empreendimento) — círculo colorido, clicável
+    if show_barragem:
+        cluster = MarkerCluster(name="📍 Barragem").add_to(m)
+        for row in _records:
+            if cor_por == "Semáforo":
+                cor = semaforo(row)[2]
+            elif cor_por == "Tipologia":
+                cor = cor_tipologia(row.get("tipologia"), _config)
+            else:
+                cor = cor_situacao(row.get("situacao"), _config)
+            folium.CircleMarker(
+                location=[row["latitude"], row["longitude"]],
+                radius=radius, color=cor, weight=2.4, opacity=0.95,
+                fill=True, fill_color=cor, fill_opacity=fill_op,
+                tooltip=f"🔵 Barragem · {row.get('empreendimento', '?')} · {row.get('situacao', '?')}",
+            ).add_to(cluster)
+
+    # Pontos da CASA DE FORÇA — marcador 🏭 (laranja), só onde há coordenada de casa de força
+    if show_casa_forca:
+        cluster_cf = MarkerCluster(name="🏭 Casa de força").add_to(m)
+        for row in _records:
+            lcf, ocf = row.get("lat_casa_forca"), row.get("lon_casa_forca")
+            if not (_ok(lcf) and _ok(ocf)):
+                continue
+            folium.Marker(
+                location=[float(lcf), float(ocf)],
+                icon=folium.DivIcon(
+                    icon_size=(22, 22), icon_anchor=(11, 11),
+                    html='<div style="font-size:16px;line-height:1;text-align:center;'
+                         'text-shadow:0 0 3px #fff,0 0 3px #fff">🏭</div>'),
+                tooltip=f"🏭 Casa de força · {row.get('empreendimento', '?')}",
+            ).add_to(cluster_cf)
     return m
 
 
@@ -855,6 +874,11 @@ elif pagina == "Mapa":
                 if st.checkbox(_c.get("nome", _c["service"]), key=_cam_key(_c["service"])):
                     wms_on.append(_c["service"])
 
+        st.markdown("**Estruturas a mostrar**")
+        _e1, _e2 = st.columns(2)
+        show_barragem = _e1.checkbox("🔵 Barragem (ponto principal)", value=True, key="estr_barragem")
+        show_casa_forca = _e2.checkbox("🏭 Casa de força", value=False, key="estr_casa")
+
         st.markdown("**Sobreposições de apoio**")
         _ov1, _ov2 = st.columns(2)
         show_labels = _ov1.checkbox("🏷️ Rótulos (cidades/limites)", key="ov_labels")
@@ -879,9 +903,16 @@ elif pagina == "Mapa":
                 st.markdown(_html, unsafe_allow_html=True)
                 if len(_leg) > 12:
                     st.caption(f"… +{len(_leg) - 12} classes")
+    # Casa de força também clicável: indexa suas coordenadas apontando para o mesmo registro
+    for _r in records:
+        _lcf, _ocf = _r.get("lat_casa_forca"), _r.get("lon_casa_forca")
+        if _ok(_lcf) and _ok(_ocf):
+            point_idx.setdefault((round(float(_lcf), 5), round(float(_ocf), 5)), _r)
+
     m = build_folium_map(records, signature, cor_por, config, base_map=base_map,
                          show_labels=show_labels, show_bacias=show_bacias,
-                         wms_on=wms_on, fill_op=fill_op)
+                         wms_on=wms_on, fill_op=fill_op,
+                         show_barragem=show_barragem, show_casa_forca=show_casa_forca)
 
     map_col, detail_col = st.columns([7, 3])
     with map_col:
