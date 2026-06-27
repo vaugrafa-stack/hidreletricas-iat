@@ -510,6 +510,90 @@ def editor_coordenada(row, key_prefix):
             st.rerun()
 
 
+def editor_contatos(row, key_prefix):
+    """Formulário INTERNO para cadastrar os contatos do empreendimento (empreendedor +
+    consultoria responsável). Grava em data/fiscalizacao/contatos.csv (chave = protocolo).
+    Esses contatos alimentam a ficha, o relatório e as notificações/encaminhamentos."""
+    proto = str(row.get("protocolo") or "").strip()
+    if not proto:
+        return
+    with st.expander("👤 Contatos & consultoria (interno)"):
+        with st.form(f"form_ct_{key_prefix}", clear_on_submit=False):
+            st.markdown("**Empreendedor**")
+            emp_contato = st.text_input("Nome do contato", value=row.get("emp_contato") or "",
+                                        key=f"{key_prefix}_emp_contato")
+            cc1, cc2 = st.columns(2)
+            emp_tel = cc1.text_input("Telefone", value=row.get("emp_telefone") or "", key=f"{key_prefix}_emp_tel")
+            emp_email = cc2.text_input("E-mail", value=row.get("emp_email") or "", key=f"{key_prefix}_emp_email")
+            st.markdown("**Consultoria responsável**")
+            cons = st.text_input("Responsável/empresa", value=row.get("consultoria") or "", key=f"{key_prefix}_cons")
+            cd1, cd2 = st.columns(2)
+            cons_tel = cd1.text_input("Telefone ", value=row.get("cons_telefone") or "", key=f"{key_prefix}_cons_tel")
+            cons_email = cd2.text_input("E-mail ", value=row.get("cons_email") or "", key=f"{key_prefix}_cons_email")
+            obs_ct = st.text_input("Observações", value="", key=f"{key_prefix}_ct_obs")
+            salvar_ct = st.form_submit_button("💾 Salvar contatos", type="primary", use_container_width=True)
+        if salvar_ct:
+            fc.salvar_contato({
+                "protocolo": proto, "empreendimento": row.get("empreendimento"),
+                "cnpj": row.get("cnpj"), "empreendedor": row.get("empreendedor"),
+                "emp_contato": emp_contato, "emp_telefone": emp_tel, "emp_email": emp_email,
+                "consultoria": cons, "cons_telefone": cons_tel, "cons_email": cons_email, "obs": obs_ct,
+            })
+            _load.clear()
+            st.success("Contatos salvos.")
+            st.rerun()
+
+
+def ficha_html(row):
+    """Gera uma ficha do empreendimento em HTML autossuficiente (imprimível como PDF),
+    para encaminhamento de informações. Inclui dados cadastrais, conferência e contatos."""
+    def _v(v):
+        return "—" if v is None or str(v) in ("nan", "NaT", "None", "") else str(v)
+
+    def _lin(k, v):
+        return (f'<tr><td style="color:#64748b;padding:4px 10px;border-bottom:1px solid #eef2f6">{k}</td>'
+                f'<td style="color:#1e293b;font-weight:600;padding:4px 10px;border-bottom:1px solid #eef2f6">{_v(v)}</td></tr>')
+
+    coord = (f"{float(row['latitude']):.6f}, {float(row['longitude']):.6f}"
+             if _ok(row.get("latitude")) and _ok(row.get("longitude")) else "—")
+    contatos = ""
+    if any(_ok(row.get(c)) for c in ["emp_contato", "emp_telefone", "emp_email", "consultoria", "cons_telefone", "cons_email"]):
+        contatos = (
+            '<h3 style="color:#0c2d54;font-size:14px;margin:14px 0 4px">Contatos</h3><table style="width:100%;border-collapse:collapse;font-size:13px">'
+            + _lin("Empreendedor — contato", row.get("emp_contato"))
+            + _lin("Empreendedor — telefone", row.get("emp_telefone"))
+            + _lin("Empreendedor — e-mail", row.get("emp_email"))
+            + _lin("Consultoria responsável", row.get("consultoria"))
+            + _lin("Consultoria — telefone", row.get("cons_telefone"))
+            + _lin("Consultoria — e-mail", row.get("cons_email"))
+            + "</table>")
+    obs = (f'<div style="background:#f8fafc;border-left:3px solid #0c2d54;padding:8px 12px;'
+           f'margin-top:12px;font-size:13px"><b>Conferência:</b> {_v(row.get("obs_conferencia"))}</div>'
+           if _ok(row.get("obs_conferencia")) else "")
+    html = f"""<!doctype html><html lang="pt-br"><head><meta charset="utf-8">
+<title>Ficha — {_v(row.get('empreendimento'))}</title></head>
+<body style="font-family:Segoe UI,Arial,sans-serif;color:#1e293b;max-width:760px;margin:24px auto;padding:0 16px">
+  <div style="border-bottom:3px solid #0c2d54;padding-bottom:8px;margin-bottom:12px">
+    <div style="font-size:12px;color:#64748b;text-transform:uppercase;letter-spacing:.5px">Instituto Água e Terra — IAT/PR · Ficha do empreendimento</div>
+    <h1 style="font-size:22px;color:#0c2d54;margin:4px 0">{_v(row.get('empreendimento'))}</h1>
+  </div>
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    {_lin("Protocolo", row.get('protocolo'))}{_lin("Situação (administrativa)", row.get('situacao'))}
+    {_lin("Situação verificada", row.get('situacao_verificada'))}{_lin("Fase verificada", row.get('fase_verificada'))}
+    {_lin("Tipologia", row.get('tipologia'))}{_lin("Potência", fmt_mw(row.get('potencia')))}
+    {_lin("Tipo de licença", row.get('tipo_licenca'))}{_lin("Nº da licença", row.get('numero_licenca'))}
+    {_lin("Município", row.get('municipio'))}{_lin("Rio", row.get('rio'))}
+    {_lin("Bacia", row.get('bacia_hidrografica'))}{_lin("Empreendedor", row.get('empreendedor'))}
+    {_lin("CNPJ/CPF", row.get('cnpj'))}{_lin("Técnico (IAT)", row.get('tecnico_responsavel'))}
+    {_lin("Protocolo em", fmt_data(row.get('data_protocolo')))}{_lin("Validade", fmt_data(row.get('data_validade')))}
+    {_lin("Coordenada (barragem)", coord)}
+  </table>
+  {contatos}{obs}
+  <div style="margin-top:18px;font-size:11px;color:#94a3b8">Gerado pelo painel Central de Projetos Hidrelétricos do Estado do Paraná — IAT/PR.</div>
+</body></html>"""
+    return html.encode("utf-8")
+
+
 def render_ficha(row, key_prefix):
     """Ficha padronizada do empreendimento (mapa e relatório): semáforo técnico, situação,
     pendências, botões de abrir, coordenada copiável e dados cadastrais."""
@@ -551,6 +635,11 @@ def render_ficha(row, key_prefix):
     st.markdown("<div style='font-weight:600;font-size:12px;color:#334155'>Abrir este local em:</div>",
                 unsafe_allow_html=True)
     open_buttons(row, key_prefix)
+    _safe_nome = re.sub(r"[^A-Za-z0-9]+", "_", str(row.get("empreendimento") or "ficha")).strip("_")[:40] or "ficha"
+    st.download_button("📄 Baixar ficha (HTML → PDF)", ficha_html(row),
+                       file_name=f"ficha_{_safe_nome}.html", mime="text/html",
+                       use_container_width=True, key=f"{key_prefix}_ficha_html",
+                       help="Baixa a ficha; abra e use Imprimir → Salvar como PDF para encaminhar.")
     if _ok(row.get("latitude")) and _ok(row.get("longitude")):
         st.caption("Coordenada (passe o mouse → ícone de copiar):")
         st.code(f"{float(row['latitude']):.6f}, {float(row['longitude']):.6f}", language=None)
@@ -580,8 +669,23 @@ def render_ficha(row, key_prefix):
       {r_("Grau de confiança", row.get('grau_confianca'))}
       {r_("Coordenada (conferência)", row.get('coordenada_status'))}
     </div>""", unsafe_allow_html=True)
+    # Contatos (empreendedor + consultoria) — só mostra o cartão se houver algum dado.
+    _campos_ct = ["emp_contato", "emp_telefone", "emp_email", "consultoria", "cons_telefone", "cons_email"]
+    if any(_ok(row.get(c)) for c in _campos_ct):
+        st.markdown(f"""
+    <div class="detail-card" style="margin-top:6px">
+      <div style="font-weight:700;color:#0c2d54;font-size:12.5px;margin-bottom:4px">👤 Empreendedor</div>
+      {r_("Contato", row.get('emp_contato'))}
+      {r_("Telefone", row.get('emp_telefone'))}
+      {r_("E-mail", row.get('emp_email'))}
+      <div style="font-weight:700;color:#0c2d54;font-size:12.5px;margin:8px 0 4px">🏢 Consultoria responsável</div>
+      {r_("Responsável", row.get('consultoria'))}
+      {r_("Telefone", row.get('cons_telefone'))}
+      {r_("E-mail", row.get('cons_email'))}
+    </div>""", unsafe_allow_html=True)
     if eh_interno():
         editor_coordenada(row, key_prefix)
+        editor_contatos(row, key_prefix)
 
 
 _ESRI_SAT = ("https://server.arcgisonline.com/ArcGIS/rest/services/"
@@ -1070,6 +1174,20 @@ if pagina == "Visão Geral":
             figv.update_traces(texttemplate="%{text:.0f}", textposition="outside", cliponaxis=False)
             cv2.plotly_chart(style_fig(figv, 300).update_layout(showlegend=False, yaxis_title="", xaxis_title=""),
                              use_container_width=True)
+        # Composição por bacia: quanto de cada bacia está validado × não construído × pendente
+        if "bacia_hidrografica" in df.columns:
+            dbac = df[sv != ""].copy()
+            dbac["_sv"] = sv[sv != ""]
+            top_bac = dbac["bacia_hidrografica"].value_counts().head(10).index.tolist()
+            dbac = dbac[dbac["bacia_hidrografica"].isin(top_bac)]
+            comp = (dbac.groupby(["bacia_hidrografica", "_sv"]).size().reset_index(name="n"))
+            figb = px.bar(comp, x="n", y="bacia_hidrografica", color="_sv", orientation="h",
+                          title="Situação Verificada por Bacia (top 10)",
+                          color_discrete_map={k: cor_situacao_verificada(k, config)
+                                              for k in comp["_sv"].unique()})
+            figb.update_layout(barmode="stack", legend_title_text="")
+            st.plotly_chart(style_fig(figb, 360, show_legend=True).update_layout(yaxis_title="", xaxis_title="processos"),
+                            use_container_width=True)
 
     section("Análises Complementares")
     h1, h2, h3, h4 = st.columns(4)
@@ -1478,6 +1596,8 @@ elif pagina == "Relatório Analítico":
     cols_tab = ["semaforo"] + [c for c in ["protocolo", "empreendimento", "empreendedor", "municipio", "rio",
                 "bacia_hidrografica", "tipologia", "potencia", "tipo_licenca", "situacao",
                 "situacao_verificada", "fase_verificada",
+                "emp_contato", "emp_telefone", "emp_email",
+                "consultoria", "cons_telefone", "cons_email",
                 "tecnico_responsavel", "numero_licenca", "data_protocolo", "data_emissao",
                 "data_validade", "alerta_validade",
                 "link_google_earth", "link_gearth", "link_qgis"] if c in df_view.columns]
@@ -1494,6 +1614,12 @@ elif pagina == "Relatório Analítico":
         "situacao": st.column_config.TextColumn("Situação"),
         "situacao_verificada": st.column_config.TextColumn("Situação verificada", help="Resultado da conferência geoespacial"),
         "fase_verificada": st.column_config.TextColumn("Fase verificada"),
+        "emp_contato": st.column_config.TextColumn("Empreend.: contato"),
+        "emp_telefone": st.column_config.TextColumn("Empreend.: telefone"),
+        "emp_email": st.column_config.TextColumn("Empreend.: e-mail"),
+        "consultoria": st.column_config.TextColumn("Consultoria"),
+        "cons_telefone": st.column_config.TextColumn("Consultoria: telefone"),
+        "cons_email": st.column_config.TextColumn("Consultoria: e-mail"),
         "tecnico_responsavel": st.column_config.TextColumn("Técnico responsável"),
         "numero_licenca": st.column_config.TextColumn("Nº da licença"),
         "potencia": st.column_config.NumberColumn("Potência (MW)", format="%.1f"),

@@ -117,6 +117,33 @@ O dashboard abrirá em `http://localhost:8501`.
 
 ---
 
+## Acesso, fiscalização e notificações
+
+O painel tem **login** (padrão `DILIO` / `RAFAIAT`) e um **acesso interno** (senha padrão
+`FISCAL2026`) que libera as funções de **edição**. Em produção, defina os hashes em
+**Secrets do Streamlit Cloud** ou no `.env` (`IAT_AUTH_HASH`, `IAT_INTERNO_HASH`) para a
+senha real não ficar no repositório. As funções de edição ficam **ocultas no modo público**.
+
+Página **🛡️ Fiscalização** (ver também [FISCALIZACAO.md](FISCALIZACAO.md)):
+
+- **Agenda de prazos** — licenças (validade) + condicionantes num só lugar, com semáforo.
+- **Condicionantes** — cadastro por empreendimento (`data/fiscalizacao/condicionantes.csv`):
+  descrição, prazo, periodicidade, status, responsável, evidência.
+- **Notificações** — e-mail ao **empreendedor** e à **consultoria** (com pedido de
+  **confirmação de leitura**) alguns meses antes do vencimento. Envia via SMTP (`.env`) se
+  configurado; senão gera prévia + `.eml` + `mailto`. Agendável: `py src/notificacoes.py --dias 90 --enviar`.
+- **Configuração** — cadastro de **contatos por empreendimento** (`data/fiscalizacao/contatos.csv`):
+  empreendedor (contato/telefone/e-mail) e consultoria responsável (nome/telefone/e-mail). Esses
+  contatos aparecem na ficha, no relatório e são os destinatários das notificações.
+
+Outros recursos do painel: **busca global** por CNPJ/nome; **correção de coordenada** pela ficha
+(grava em `data/processed/correcoes_coordenadas.csv`, aplicada por cima — o `.xlsm` original nunca
+é alterado); **gráficos clicáveis** que filtram tudo; **situação verificada** da conferência
+geoespacial (cor do mapa, filtro, ficha); **exportar a ficha** em HTML (imprimir → PDF) para
+encaminhamento; e **redimensionar** mapa/tabelas.
+
+---
+
 ## Abrir empreendimentos no mapa (Navegador / Google Earth / QGIS)
 
 Cada ponto pode ser aberto de 3 formas, tanto no **menu do ponto no mapa** quanto nas **3 colunas do Relatório Analítico**:

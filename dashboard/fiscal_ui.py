@@ -267,6 +267,12 @@ def _due_items(df_full, janela, grace=30):
     licenças vencidas há anos (ruído de base)."""
     hoje = date.today()
     cache = fc.mapa_emails()
+    cache_ct = fc.mapa_contatos()
+
+    def _dest(proto, cnpj, emp):
+        ds = fc.destinatarios(proto, cnpj, emp, _contatos=cache_ct, _emails=cache)
+        return ds, (ds[0]["email"] if ds else "")
+
     itens = []
     if "data_validade" in df_full.columns:
         enc = df_full["processo_encerrado"] if "processo_encerrado" in df_full.columns else pd.Series(False, index=df_full.index)
@@ -277,13 +283,14 @@ def _due_items(df_full, janela, grace=30):
             dias = (dl - hoje).days
             if dias > janela or dias < -grace:
                 continue
+            ds, prim = _dest(r.get("protocolo"), r.get("cnpj"), r.get("empreendedor"))
             itens.append({
                 "tipo": "licenca", "ref": str(r.get("protocolo") or ""),
                 "empreendimento": r.get("empreendimento"), "protocolo": r.get("protocolo"),
                 "cnpj": str(r.get("cnpj") or ""), "empreendedor": str(r.get("empreendedor") or ""),
                 "numero_licenca": str(r.get("numero_licenca") or ""),
                 "data_alvo": dl, "data_alvo_br": fc.fmt_br(dl), "dias_restantes": dias,
-                "destino": fc.email_do_empreendedor(r.get("cnpj"), r.get("empreendedor"), cache),
+                "destino": prim, "destinos": ds,
             })
     for c in fc.ler_condicionantes():
         if fc.status_efetivo(c, hoje) in ("Atendida", "Dispensada"):
@@ -294,13 +301,14 @@ def _due_items(df_full, janela, grace=30):
         dias = (dl - hoje).days
         if dias > janela or dias < -grace:
             continue
+        ds, prim = _dest(c.get("protocolo"), c.get("cnpj"), c.get("empreendedor"))
         itens.append({
             "tipo": "condicionante", "ref": str(c.get("id") or ""),
             "empreendimento": c.get("empreendimento"), "protocolo": c.get("protocolo"),
             "cnpj": str(c.get("cnpj") or ""), "empreendedor": str(c.get("empreendedor") or ""),
             "numero_licenca": str(c.get("numero_licenca") or ""), "descricao": c.get("descricao"),
             "data_alvo": dl, "data_alvo_br": fc.fmt_br(dl), "dias_restantes": dias,
-            "destino": fc.email_do_empreendedor(c.get("cnpj"), c.get("empreendedor"), cache),
+            "destino": prim, "destinos": ds,
         })
     itens.sort(key=lambda x: x["dias_restantes"])
     return itens
@@ -335,7 +343,8 @@ def _notificacoes(df_full, eh_interno, public_mode):
         df_itens = pd.DataFrame([{
             "Tipo": x["tipo"], "Empreendimento": x["empreendimento"], "Protocolo": x["protocolo"],
             "Prazo": x["data_alvo"], "Dias": x["dias_restantes"],
-            "E-mail": x["destino"] or "— sem cadastro —",
+            "Destinatários": ", ".join(f"{d['papel'][:4]}: {d['email']}" for d in (x.get("destinos") or []))
+                             or "— sem cadastro —",
         } for x in itens])
         st.dataframe(df_itens, use_container_width=True, hide_index=True, height=300,
                      column_config={"Prazo": st.column_config.DateColumn("Prazo", format="DD/MM/YYYY"),
@@ -355,8 +364,23 @@ def _notificacoes(df_full, eh_interno, public_mode):
     assunto = fc.montar_assunto(item["tipo"], item)
     txt, html = fc.montar_corpo(item["tipo"], item, token=token, pixel_base=cfg_pixel)
 
-    destino = st.text_input("E-mail do destinatário", value=item["destino"],
-                            placeholder="empreendedor@exemplo.com", key="notif_dest")
+    # Destinatários: empreendedor + consultoria já cadastrados (ficha/Configuração) + manual
+    sugeridos = item.get("destinos") or []
+    op_labels = [f"{d['papel']}: {d['email']}" + (f" — {d['nome']}" if d.get("nome") else "")
+                 for d in sugeridos]
+    if op_labels:
+        sel_dest = st.multiselect("Destinatários (empreendedor / consultoria)", op_labels,
+                                  default=op_labels, key="notif_dest_sel")
+        emails_sel = [sugeridos[op_labels.index(l)]["email"] for l in sel_dest]
+    else:
+        st.caption("Nenhum contato cadastrado para este empreendimento — informe o e-mail abaixo "
+                   "ou cadastre na ficha / aba Configuração.")
+        emails_sel = []
+    extra = st.text_input("Adicionar e-mail (opcional, separe por vírgula)",
+                          key="notif_dest_extra", placeholder="outro@exemplo.com")
+    if extra.strip():
+        emails_sel += [e.strip() for e in extra.replace(";", ",").split(",") if e.strip()]
+    destino = ", ".join(dict.fromkeys(emails_sel))  # dedup preservando ordem
     st.text_input("Assunto", value=assunto, key="notif_assunto", disabled=True)
     with st.expander("👁️ Prévia do e-mail", expanded=True):
         st.markdown(html, unsafe_allow_html=True)
@@ -425,29 +449,38 @@ def _notificacoes(df_full, eh_interno, public_mode):
 # ABA — CONFIGURAÇÃO
 # ══════════════════════════════════════════════════════════════════════════════
 def _configuracao(eh_interno):
-    _section("📧 Contatos dos empreendedores (e-mail)")
-    st.caption("A planilha original não traz e-mail. Cadastre aqui o e-mail por **CNPJ** ou por "
-               "**nome do empreendedor** — as notificações usam este cadastro para encontrar o destinatário.")
-    emails = fc.ler_emails()
-    df_emails = pd.DataFrame(emails) if emails else pd.DataFrame(columns=fc.EMAILS_COLS)
+    _section("👥 Contatos por empreendimento (empreendedor + consultoria)")
+    st.caption("A planilha original não traz telefone/e-mail. Cadastre aqui, **por protocolo**, os dados do "
+               "**empreendedor** e da **consultoria responsável**. Esses contatos aparecem na ficha, no relatório "
+               "e são os **destinatários** das notificações/encaminhamentos. (Também dá para editar empreendimento "
+               "a empreendimento na **ficha** do ponto.)")
+    contatos = fc.ler_contatos()
+    df_ct = pd.DataFrame(contatos) if contatos else pd.DataFrame(columns=fc.CONTATOS_COLS)
 
+    _ccfg = {
+        "protocolo": st.column_config.TextColumn("Protocolo", help="Chave — copie da aba Relatório"),
+        "empreendimento": st.column_config.TextColumn("Empreendimento"),
+        "cnpj": st.column_config.TextColumn("CNPJ"),
+        "empreendedor": st.column_config.TextColumn("Empreendedor"),
+        "emp_contato": st.column_config.TextColumn("Empreend.: contato"),
+        "emp_telefone": st.column_config.TextColumn("Empreend.: telefone"),
+        "emp_email": st.column_config.TextColumn("Empreend.: e-mail"),
+        "consultoria": st.column_config.TextColumn("Consultoria"),
+        "cons_telefone": st.column_config.TextColumn("Consultoria: telefone"),
+        "cons_email": st.column_config.TextColumn("Consultoria: e-mail"),
+        "obs": st.column_config.TextColumn("Obs"),
+    }
     if eh_interno:
-        edt = st.data_editor(df_emails, num_rows="dynamic", use_container_width=True, height=280,
-                             key="emails_editor",
-                             column_config={
-                                 "cnpj": st.column_config.TextColumn("CNPJ"),
-                                 "empreendedor": st.column_config.TextColumn("Empreendedor"),
-                                 "email": st.column_config.TextColumn("E-mail"),
-                                 "contato": st.column_config.TextColumn("Contato"),
-                                 "obs": st.column_config.TextColumn("Obs"),
-                             })
+        edt = st.data_editor(df_ct, num_rows="dynamic", use_container_width=True, height=300,
+                             key="contatos_editor", column_config=_ccfg)
         if st.button("💾 Salvar contatos", type="primary"):
-            linhas = edt.fillna("").to_dict("records")
-            fc.escrever_tabela(fc.EMAILS_PATH, fc.EMAILS_COLS, linhas)
+            linhas = [r for r in edt.fillna("").to_dict("records")
+                      if str(r.get("protocolo") or "").strip()]
+            fc.escrever_tabela(fc.CONTATOS_PATH, fc.CONTATOS_COLS, linhas)
             st.success(f"{len(linhas)} contato(s) salvos.")
             st.rerun()
     else:
-        st.dataframe(df_emails, use_container_width=True, hide_index=True, height=240)
+        st.dataframe(df_ct, use_container_width=True, hide_index=True, height=260)
         st.caption("🔒 Edição restrita ao acesso interno.")
 
     st.markdown("---")

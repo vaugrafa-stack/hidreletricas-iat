@@ -32,7 +32,8 @@ FISCAL_DIR = BASE_DIR / "data" / "fiscalizacao"
 PROCESSED_DIR = BASE_DIR / "data" / "processed"
 
 COND_PATH = FISCAL_DIR / "condicionantes.csv"
-EMAILS_PATH = FISCAL_DIR / "emails_empreendedores.csv"
+EMAILS_PATH = FISCAL_DIR / "emails_empreendedores.csv"        # legado (lookup por CNPJ)
+CONTATOS_PATH = FISCAL_DIR / "contatos.csv"                   # por protocolo: empreendedor + consultoria
 NOTIF_LOG_PATH = FISCAL_DIR / "notificacoes_log.csv"
 CORRECOES_PATH = PROCESSED_DIR / "correcoes_coordenadas.csv"
 
@@ -43,6 +44,13 @@ COND_COLS = [
     "data_atendimento", "responsavel", "evidencia", "obs", "criado_em", "atualizado_em",
 ]
 EMAILS_COLS = ["cnpj", "empreendedor", "email", "contato", "obs"]
+# Contatos por EMPREENDIMENTO (chave = protocolo): dados do empreendedor + da consultoria
+# responsável. Usado na ficha, no relatório e como destinatário das notificações/encaminhamentos.
+CONTATOS_COLS = [
+    "protocolo", "empreendimento", "cnpj", "empreendedor",
+    "emp_contato", "emp_telefone", "emp_email",
+    "consultoria", "cons_telefone", "cons_email", "obs",
+]
 NOTIF_COLS = [
     "token", "tipo", "ref", "empreendimento", "cnpj", "destino", "assunto",
     "data_alvo", "dias_restantes", "metodo", "status", "gerado_em", "enviado_em", "lido_em",
@@ -197,6 +205,62 @@ def email_do_empreendedor(cnpj=None, empreendedor=None, _cache=None) -> str:
     if nome and ("nome", nome) in m:
         return (m[("nome", nome)].get("email") or "").strip()
     return ""
+
+
+# ── Contatos por empreendimento (empreendedor + consultoria responsável) ──────
+def ler_contatos() -> list[dict]:
+    return ler_tabela(CONTATOS_PATH, CONTATOS_COLS)
+
+
+def mapa_contatos() -> dict:
+    """Indexa o registro de contatos por protocolo (str)."""
+    return {str(r.get("protocolo") or "").strip(): r
+            for r in ler_contatos() if str(r.get("protocolo") or "").strip()}
+
+
+def contato_do_protocolo(protocolo, _cache=None) -> dict:
+    m = _cache if _cache is not None else mapa_contatos()
+    return m.get(str(protocolo or "").strip(), {})
+
+
+def salvar_contato(reg: dict) -> dict:
+    """Insere/atualiza o contato de um empreendimento (chave = protocolo)."""
+    linhas = ler_contatos()
+    proto = str(reg.get("protocolo") or "").strip()
+    novo = {c: (reg.get(c) or "") for c in CONTATOS_COLS}
+    achou = False
+    for i, r in enumerate(linhas):
+        if str(r.get("protocolo") or "").strip() == proto and proto:
+            linhas[i] = novo
+            achou = True
+            break
+    if not achou:
+        linhas.append(novo)
+    escrever_tabela(CONTATOS_PATH, CONTATOS_COLS, linhas)
+    return novo
+
+
+def destinatarios(protocolo=None, cnpj=None, empreendedor=None,
+                  _contatos=None, _emails=None) -> list[dict]:
+    """Lista de destinatários para notificação/encaminhamento de um empreendimento.
+
+    Retorna [{papel, nome, email}] do EMPREENDEDOR e da CONSULTORIA, a partir do
+    `contatos.csv` (por protocolo). Cai para o `emails_empreendedores.csv` (por CNPJ)
+    se o empreendedor não tiver e-mail no contato. Só inclui quem tem e-mail."""
+    c = contato_do_protocolo(protocolo, _contatos) if protocolo else {}
+    out = []
+    emp_email = (c.get("emp_email") or "").strip()
+    if not emp_email:
+        emp_email = email_do_empreendedor(cnpj, empreendedor, _emails)
+    if emp_email:
+        out.append({"papel": "Empreendedor",
+                    "nome": (c.get("emp_contato") or c.get("empreendedor") or empreendedor or "").strip(),
+                    "email": emp_email})
+    cons_email = (c.get("cons_email") or "").strip()
+    if cons_email:
+        out.append({"papel": "Consultoria",
+                    "nome": (c.get("consultoria") or "").strip(), "email": cons_email})
+    return out
 
 
 # ── Correções de coordenada (planilha separada — nunca o .xlsm) ───────────────

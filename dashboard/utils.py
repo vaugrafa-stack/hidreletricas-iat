@@ -30,6 +30,8 @@ def load_data() -> tuple:
     df = apply_correcoes(df)
     # Conferência geoespacial: situação/fase/grau/observação VERIFICADOS (merge por protocolo).
     df = merge_conferencia(df)
+    # Contatos do empreendedor + consultoria responsável (merge por protocolo).
+    df = merge_contatos(df)
 
     for dc in ["data_protocolo", "data_emissao", "data_validade"]:
         if dc in df.columns:
@@ -199,6 +201,34 @@ def merge_conferencia(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     df["_proto_key"] = df["protocolo"].astype(str).str.strip()
     df = df.merge(conf, on="_proto_key", how="left").drop(columns=["_proto_key"])
+    return df
+
+
+def merge_contatos(df: pd.DataFrame) -> pd.DataFrame:
+    """Mescla os contatos (empreendedor + consultoria responsável) por protocolo.
+
+    Lê `data/fiscalizacao/contatos.csv` e adiciona as colunas emp_contato/emp_telefone/
+    emp_email e consultoria/cons_telefone/cons_email para exibição na ficha e no relatório
+    e para uso como destinatários de notificações. Silencioso se o arquivo não existir."""
+    path = BASE_DIR / "data" / "fiscalizacao" / "contatos.csv"
+    if not path.exists() or "protocolo" not in df.columns:
+        return df
+    try:
+        ct = pd.read_csv(path, encoding="utf-8-sig", dtype=str)
+    except (OSError, ValueError):
+        return df
+    if ct.empty or "protocolo" not in ct.columns:
+        return df
+    cols = [c for c in ["emp_contato", "emp_telefone", "emp_email",
+                        "consultoria", "cons_telefone", "cons_email"] if c in ct.columns]
+    if not cols:
+        return df
+    ct = ct[["protocolo"] + cols].copy()
+    ct["_proto_key"] = ct["protocolo"].astype(str).str.strip()
+    ct = ct.drop(columns=["protocolo"]).drop_duplicates("_proto_key", keep="last")
+    df = df.copy()
+    df["_proto_key"] = df["protocolo"].astype(str).str.strip()
+    df = df.merge(ct, on="_proto_key", how="left").drop(columns=["_proto_key"])
     return df
 
 

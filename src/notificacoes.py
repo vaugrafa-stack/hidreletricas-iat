@@ -47,6 +47,12 @@ def _carregar_processos() -> pd.DataFrame:
 def _coletar(df: pd.DataFrame, dias: int, grace: int = 30) -> list[dict]:
     hoje = date.today()
     cache = fc.mapa_emails()
+    cache_ct = fc.mapa_contatos()
+
+    def _dest(proto, cnpj, emp):
+        ds = fc.destinatarios(proto, cnpj, emp, _contatos=cache_ct, _emails=cache)
+        return ", ".join(dict.fromkeys(d["email"] for d in ds))
+
     itens = []
     if "data_validade" in df.columns:
         enc = df["processo_encerrado"] if "processo_encerrado" in df.columns else pd.Series(False, index=df.index)
@@ -62,7 +68,7 @@ def _coletar(df: pd.DataFrame, dias: int, grace: int = 30) -> list[dict]:
                 "empreendimento": r.get("empreendimento"), "protocolo": r.get("protocolo"),
                 "cnpj": str(r.get("cnpj") or ""), "numero_licenca": str(r.get("numero_licenca") or ""),
                 "data_alvo": dl, "data_alvo_br": fc.fmt_br(dl), "dias_restantes": d,
-                "destino": fc.email_do_empreendedor(r.get("cnpj"), r.get("empreendedor"), cache),
+                "destino": _dest(r.get("protocolo"), r.get("cnpj"), r.get("empreendedor")),
             })
     for c in fc.ler_condicionantes():
         if fc.status_efetivo(c, hoje) in ("Atendida", "Dispensada"):
@@ -75,7 +81,7 @@ def _coletar(df: pd.DataFrame, dias: int, grace: int = 30) -> list[dict]:
             "empreendimento": c.get("empreendimento"), "protocolo": c.get("protocolo"),
             "cnpj": str(c.get("cnpj") or ""), "descricao": c.get("descricao"),
             "data_alvo": dl, "data_alvo_br": fc.fmt_br(dl), "dias_restantes": (dl - hoje).days,
-            "destino": fc.email_do_empreendedor(c.get("cnpj"), c.get("empreendedor"), cache),
+            "destino": _dest(c.get("protocolo"), c.get("cnpj"), c.get("empreendedor")),
         })
     itens.sort(key=lambda x: x["dias_restantes"])
     return itens
