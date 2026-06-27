@@ -28,6 +28,8 @@ def load_data() -> tuple:
 
     # Correções manuais de coordenada (planilha SEPARADA — o .xlsm nunca é alterado).
     df = apply_correcoes(df)
+    # Conferência geoespacial: situação/fase/grau/observação VERIFICADOS (merge por protocolo).
+    df = merge_conferencia(df)
 
     for dc in ["data_protocolo", "data_emissao", "data_validade"]:
         if dc in df.columns:
@@ -73,6 +75,37 @@ def cor_tipologia(tipologia: str, config: dict) -> str:
     if tipologia is None:
         return cores.get("DEFAULT", "#64748b")
     return cores.get(str(tipologia).upper().strip(), cores.get("DEFAULT", "#64748b"))
+
+
+# Cores da SITUAÇÃO VERIFICADA (conferência geoespacial). Fallback embutido caso o
+# config.yaml não traga `cores_situacao_verificada`.
+_CORES_SIT_VERIF_FALLBACK = {
+    "VALIDADO": "#22c55e", "CORRIGIDO": "#3b82f6",
+    "PENDENTE DE VALIDACAO": "#f59e0b", "PENDENTE": "#f59e0b",
+    "SEM IMAGEM SUFICIENTE": "#f97316", "NAO IDENTIFICADO": "#ef4444",
+    "NAO CONSTRUIDO": "#94a3b8", "DEFAULT": "#64748b",
+}
+
+
+def _sem_acento(s: str) -> str:
+    tab = str.maketrans("ÁÀÂÃÄÉÈÊËÍÌÎÏÓÒÔÕÖÚÙÛÜÇ", "AAAAAEEEEIIIIOOOOOUUUUC")
+    return str(s).upper().strip().translate(tab)
+
+
+def cor_situacao_verificada(valor, config: dict) -> str:
+    cores = config.get("cores_situacao_verificada", _CORES_SIT_VERIF_FALLBACK)
+    if valor is None or str(valor) in ("nan", "None", ""):
+        return cores.get("DEFAULT", "#64748b")
+    chave = _sem_acento(valor)
+    for k, v in cores.items():
+        if _sem_acento(k) == chave:
+            return v
+    # casamento parcial tolerante (ex.: "Pendente de validação")
+    for k, v in cores.items():
+        kk = _sem_acento(k)
+        if kk != "DEFAULT" and (kk in chave or chave in kk):
+            return v
+    return cores.get("DEFAULT", "#64748b")
 
 
 def apply_filters(df: pd.DataFrame, filters: dict) -> pd.DataFrame:
@@ -133,6 +166,40 @@ def style_fig(fig, height=300, show_legend=False):
         hoverlabel=dict(font_family=PLOT_FONT, font_size=12, bgcolor="white"),
     )
     return fig
+
+
+def merge_conferencia(df: pd.DataFrame) -> pd.DataFrame:
+    """Mescla a conferência geoespacial (situação/fase/grau/observação VERIFICADOS) por protocolo.
+
+    Lê `data/processed/conferencia_para_dashboard.csv` (gerado pela rotina de conferência).
+    Não altera coordenadas — isso é feito por `apply_correcoes`; aqui só ENRIQUECE o df com
+    colunas de status verificado para colorir o mapa, filtrar e exibir na ficha. Silencioso
+    se o arquivo não existir."""
+    path = PROCESSED / "conferencia_para_dashboard.csv"
+    if not path.exists() or "protocolo" not in df.columns:
+        return df
+    try:
+        conf = pd.read_csv(path, encoding="utf-8-sig", dtype=str)
+    except (OSError, ValueError):
+        return df
+    if conf.empty or "protocolo" not in conf.columns:
+        return df
+    ren = {
+        "status_barragem": "situacao_verificada",
+        "status_casa_forca": "status_casa_forca_verif",
+        "fase_verificada": "fase_verificada",
+        "grau_confianca": "grau_confianca",
+        "observacao": "obs_conferencia",
+        "coordenada_status": "coordenada_status",
+    }
+    keep = ["protocolo"] + [c for c in ren if c in conf.columns]
+    conf = conf[keep].rename(columns=ren)
+    conf["_proto_key"] = conf["protocolo"].astype(str).str.strip()
+    conf = conf.drop(columns=["protocolo"]).drop_duplicates("_proto_key", keep="first")
+    df = df.copy()
+    df["_proto_key"] = df["protocolo"].astype(str).str.strip()
+    df = df.merge(conf, on="_proto_key", how="left").drop(columns=["_proto_key"])
+    return df
 
 
 def apply_correcoes(df: pd.DataFrame) -> pd.DataFrame:

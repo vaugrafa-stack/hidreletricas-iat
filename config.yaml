@@ -97,6 +97,16 @@ cores_tipologia:
   MCH:  "#f97316"
   DEFAULT: "#64748b"
 
+# --- Paleta da SITUAÇÃO VERIFICADA (conferência geoespacial) ---
+cores_situacao_verificada:
+  "Validado":               "#22c55e"
+  "Corrigido":              "#3b82f6"
+  "Pendente de validação":  "#f59e0b"
+  "Sem imagem suficiente":  "#f97316"
+  "Não identificado":       "#ef4444"
+  "Não construído":         "#94a3b8"
+  "DEFAULT":                "#64748b"
+
 # --- Publicação ArcGIS ---
 arcgis:
   dry_run: true

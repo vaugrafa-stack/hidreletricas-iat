@@ -1,7 +1,7 @@
 # Dependências do DASHBOARD (usadas no deploy — ex.: Streamlit Community Cloud).
 # Mantido enxuto de propósito: NÃO inclua 'arcgis' aqui (pacote gigante que estoura
 # o build da nuvem). As libs do pipeline/ETL ficam em requirements-pipeline.txt.
-# rebuild bump: 2026-06-26 (módulo Fiscalização — força restart limpo de módulos no Cloud)
+# rebuild bump: 2026-06-27 (conferência geoespacial — força restart limpo de módulos no Cloud)
 streamlit>=1.35.0
 streamlit-folium>=0.20.0
 folium>=0.17.0

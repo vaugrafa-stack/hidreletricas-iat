@@ -26,7 +26,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from utils import (
     load_config, load_data, load_errors, cor_situacao, cor_tipologia,
     apply_filters, fmt_int, fmt_mw, fmt_data, style_fig, build_point_index,
-    representativos,
+    representativos, cor_situacao_verificada,
 )
 import fiscal_core as fc
 import fiscal_ui
@@ -509,12 +509,22 @@ def render_ficha(row, key_prefix):
         v = "—" if v is None or str(v) in ("nan", "NaT", "None", "") else v
         return f'<div class="detail-row"><span class="k">{k}</span><span class="v">{v}</span></div>'
 
+    sv = row.get("situacao_verificada")
+    verif_html = ""
+    if _ok(sv):
+        verif_html = (f'<span class="tag" style="background:{cor_situacao_verificada(sv, config)}">'
+                      f'✔ {sv}</span>')
     st.markdown(
         f'<div style="font-weight:700;color:#0c2d54;font-size:16px;line-height:1.2">{emoji} {row.get("empreendimento", "—")}</div>'
         f'<div style="margin:4px 0 6px 0">'
         f'<span class="tag" style="background:{sem_cor}">Semáforo: {sem_lbl}</span> '
-        f'<span class="tag" style="background:{cor}">{row.get("situacao", "—")}</span> {alert_html}</div>',
+        f'<span class="tag" style="background:{cor}">{row.get("situacao", "—")}</span> {alert_html} {verif_html}</div>',
         unsafe_allow_html=True)
+    if _ok(row.get("obs_conferencia")):
+        st.markdown(
+            f'<div style="background:#f8fafc;border-left:3px solid #0c2d54;border-radius:6px;'
+            f'padding:7px 11px;margin:2px 0 6px 0;font-size:11.5px;color:#334155">'
+            f'<b>🔎 Conferência:</b> {row.get("obs_conferencia")}</div>', unsafe_allow_html=True)
     if nc or nm or nb:
         st.markdown(
             f'<div style="font-size:11.5px;color:#475569;margin-bottom:6px">Pendências: '
@@ -548,6 +558,10 @@ def render_ficha(row, key_prefix):
       {r_("Suficiência coord.", suf_label(row.get('suficiencia_coord')))}
       {r_("Precisão coord.", prec_label(row.get('precisao_coord'), row.get('n_decimais_coord')))}
       {r_("Fonte coord.", row.get('fonte_coord'))}
+      {r_("Situação verificada", row.get('situacao_verificada'))}
+      {r_("Fase verificada", row.get('fase_verificada'))}
+      {r_("Grau de confiança", row.get('grau_confianca'))}
+      {r_("Coordenada (conferência)", row.get('coordenada_status'))}
     </div>""", unsafe_allow_html=True)
     if eh_interno():
         editor_coordenada(row, key_prefix)
@@ -699,6 +713,8 @@ def build_folium_map(_records, signature, cor_por, _config, base_map="🗺️ Ma
                 cor = semaforo(row)[2]
             elif cor_por == "Tipologia":
                 cor = cor_tipologia(row.get("tipologia"), _config)
+            elif cor_por == "Situação verificada":
+                cor = cor_situacao_verificada(row.get("situacao_verificada"), _config)
             else:
                 cor = cor_situacao(row.get("situacao"), _config)
             folium.CircleMarker(
@@ -806,6 +822,8 @@ with st.sidebar:
                             placeholder="nome, CNPJ, empreendedor, protocolo…")
     f_tipologia = st.multiselect("Tipologia", opts("tipologia"), key="f_tipologia", placeholder=_PH)
     f_situacao = st.multiselect("Situação", opts("situacao"), key="f_situacao", placeholder=_PH)
+    f_sit_verif = st.multiselect("Situação verificada (conferência)", opts("situacao_verificada"),
+                                 key="f_sit_verif", placeholder=_PH) if "situacao_verificada" in df_full.columns else []
     f_licenca = st.multiselect("Tipo de licença", opts("tipo_licenca"), key="f_licenca", placeholder=_PH)
     f_bacia = st.multiselect("Bacia hidrográfica", opts("bacia_hidrografica"), key="f_bacia", placeholder=_PH)
     f_tecnico = st.multiselect("Técnico responsável", opts("tecnico_responsavel"), key="f_tecnico", placeholder=_PH)
@@ -853,7 +871,7 @@ with st.sidebar:
 df = apply_filters(df_full.copy(), {
     "tipologia": f_tipologia, "situacao": f_situacao, "tipo_licenca": f_licenca,
     "bacia_hidrografica": f_bacia, "tecnico_responsavel": f_tecnico, "alerta_validade": f_alerta,
-    "precisao_coord": f_precisao,
+    "precisao_coord": f_precisao, "situacao_verificada": f_sit_verif,
 })
 if f_municipio:
     df = df[df["municipio"].fillna("").apply(lambda x: any(m in x for m in f_municipio))]
@@ -908,7 +926,8 @@ with filtros_header.container():
 ativos = []
 if f_busca and f_busca.strip():
     ativos.append(f'<span class="chip"><b>Busca:</b> {f_busca.strip()}</span>')
-for nome, vals in [("Tipologia", f_tipologia), ("Situação", f_situacao), ("Licença", f_licenca),
+for nome, vals in [("Tipologia", f_tipologia), ("Situação", f_situacao),
+                   ("Situação verificada", f_sit_verif), ("Licença", f_licenca),
                    ("Bacia", f_bacia), ("Técnico", f_tecnico), ("Município", f_municipio),
                    ("Ano", f_ano), ("Validade", f_alerta), ("Precisão", f_precisao)]:
     if vals:
@@ -1035,19 +1054,30 @@ if pagina == "Visão Geral":
 # ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "Mapa":
     section("Mapa de Empreendimentos")
-    c_cor, c_tr = st.columns([1.1, 2])
+    _tem_verif = "situacao_verificada" in df.columns
+    _cor_ops = ["Situação", "Tipologia", "Semáforo"] + (["Situação verificada"] if _tem_verif else [])
+    c_cor, c_tr = st.columns([1.4, 2])
     with c_cor:
-        cor_por = st.radio("Colorir pontos por:", ["Situação", "Tipologia", "Semáforo"], horizontal=True)
+        cor_por = st.radio("Colorir pontos por:", _cor_ops, horizontal=True,
+                           index=(len(_cor_ops) - 1) if _tem_verif else 0)
     with c_tr:
         transp = st.slider("Transparência dos pontos (%) — aumente para ver a construção no satélite",
                            0, 95, 70, 5)
     fill_op = round((100 - transp) / 100, 2)
-    dedup_recente = st.checkbox(
+    _mc1, _mc2 = st.columns(2)
+    dedup_recente = _mc1.checkbox(
         "📌 Mostrar 1 ponto por empreendimento (registro mais recente)",
         value=False, key="map_dedup",
         help="Quando o mesmo empreendimento aparece repetido na planilha, usa o ponto do "
              "protocolo/licença mais recente.")
+    ocultar_nc = False
+    if _tem_verif:
+        ocultar_nc = _mc2.checkbox(
+            "🙈 Ocultar 'Não construído' (conferência)", value=False, key="map_oculta_nc",
+            help="Esconde do mapa os pontos verificados como NÃO construídos (projeto/outorga sem obra).")
     df_map = df[df["tem_coordenada"] == True].copy()
+    if ocultar_nc and "situacao_verificada" in df_map.columns:
+        df_map = df_map[df_map["situacao_verificada"].fillna("").str.strip() != "Não construído"]
     if dedup_recente:
         df_map = representativos(df_map)
     st.caption(f"Exibindo **{fmt_int(len(df_map))}** de {fmt_int(len(df))} processos com coordenada válida. "
@@ -1151,8 +1181,12 @@ elif pagina == "Mapa":
             if cor_por == "Semáforo":
                 itens = {"Crítico (pendência crítica)": "#ef4444", "Atenção (pendência média)": "#f59e0b",
                          "OK (consistente)": "#22c55e", "Histórico (arquivado/cancelado)": "#94a3b8"}
+            elif cor_por == "Situação verificada":
+                itens = config.get("cores_situacao_verificada", {})
+            elif cor_por == "Tipologia":
+                itens = config.get("cores_tipologia", {})
             else:
-                itens = config.get("cores_situacao", {}) if cor_por == "Situação" else config.get("cores_tipologia", {})
+                itens = config.get("cores_situacao", {})
             seen = set()
             for nome, c in itens.items():
                 if nome == "DEFAULT" or c in seen:
@@ -1401,6 +1435,7 @@ elif pagina == "Relatório Analítico":
     df_view["semaforo"] = df_view.apply(lambda r: semaforo(r)[0], axis=1)
     cols_tab = ["semaforo"] + [c for c in ["protocolo", "empreendimento", "empreendedor", "municipio", "rio",
                 "bacia_hidrografica", "tipologia", "potencia", "tipo_licenca", "situacao",
+                "situacao_verificada", "fase_verificada",
                 "tecnico_responsavel", "numero_licenca", "data_protocolo", "data_emissao",
                 "data_validade", "alerta_validade",
                 "link_google_earth", "link_gearth", "link_qgis"] if c in df_view.columns]
@@ -1415,6 +1450,8 @@ elif pagina == "Relatório Analítico":
         "tipologia": st.column_config.TextColumn("Tipologia"),
         "tipo_licenca": st.column_config.TextColumn("Tipo de licença"),
         "situacao": st.column_config.TextColumn("Situação"),
+        "situacao_verificada": st.column_config.TextColumn("Situação verificada", help="Resultado da conferência geoespacial"),
+        "fase_verificada": st.column_config.TextColumn("Fase verificada"),
         "tecnico_responsavel": st.column_config.TextColumn("Técnico responsável"),
         "numero_licenca": st.column_config.TextColumn("Nº da licença"),
         "potencia": st.column_config.NumberColumn("Potência (MW)", format="%.1f"),

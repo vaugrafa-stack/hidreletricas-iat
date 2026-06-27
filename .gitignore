@@ -2,12 +2,14 @@
 *.xlsm
 *.xlsx
 data/raw/
-# Ignora data/processed/ inteiro, MAS sobe os 4 arquivos que o dashboard lê na nuvem:
+# Ignora data/processed/ inteiro, MAS sobe os arquivos que o dashboard lê na nuvem:
 data/processed/*
 !data/processed/processos_hidreletricas.csv
 !data/processed/resumo_indicadores.json
 !data/processed/metadados_execucao.json
 !data/processed/erros_validacao.csv
+!data/processed/correcoes_coordenadas.csv
+!data/processed/conferencia_para_dashboard.csv
 logs/
 __pycache__/
 *.pyc
