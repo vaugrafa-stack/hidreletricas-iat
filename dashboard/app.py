@@ -154,15 +154,32 @@ st.markdown("""
 # em texto puro no código — guardamos só o hash SHA-256. Para trocar a senha:
 # gere o novo hash com  python -c "import hashlib;print(hashlib.sha256('NOVA'.encode()).hexdigest())"
 # e cole abaixo em _AUTH_HASH (o usuário fica em _AUTH_USER).
-_AUTH_USER = "DILIO"
-_AUTH_HASH = "e6224f2e38f3cb43163381a1c228728cf685696c87f3b2404969538e5246543f"  # sha256("RAFAIAT")
+def _segredo(chave, padrao=""):
+    """Lê uma credencial de st.secrets (Streamlit Cloud) › variável de ambiente › padrão.
+    Permite definir senhas FORTES fora do repositório (o hash padrão abaixo fica no
+    código só como conveniência inicial). Robusto se não houver secrets.toml."""
+    try:
+        if chave in st.secrets:               # st.secrets pode levantar se não existir arquivo
+            v = str(st.secrets[chave]).strip()
+            if v:
+                return v
+    except Exception:  # noqa: BLE001
+        pass
+    return os.environ.get(chave, "").strip() or padrao
+
+
+# Login do painel. Para produção, defina IAT_AUTH_HASH (e opcional IAT_AUTH_USER) em
+# Secrets do Streamlit Cloud ou no .env — assim a senha real não fica no repositório.
+_AUTH_USER = _segredo("IAT_AUTH_USER", "DILIO")
+_AUTH_HASH = _segredo("IAT_AUTH_HASH",
+                      "e6224f2e38f3cb43163381a1c228728cf685696c87f3b2404969538e5246543f")  # sha256("RAFAIAT")
 
 # Acesso INTERNO (funcionários) — libera as funções de EDIÇÃO (corrigir coordenada,
 # cadastrar/editar condicionantes e contatos, enviar e-mail). Fica oculto no modo
 # público (nuvem). Senha padrão "FISCAL2026"; trocar com:
 #   python -c "import hashlib;print(hashlib.sha256('NOVA'.encode()).hexdigest())"
-_INTERNO_HASH = os.environ.get("IAT_INTERNO_HASH", "").strip() or \
-    "75e01b9935e4ce575bc08fdd9831a145a19e8427f3e21c905b00ffdb333a30fc"  # sha256("FISCAL2026")
+_INTERNO_HASH = _segredo("IAT_INTERNO_HASH",
+                         "75e01b9935e4ce575bc08fdd9831a145a19e8427f3e21c905b00ffdb333a30fc")  # sha256("FISCAL2026")
 
 
 def eh_interno():
@@ -639,7 +656,7 @@ BASE_MAPS = {
 }
 
 
-def build_folium_map(_records, signature, cor_por, _config, base_map="🗺️ Mapa claro",
+def build_folium_map(_records, cor_por, _config, base_map="🗺️ Mapa claro",
                      show_labels=False, show_bacias=False, wms_on=(), fill_op=0.35, radius=7,
                      show_barragem=True, show_casa_forca=False):
     """Mapa Folium controlado por widgets EXTERNOS (abaixo do mapa), não pelo painel do Leaflet.
@@ -1024,6 +1041,36 @@ if pagina == "Visão Geral":
         clickable_chart(ranked_bar(df["tipo_licenca"], "Por Tipo de Licença", "#6366f1", top_n=12),
                         g4, "ck_licenca", "f_licenca", set(opts("tipo_licenca")))
 
+    # ── Conferência geoespacial (situação verificada) ──
+    if "situacao_verificada" in df.columns and df["situacao_verificada"].notna().any():
+        section("Conferência Geoespacial (Situação Verificada)")
+        sv = df["situacao_verificada"].fillna("").str.strip()
+        n_val = int((sv == "Validado").sum())
+        n_nc = int((sv == "Não construído").sum())
+        n_pend = int(sv.isin(["Pendente de validação", "Sem imagem suficiente", "Não identificado"]).sum())
+        n_conf = int((sv != "").sum())
+        cards_v = [
+            ("✅", "Validados", fmt_int(n_val), "usina construída/operação", "green"),
+            ("⚪", "Não construídos", fmt_int(n_nc), "projeto sem obra no local", "gray"),
+            ("🟡", "Pendentes", fmt_int(n_pend), "a refinar / sem imagem", "yellow"),
+            ("🔎", "Conferidos", fmt_int(n_conf), f"de {fmt_int(len(df))} no filtro", "blue"),
+        ]
+        for col, (ico, lbl, val, sub, color) in zip(st.columns(4), cards_v):
+            col.markdown(kpi(ico, lbl, val, sub, color), unsafe_allow_html=True)
+        cv1, cv2 = st.columns([1, 1])
+        clickable_chart(ranked_bar(df["situacao_verificada"], "Por Situação Verificada",
+                                   color_fn=lambda c: cor_situacao_verificada(c, config)),
+                        cv1, "ck_sit_verif", "f_sit_verif", set(opts("situacao_verificada")))
+        if "potencia" in df.columns:
+            pv = (df[sv != ""].assign(_sv=sv[sv != ""]).groupby("_sv")["potencia"].sum()
+                  .reset_index().sort_values("potencia"))
+            figv = px.bar(pv, x="potencia", y="_sv", orientation="h", title="Potência por Situação Verificada (MW)",
+                          text="potencia", color="_sv",
+                          color_discrete_map={k: cor_situacao_verificada(k, config) for k in pv["_sv"]})
+            figv.update_traces(texttemplate="%{text:.0f}", textposition="outside", cliponaxis=False)
+            cv2.plotly_chart(style_fig(figv, 300).update_layout(showlegend=False, yaxis_title="", xaxis_title=""),
+                             use_container_width=True)
+
     section("Análises Complementares")
     h1, h2, h3, h4 = st.columns(4)
     if "data_protocolo" in df.columns:
@@ -1086,11 +1133,6 @@ elif pagina == "Mapa":
 
     _cams = config.get("camadas_wms", []) or []
     records = df_map.to_dict("records")
-    try:
-        sig_hash = hash(tuple(sorted(int(x) for x in df_map["linha_original"].dropna())))
-    except (TypeError, ValueError):
-        sig_hash = len(df_map)
-    signature = f"{len(df_map)}|{cor_por}|{sig_hash}"
     point_idx = build_point_index(df_map)
 
     # ── Controles de camadas — ENTRE a frase acima e o mapa (não sobre o mapa) ──
@@ -1148,7 +1190,7 @@ elif pagina == "Mapa":
         if _ok(_lcf) and _ok(_ocf):
             point_idx.setdefault((round(float(_lcf), 5), round(float(_ocf), 5)), _r)
 
-    m = build_folium_map(records, signature, cor_por, config, base_map=base_map,
+    m = build_folium_map(records, cor_por, config, base_map=base_map,
                          show_labels=show_labels, show_bacias=show_bacias,
                          wms_on=wms_on, fill_op=fill_op,
                          show_barragem=show_barragem, show_casa_forca=show_casa_forca)
@@ -1494,7 +1536,7 @@ elif pagina == "Relatório Analítico":
 elif pagina == "Mais Informações":
     section("Mais Informações")
 
-    st.markdown(f"""
+    st.markdown("""
     <div style="background:#fff;border-radius:12px;padding:22px 26px;box-shadow:0 1px 3px rgba(15,23,42,.08);
                 border-top:4px solid #0c2d54;max-width:780px">
       <div style="font-size:12px;color:#64748b;text-transform:uppercase;letter-spacing:.6px;font-weight:600">Contato</div>

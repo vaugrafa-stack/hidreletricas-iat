@@ -12,7 +12,7 @@ import pandas as pd
 import streamlit as st
 
 import fiscal_core as fc
-from utils import fmt_int, fmt_data
+from utils import fmt_int
 
 
 # ── Helpers visuais locais (usam as classes CSS já definidas em app.py) ────────
