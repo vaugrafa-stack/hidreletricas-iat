@@ -26,7 +26,10 @@ sys.path.insert(0, str(Path(__file__).parent))
 from utils import (
     load_config, load_data, load_errors, cor_situacao, cor_tipologia,
     apply_filters, fmt_int, fmt_mw, fmt_data, style_fig, build_point_index,
+    representativos,
 )
+import fiscal_core as fc
+import fiscal_ui
 
 # PUBLIC_MODE = app publicado na nuvem (ex.: Streamlit Cloud). Nesse caso os botões de
 # abrir viram LINKS que abrem no navegador do VISITANTE (Earth Web / Maps), pois o
@@ -152,7 +155,19 @@ st.markdown("""
 # gere o novo hash com  python -c "import hashlib;print(hashlib.sha256('NOVA'.encode()).hexdigest())"
 # e cole abaixo em _AUTH_HASH (o usuário fica em _AUTH_USER).
 _AUTH_USER = "DILIO"
-_AUTH_HASH = "e77ee883b634cd3709640535d526ba7d9b7e6121df87abd8021481a9d5fdadae"  # sha256("iat2026")
+_AUTH_HASH = "e6224f2e38f3cb43163381a1c228728cf685696c87f3b2404969538e5246543f"  # sha256("RAFAIAT")
+
+# Acesso INTERNO (funcionários) — libera as funções de EDIÇÃO (corrigir coordenada,
+# cadastrar/editar condicionantes e contatos, enviar e-mail). Fica oculto no modo
+# público (nuvem). Senha padrão "FISCAL2026"; trocar com:
+#   python -c "import hashlib;print(hashlib.sha256('NOVA'.encode()).hexdigest())"
+_INTERNO_HASH = os.environ.get("IAT_INTERNO_HASH", "").strip() or \
+    "75e01b9935e4ce575bc08fdd9831a145a19e8427f3e21c905b00ffdb333a30fc"  # sha256("FISCAL2026")
+
+
+def eh_interno():
+    """True se o usuário desbloqueou o acesso interno E não estamos em modo público."""
+    return bool(st.session_state.get("_interno")) and not PUBLIC_MODE
 
 
 def _exigir_login():
@@ -437,6 +452,47 @@ def suf_label(s):
     return f'<span style="color:{cor};font-weight:700">{txt}</span>'
 
 
+def editor_coordenada(row, key_prefix):
+    """Formulário INTERNO para corrigir a coordenada de um empreendimento.
+
+    Grava numa planilha de correções SEPARADA (data/processed/correcoes_coordenadas.csv),
+    aplicada por cima ao carregar. O .xlsm ORIGINAL nunca é alterado (regra do projeto).
+    Aceita 'lat, lon' colado ou os dois campos separados (ponto ou vírgula decimal)."""
+    proto = str(row.get("protocolo") or "").strip()
+    if not proto:
+        st.caption("Sem protocolo — não é possível salvar correção para este registro.")
+        return
+    with st.expander("✏️ Corrigir coordenada (interno)"):
+        st.caption("Cole **lat, lon** (ex.: `-25.4321, -49.2710`) ou preencha os campos. "
+                   "Salva numa planilha de correções separada — a planilha original **não** é alterada.")
+        colado = st.text_input("Colar 'lat, lon'", key=f"{key_prefix}_paste",
+                               placeholder="-25.4321, -49.2710")
+        lat0 = float(row["latitude"]) if _ok(row.get("latitude")) else None
+        lon0 = float(row["longitude"]) if _ok(row.get("longitude")) else None
+        if colado.strip():
+            m = re.findall(r"-?\d+[.,]?\d*", colado)
+            if len(m) >= 2:
+                lat0 = float(m[0].replace(",", "."))
+                lon0 = float(m[1].replace(",", "."))
+        c1, c2 = st.columns(2)
+        nlat = c1.number_input("Latitude", value=lat0 if lat0 is not None else -24.5,
+                               format="%.6f", step=0.0001, key=f"{key_prefix}_lat")
+        nlon = c2.number_input("Longitude", value=lon0 if lon0 is not None else -51.5,
+                               format="%.6f", step=0.0001, key=f"{key_prefix}_lon")
+        obs = st.text_input("Observação (motivo da correção)", key=f"{key_prefix}_obs")
+        if st.button("💾 Salvar correção", key=f"{key_prefix}_save", type="primary"):
+            if not (-27.5 <= nlat <= -22.0 and -55.0 <= nlon <= -48.0):
+                st.warning("Coordenada fora dos limites do Paraná — confira antes de salvar.")
+            fc.salvar_correcao({
+                "protocolo": proto, "empreendimento": row.get("empreendimento"),
+                "latitude": f"{nlat:.6f}", "longitude": f"{nlon:.6f}",
+                "autor": _AUTH_USER, "obs": obs,
+            })
+            _load.clear()  # invalida o cache de dados para recarregar com a correção
+            st.success("Coordenada corrigida e salva na planilha de correções.")
+            st.rerun()
+
+
 def render_ficha(row, key_prefix):
     """Ficha padronizada do empreendimento (mapa e relatório): semáforo técnico, situação,
     pendências, botões de abrir, coordenada copiável e dados cadastrais."""
@@ -493,6 +549,8 @@ def render_ficha(row, key_prefix):
       {r_("Precisão coord.", prec_label(row.get('precisao_coord'), row.get('n_decimais_coord')))}
       {r_("Fonte coord.", row.get('fonte_coord'))}
     </div>""", unsafe_allow_html=True)
+    if eh_interno():
+        editor_coordenada(row, key_prefix)
 
 
 _ESRI_SAT = ("https://server.arcgisonline.com/ArcGIS/rest/services/"
@@ -702,7 +760,8 @@ st.markdown(f"""
 
 # ── Navegação ─────────────────────────────────────────────────────────────────
 PAGINAS = [("🏠", "Visão Geral"), ("🗺️", "Mapa"), ("📅", "Licenças e Vencimentos"),
-           ("🔎", "Qualidade dos Dados"), ("📊", "Relatório Analítico"), ("ℹ️", "Mais Informações")]
+           ("🛡️", "Fiscalização"), ("🔎", "Qualidade dos Dados"),
+           ("📊", "Relatório Analítico"), ("ℹ️", "Mais Informações")]
 if "pagina" not in st.session_state:
     st.session_state["pagina"] = PAGINAS[0][1]
 
@@ -734,7 +793,17 @@ with st.sidebar:
         st.image(str(LOGO_PATH), use_container_width=True)
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
     filtros_header = st.empty()  # preenchido depois com o contador de resultados
+
+    # Filtro pendente vindo do CLIQUE num gráfico (aplicado ANTES dos widgets serem criados,
+    # senão o Streamlit recusa alterar a chave de um widget já instanciado).
+    _pend = st.session_state.pop("_pending_filter", None)
+    if _pend and _pend.get("key"):
+        st.session_state[_pend["key"]] = [_pend["val"]]
+
     _PH = "Selecione uma ou mais opções"
+    # Busca global por CNPJ ou nome (vale para TODO o painel)
+    f_busca = st.text_input("🔎 Buscar por CNPJ ou nome", key="f_busca",
+                            placeholder="nome, CNPJ, empreendedor, protocolo…")
     f_tipologia = st.multiselect("Tipologia", opts("tipologia"), key="f_tipologia", placeholder=_PH)
     f_situacao = st.multiselect("Situação", opts("situacao"), key="f_situacao", placeholder=_PH)
     f_licenca = st.multiselect("Tipo de licença", opts("tipo_licenca"), key="f_licenca", placeholder=_PH)
@@ -746,9 +815,38 @@ with st.sidebar:
     f_ano = st.multiselect("Ano do protocolo", [str(a) for a in anos], key="f_ano", placeholder=_PH)
     f_alerta = st.multiselect("Validade da licença", opts("alerta_validade"), key="f_alerta", placeholder=_PH)
     f_precisao = st.multiselect("Precisão da coordenada", opts("precisao_coord"), key="f_precisao", placeholder=_PH)
+
+    # ── Tamanho dos painéis (redimensionar as "janelas" do dashboard) ──
+    with st.expander("⚙️ Tamanho dos painéis"):
+        st.caption("Ajuste a altura do mapa e das tabelas conforme sua tela.")
+        st.slider("Altura do mapa (px)", 400, 1100, 600, 50, key="alt_mapa")
+        st.slider("Altura das tabelas (px)", 300, 1000, 520, 20, key="alt_tabela")
+
+    # ── Acesso interno (libera edição) — oculto no modo público (nuvem) ──
+    if not PUBLIC_MODE:
+        with st.expander("🔧 Acesso interno (edição)", expanded=False):
+            if eh_interno():
+                st.success("Acesso interno LIBERADO — edição habilitada.")
+                if st.button("Bloquear edição", key="lock_interno", use_container_width=True):
+                    st.session_state["_interno"] = False
+                    st.rerun()
+            else:
+                st.caption("Funções de edição (corrigir coordenada, condicionantes, contatos, envio de e-mail) "
+                           "são restritas a funcionários.")
+                with st.form("form_interno", clear_on_submit=False):
+                    _pin = st.text_input("Senha interna", type="password", key="pin_interno")
+                    _unlock = st.form_submit_button("Desbloquear", use_container_width=True, type="primary")
+                if _unlock:
+                    if hashlib.sha256(_pin.encode("utf-8")).hexdigest() == _INTERNO_HASH:
+                        st.session_state["_interno"] = True
+                        st.rerun()
+                    else:
+                        st.error("Senha interna incorreta.")
+
     st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
     if st.button("🚪 Sair", key="logout", use_container_width=True, help="Encerrar a sessão e voltar ao login"):
         st.session_state["_autenticado"] = False
+        st.session_state["_interno"] = False
         st.rerun()
 
 # Aplicar filtros
@@ -762,6 +860,25 @@ if f_municipio:
 if f_ano:
     anos_int = [int(a) for a in f_ano]
     df = df[df["data_protocolo"].apply(lambda d: d.year if hasattr(d, "year") and d else None).isin(anos_int)]
+if f_busca and f_busca.strip():
+    # Busca global por CNPJ ou nome: casa em nome, CNPJ (só dígitos), empreendedor,
+    # protocolo e nº de licença. Vale para TODO o painel (mapa, gráficos, tabela).
+    _q = f_busca.strip().lower()
+    _qdig = "".join(ch for ch in _q if ch.isdigit())
+    _cols_busca = [c for c in ["empreendimento", "empreendedor", "protocolo", "numero_licenca", "municipio"]
+                   if c in df.columns]
+
+    def _match_busca(r):
+        for c in _cols_busca:
+            if _q in str(r.get(c, "")).lower():
+                return True
+        if _qdig and "cnpj" in r:
+            if _qdig in "".join(ch for ch in str(r.get("cnpj", "")) if ch.isdigit()):
+                return True
+        return False
+
+    if not df.empty:
+        df = df[df.apply(_match_busca, axis=1)]
 
 n_filtrado, n_total = len(df), len(df_full)
 
@@ -789,6 +906,8 @@ with filtros_header.container():
 
 # Chips de filtros ativos
 ativos = []
+if f_busca and f_busca.strip():
+    ativos.append(f'<span class="chip"><b>Busca:</b> {f_busca.strip()}</span>')
 for nome, vals in [("Tipologia", f_tipologia), ("Situação", f_situacao), ("Licença", f_licenca),
                    ("Bacia", f_bacia), ("Técnico", f_tecnico), ("Município", f_municipio),
                    ("Ano", f_ano), ("Validade", f_alerta), ("Precisão", f_precisao)]:
@@ -798,6 +917,30 @@ if ativos:
     st.markdown(f'<div class="chips"><span class="chip" style="background:#0c2d54;color:#fff">'
                 f'{fmt_int(n_filtrado)} de {fmt_int(n_total)} processos</span>{"".join(ativos)}</div>',
                 unsafe_allow_html=True)
+
+
+def clickable_chart(fig, container, key, filter_key, valid):
+    """Renderiza um gráfico de barras clicável: ao clicar numa categoria (ex.: 'LO'),
+    aplica esse valor ao filtro global `filter_key` e refiltra TODO o painel.
+    Evita laço infinito guardando o último clique já tratado por gráfico."""
+    ev = container.plotly_chart(fig, use_container_width=True, on_select="rerun", key=key)
+    pts = []
+    try:
+        pts = ev.selection.points
+    except AttributeError:
+        pts = (ev or {}).get("selection", {}).get("points", [])
+    cat = None
+    if pts:
+        p = pts[0]
+        cat = p.get("y") if p.get("y") is not None else (p.get("x") or p.get("label"))
+    last_key = f"_last_click_{key}"
+    if not pts:
+        st.session_state[last_key] = None
+        return
+    if cat is not None and str(cat) in valid and str(cat) != st.session_state.get(last_key):
+        st.session_state[last_key] = str(cat)
+        st.session_state["_pending_filter"] = {"key": filter_key, "val": str(cat)}
+        st.rerun()
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -847,17 +990,20 @@ if pagina == "Visão Geral":
         col.markdown(kpi(ico, lbl, val, sub, color), unsafe_allow_html=True)
 
     section("Distribuição dos Processos")
+    st.caption("💡 **Clique numa barra** (ex.: tipo de licença **LO**) para filtrar todo o painel por ela.")
     g1, g2, g3, g4 = st.columns(4)
     if "bacia_hidrografica" in df.columns:
-        g1.plotly_chart(ranked_bar(df["bacia_hidrografica"], "Por Bacia Hidrográfica", "#0ea5e9"), use_container_width=True)
+        clickable_chart(ranked_bar(df["bacia_hidrografica"], "Por Bacia Hidrográfica", "#0ea5e9"),
+                        g1, "ck_bacia", "f_bacia", set(opts("bacia_hidrografica")))
     if "tipologia" in df.columns:
-        g2.plotly_chart(ranked_bar(df["tipologia"], "Por Tipologia",
-                        color_fn=lambda c: cor_tipologia(c, config)), use_container_width=True)
+        clickable_chart(ranked_bar(df["tipologia"], "Por Tipologia", color_fn=lambda c: cor_tipologia(c, config)),
+                        g2, "ck_tipologia", "f_tipologia", set(opts("tipologia")))
     if "situacao" in df.columns:
-        g3.plotly_chart(ranked_bar(df["situacao"], "Por Situação",
-                        color_fn=lambda c: cor_situacao(c, config)), use_container_width=True)
+        clickable_chart(ranked_bar(df["situacao"], "Por Situação", color_fn=lambda c: cor_situacao(c, config)),
+                        g3, "ck_situacao", "f_situacao", set(opts("situacao")))
     if "tipo_licenca" in df.columns:
-        g4.plotly_chart(ranked_bar(df["tipo_licenca"], "Por Tipo de Licença", "#6366f1", top_n=12), use_container_width=True)
+        clickable_chart(ranked_bar(df["tipo_licenca"], "Por Tipo de Licença", "#6366f1", top_n=12),
+                        g4, "ck_licenca", "f_licenca", set(opts("tipo_licenca")))
 
     section("Análises Complementares")
     h1, h2, h3, h4 = st.columns(4)
@@ -896,7 +1042,14 @@ elif pagina == "Mapa":
         transp = st.slider("Transparência dos pontos (%) — aumente para ver a construção no satélite",
                            0, 95, 70, 5)
     fill_op = round((100 - transp) / 100, 2)
+    dedup_recente = st.checkbox(
+        "📌 Mostrar 1 ponto por empreendimento (registro mais recente)",
+        value=False, key="map_dedup",
+        help="Quando o mesmo empreendimento aparece repetido na planilha, usa o ponto do "
+             "protocolo/licença mais recente.")
     df_map = df[df["tem_coordenada"] == True].copy()
+    if dedup_recente:
+        df_map = representativos(df_map)
     st.caption(f"Exibindo **{fmt_int(len(df_map))}** de {fmt_int(len(df))} processos com coordenada válida. "
                "**Clique num ponto** → os botões para abrir (🌐 Navegador · 📍 Maps · 🖥️ Earth · 🗺️ QGIS) aparecem no **painel à direita**. "
                "Escolha o **mapa base** e as **camadas** no painel abaixo, logo acima do mapa.")
@@ -972,7 +1125,8 @@ elif pagina == "Mapa":
 
     map_col, detail_col = st.columns([7, 3])
     with map_col:
-        map_data = st_folium(m, width=None, height=600, returned_objects=["last_object_clicked"], key="mapa_folium")
+        map_data = st_folium(m, width=None, height=int(st.session_state.get("alt_mapa", 600)),
+                             returned_objects=["last_object_clicked"], key="mapa_folium")
 
     # Persiste o ponto clicado em session_state para sobreviver aos reruns dos botões de abrir
     _clk = map_data.get("last_object_clicked") if map_data else None
@@ -1058,15 +1212,16 @@ elif pagina == "Licenças e Vencimentos":
             f"🔴 Vencidas ativas ({len(v_venc_at)})", f"⏰ A vencer ({len(v_av)})",
             f"📅 Datas suspeitas ({len(v_susp)})", f"📦 Arquivadas vencidas ({len(v_venc_arq)})",
             "📈 Análise temporal"])
+        _alt_t = int(st.session_state.get("alt_tabela", 520))
         with t1:
             if not v_venc_at.empty:
-                st.dataframe(_com_dias(v_venc_at, True), use_container_width=True, height=420,
+                st.dataframe(_com_dias(v_venc_at, True), use_container_width=True, height=_alt_t,
                              hide_index=True, column_config=_cfg_venc)
             else:
                 st.success("Nenhuma licença vencida em processo ativo no filtro. ✅")
         with t2:
             if not v_av.empty:
-                st.dataframe(_com_dias(v_av, False), use_container_width=True, height=420,
+                st.dataframe(_com_dias(v_av, False), use_container_width=True, height=_alt_t,
                              hide_index=True, column_config=_cfg_av)
             else:
                 st.success("Nenhuma licença a vencer em 90 dias.")
@@ -1108,6 +1263,13 @@ elif pagina == "Licenças e Vencimentos":
                               title="Vencidas e A Vencer por Tipo de Licença",
                               color_discrete_map={"vencida": "#ef4444", "a_vencer": "#f59e0b"})
                 c2.plotly_chart(style_fig(fig2, 340, show_legend=True).update_layout(xaxis_title="", yaxis_title=""), use_container_width=True)
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PÁGINA — FISCALIZAÇÃO (condicionantes + agenda de prazos + notificações)
+# ══════════════════════════════════════════════════════════════════════════════
+elif pagina == "Fiscalização":
+    fiscal_ui.render(df_full, config, eh_interno=eh_interno(), public_mode=PUBLIC_MODE)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1265,7 +1427,8 @@ elif pagina == "Relatório Analítico":
         "link_qgis": st.column_config.LinkColumn("Abrir no QGIS", display_text="🗺️ Abrir"),
     }
     st.caption("Dica: **selecione uma linha** (caixa à esquerda) para abrir a **ficha do empreendimento** abaixo.")
-    ev = st.dataframe(df_view[cols_tab], use_container_width=True, height=520, hide_index=True,
+    ev = st.dataframe(df_view[cols_tab], use_container_width=True,
+                      height=int(st.session_state.get("alt_tabela", 520)), hide_index=True,
                       column_config=colcfg, on_select="rerun", selection_mode="single-row", key="tab_rel")
 
     sel_rows = []

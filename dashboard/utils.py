@@ -26,6 +26,9 @@ def load_data() -> tuple:
 
     df = pd.read_csv(csv_path, encoding="utf-8-sig", low_memory=False)
 
+    # Correções manuais de coordenada (planilha SEPARADA — o .xlsm nunca é alterado).
+    df = apply_correcoes(df)
+
     for dc in ["data_protocolo", "data_emissao", "data_validade"]:
         if dc in df.columns:
             df[dc] = pd.to_datetime(df[dc], errors="coerce").dt.date
@@ -130,6 +133,88 @@ def style_fig(fig, height=300, show_legend=False):
         hoverlabel=dict(font_family=PLOT_FONT, font_size=12, bgcolor="white"),
     )
     return fig
+
+
+def apply_correcoes(df: pd.DataFrame) -> pd.DataFrame:
+    """Aplica correções manuais de coordenada por cima do DataFrame carregado.
+
+    Lê `data/processed/correcoes_coordenadas.csv` (chave = protocolo). Para cada
+    protocolo corrigido, sobrescreve latitude/longitude (e casa de força, se houver),
+    marca `fonte_coord` = 'Correção manual (dashboard)' e recalcula `tem_coordenada`.
+    O .xlsm ORIGINAL nunca é tocado — esta é a camada de correção do projeto.
+    """
+    path = PROCESSED / "correcoes_coordenadas.csv"
+    if not path.exists() or "protocolo" not in df.columns:
+        return df
+    try:
+        cor = pd.read_csv(path, encoding="utf-8-sig", dtype=str)
+    except (OSError, ValueError):
+        return df
+    if cor.empty or "protocolo" not in cor.columns:
+        return df
+
+    def _num(v):
+        try:
+            f = float(str(v).replace(",", "."))
+            return f if not pd.isna(f) else None
+        except (ValueError, TypeError):
+            return None
+
+    cor_idx = {str(r.get("protocolo")).strip(): r for _, r in cor.iterrows()}
+    proto = df["protocolo"].astype(str).str.strip()
+    for col in ["latitude", "longitude", "lat_casa_forca", "lon_casa_forca"]:
+        if col not in df.columns:
+            df[col] = pd.NA
+    if "fonte_coord" not in df.columns:
+        df["fonte_coord"] = pd.NA
+
+    for i, p in proto.items():
+        rc = cor_idx.get(p)
+        if rc is None:
+            continue
+        lat, lon = _num(rc.get("latitude")), _num(rc.get("longitude"))
+        if lat is not None and lon is not None:
+            df.at[i, "latitude"] = lat
+            df.at[i, "longitude"] = lon
+            df.at[i, "fonte_coord"] = "Correção manual (dashboard)"
+            if "tem_coordenada" in df.columns:
+                df.at[i, "tem_coordenada"] = True
+            if "tem_coord_barragem" in df.columns:
+                df.at[i, "tem_coord_barragem"] = True
+        lcf, ocf = _num(rc.get("lat_casa_forca")), _num(rc.get("lon_casa_forca"))
+        if lcf is not None and ocf is not None:
+            df.at[i, "lat_casa_forca"] = lcf
+            df.at[i, "lon_casa_forca"] = ocf
+    return df
+
+
+def _chave_recencia(row) -> tuple:
+    """Ordena registros de um mesmo empreendimento do MAIS recente para o mais antigo,
+    pelo protocolo/licença mais recente (data_protocolo > data_emissao > data_validade)."""
+    def _key(v):
+        try:
+            return v.toordinal() if hasattr(v, "toordinal") and v else -1
+        except (AttributeError, ValueError):
+            return -1
+    return (_key(row.get("data_protocolo")), _key(row.get("data_emissao")),
+            _key(row.get("data_validade")))
+
+
+def representativos(df: pd.DataFrame) -> pd.DataFrame:
+    """Um registro por empreendimento: o do protocolo/licença MAIS RECENTE.
+
+    Para nomes duplicados na planilha (mesmo empreendimento, vários protocolos),
+    escolhe o ponto do registro mais recente. Empreendimentos sem nome são mantidos
+    como estão (cada linha vira seu próprio grupo)."""
+    if df.empty or "empreendimento" not in df.columns:
+        return df
+    df = df.copy()
+    df["_rec"] = df.apply(_chave_recencia, axis=1)
+    nome = df["empreendimento"].fillna("").astype(str).str.strip()
+    df["_grp"] = nome.where(nome != "", df.index.astype(str))
+    df = df.sort_values("_rec", ascending=False)
+    out = df.drop_duplicates("_grp", keep="first").drop(columns=["_rec", "_grp"])
+    return out.sort_index()
 
 
 def build_point_index(df: pd.DataFrame) -> dict:
