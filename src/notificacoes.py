@@ -48,9 +48,11 @@ def _coletar(df: pd.DataFrame, dias: int, grace: int = 30) -> list[dict]:
     hoje = date.today()
     cache = fc.mapa_emails()
     cache_ct = fc.mapa_contatos()
+    cache_ct_nome = fc.mapa_contatos_nome()
 
-    def _dest(proto, cnpj, emp):
-        ds = fc.destinatarios(proto, cnpj, emp, _contatos=cache_ct, _emails=cache)
+    def _dest(proto, cnpj, emp, empnome):
+        ds = fc.destinatarios(proto, cnpj, emp, empnome, _contatos=cache_ct,
+                              _emails=cache, _contatos_nome=cache_ct_nome)
         return ", ".join(dict.fromkeys(d["email"] for d in ds))
 
     itens = []
@@ -68,7 +70,7 @@ def _coletar(df: pd.DataFrame, dias: int, grace: int = 30) -> list[dict]:
                 "empreendimento": r.get("empreendimento"), "protocolo": r.get("protocolo"),
                 "cnpj": str(r.get("cnpj") or ""), "numero_licenca": str(r.get("numero_licenca") or ""),
                 "data_alvo": dl, "data_alvo_br": fc.fmt_br(dl), "dias_restantes": d,
-                "destino": _dest(r.get("protocolo"), r.get("cnpj"), r.get("empreendedor")),
+                "destino": _dest(r.get("protocolo"), r.get("cnpj"), r.get("empreendedor"), r.get("empreendimento")),
             })
     for c in fc.ler_condicionantes():
         if fc.status_efetivo(c, hoje) in ("Atendida", "Dispensada"):
@@ -81,7 +83,7 @@ def _coletar(df: pd.DataFrame, dias: int, grace: int = 30) -> list[dict]:
             "empreendimento": c.get("empreendimento"), "protocolo": c.get("protocolo"),
             "cnpj": str(c.get("cnpj") or ""), "descricao": c.get("descricao"),
             "data_alvo": dl, "data_alvo_br": fc.fmt_br(dl), "dias_restantes": (dl - hoje).days,
-            "destino": _dest(c.get("protocolo"), c.get("cnpj"), c.get("empreendedor")),
+            "destino": _dest(c.get("protocolo"), c.get("cnpj"), c.get("empreendedor"), c.get("empreendimento")),
         })
     itens.sort(key=lambda x: x["dias_restantes"])
     return itens

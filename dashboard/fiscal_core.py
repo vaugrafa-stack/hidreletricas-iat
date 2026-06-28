@@ -218,6 +218,17 @@ def mapa_contatos() -> dict:
             for r in ler_contatos() if str(r.get("protocolo") or "").strip()}
 
 
+def mapa_contatos_nome() -> dict:
+    """Indexa contatos por NOME de empreendimento (upper) — fallback quando o contato foi
+    cadastrado num protocolo representativo e deve valer para todos os protocolos do mesmo nome."""
+    m = {}
+    for r in ler_contatos():
+        nome = str(r.get("empreendimento") or "").strip().upper()
+        if nome:
+            m[nome] = r  # último cadastrado vence
+    return m
+
+
 def contato_do_protocolo(protocolo, _cache=None) -> dict:
     m = _cache if _cache is not None else mapa_contatos()
     return m.get(str(protocolo or "").strip(), {})
@@ -240,14 +251,18 @@ def salvar_contato(reg: dict) -> dict:
     return novo
 
 
-def destinatarios(protocolo=None, cnpj=None, empreendedor=None,
-                  _contatos=None, _emails=None) -> list[dict]:
+def destinatarios(protocolo=None, cnpj=None, empreendedor=None, empreendimento=None,
+                  _contatos=None, _emails=None, _contatos_nome=None) -> list[dict]:
     """Lista de destinatários para notificação/encaminhamento de um empreendimento.
 
-    Retorna [{papel, nome, email}] do EMPREENDEDOR e da CONSULTORIA, a partir do
-    `contatos.csv` (por protocolo). Cai para o `emails_empreendedores.csv` (por CNPJ)
-    se o empreendedor não tiver e-mail no contato. Só inclui quem tem e-mail."""
+    Retorna [{papel, nome, email}] do EMPREENDEDOR e da CONSULTORIA. Procura o contato
+    por PROTOCOLO no `contatos.csv`; se não achar, cai para o mesmo NOME de empreendimento
+    (contato cadastrado num protocolo representativo) e, por fim, para o
+    `emails_empreendedores.csv` (por CNPJ). Só inclui quem tem e-mail."""
     c = contato_do_protocolo(protocolo, _contatos) if protocolo else {}
+    if not c and empreendimento:
+        mn = _contatos_nome if _contatos_nome is not None else mapa_contatos_nome()
+        c = mn.get(str(empreendimento).strip().upper(), {})
     out = []
     emp_email = (c.get("emp_email") or "").strip()
     if not emp_email:

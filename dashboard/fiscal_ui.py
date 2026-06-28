@@ -268,9 +268,11 @@ def _due_items(df_full, janela, grace=30):
     hoje = date.today()
     cache = fc.mapa_emails()
     cache_ct = fc.mapa_contatos()
+    cache_ct_nome = fc.mapa_contatos_nome()
 
-    def _dest(proto, cnpj, emp):
-        ds = fc.destinatarios(proto, cnpj, emp, _contatos=cache_ct, _emails=cache)
+    def _dest(proto, cnpj, emp, empnome):
+        ds = fc.destinatarios(proto, cnpj, emp, empnome, _contatos=cache_ct,
+                              _emails=cache, _contatos_nome=cache_ct_nome)
         return ds, (ds[0]["email"] if ds else "")
 
     itens = []
@@ -283,7 +285,7 @@ def _due_items(df_full, janela, grace=30):
             dias = (dl - hoje).days
             if dias > janela or dias < -grace:
                 continue
-            ds, prim = _dest(r.get("protocolo"), r.get("cnpj"), r.get("empreendedor"))
+            ds, prim = _dest(r.get("protocolo"), r.get("cnpj"), r.get("empreendedor"), r.get("empreendimento"))
             itens.append({
                 "tipo": "licenca", "ref": str(r.get("protocolo") or ""),
                 "empreendimento": r.get("empreendimento"), "protocolo": r.get("protocolo"),
@@ -301,7 +303,7 @@ def _due_items(df_full, janela, grace=30):
         dias = (dl - hoje).days
         if dias > janela or dias < -grace:
             continue
-        ds, prim = _dest(c.get("protocolo"), c.get("cnpj"), c.get("empreendedor"))
+        ds, prim = _dest(c.get("protocolo"), c.get("cnpj"), c.get("empreendedor"), c.get("empreendimento"))
         itens.append({
             "tipo": "condicionante", "ref": str(c.get("id") or ""),
             "empreendimento": c.get("empreendimento"), "protocolo": c.get("protocolo"),

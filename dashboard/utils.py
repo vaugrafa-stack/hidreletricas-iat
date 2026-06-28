@@ -223,12 +223,27 @@ def merge_contatos(df: pd.DataFrame) -> pd.DataFrame:
                         "consultoria", "cons_telefone", "cons_email"] if c in ct.columns]
     if not cols:
         return df
-    ct = ct[["protocolo"] + cols].copy()
-    ct["_proto_key"] = ct["protocolo"].astype(str).str.strip()
-    ct = ct.drop(columns=["protocolo"]).drop_duplicates("_proto_key", keep="last")
     df = df.copy()
+    # 1) casa por PROTOCOLO
+    ctp = ct[["protocolo"] + cols].copy()
+    ctp["_proto_key"] = ctp["protocolo"].astype(str).str.strip()
+    ctp = ctp.drop(columns=["protocolo"]).drop_duplicates("_proto_key", keep="last")
     df["_proto_key"] = df["protocolo"].astype(str).str.strip()
-    df = df.merge(ct, on="_proto_key", how="left").drop(columns=["_proto_key"])
+    df = df.merge(ctp, on="_proto_key", how="left").drop(columns=["_proto_key"])
+    # 2) fallback por NOME do empreendimento (contato cadastrado num protocolo representativo)
+    if "empreendimento" in ct.columns and "empreendimento" in df.columns:
+        ctn = ct[["empreendimento"] + cols].copy()
+        ctn["_nome_key"] = ctn["empreendimento"].astype(str).str.strip().str.upper()
+        ctn = ctn.drop(columns=["empreendimento"]).drop_duplicates("_nome_key", keep="last")
+        ctn = ctn.rename(columns={c: c + "__n" for c in cols})
+        df["_nome_key"] = df["empreendimento"].astype(str).str.strip().str.upper()
+        df = df.merge(ctn, on="_nome_key", how="left").drop(columns=["_nome_key"])
+        for c in cols:
+            nc = c + "__n"
+            if nc in df.columns:
+                vazio = ~df[c].notna() | (df[c].astype(str).str.strip() == "")
+                df.loc[vazio, c] = df.loc[vazio, nc]
+                df = df.drop(columns=[nc])
     return df
 
 
