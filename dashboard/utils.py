@@ -234,6 +234,7 @@ def merge_contatos(df: pd.DataFrame) -> pd.DataFrame:
     if "empreendimento" in ct.columns and "empreendimento" in df.columns:
         ctn = ct[["empreendimento"] + cols].copy()
         ctn["_nome_key"] = ctn["empreendimento"].astype(str).str.strip().str.upper()
+        ctn = ctn[~ctn["_nome_key"].isin(["", "NAN", "NONE"])]   # não casar por chave vazia
         ctn = ctn.drop(columns=["empreendimento"]).drop_duplicates("_nome_key", keep="last")
         ctn = ctn.rename(columns={c: c + "__n" for c in cols})
         df["_nome_key"] = df["empreendimento"].astype(str).str.strip().str.upper()

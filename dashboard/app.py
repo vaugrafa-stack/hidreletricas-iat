@@ -517,6 +517,7 @@ def editor_contatos(row, key_prefix):
     proto = str(row.get("protocolo") or "").strip()
     if not proto:
         return
+    _atual = fc.contato_do_protocolo(proto)  # contato já salvo p/ este protocolo (preserva obs)
     with st.expander("👤 Contatos & consultoria (interno)"):
         with st.form(f"form_ct_{key_prefix}", clear_on_submit=False):
             st.markdown("**Empreendedor**")
@@ -530,7 +531,7 @@ def editor_contatos(row, key_prefix):
             cd1, cd2 = st.columns(2)
             cons_tel = cd1.text_input("Telefone ", value=row.get("cons_telefone") or "", key=f"{key_prefix}_cons_tel")
             cons_email = cd2.text_input("E-mail ", value=row.get("cons_email") or "", key=f"{key_prefix}_cons_email")
-            obs_ct = st.text_input("Observações", value="", key=f"{key_prefix}_ct_obs")
+            obs_ct = st.text_input("Observações", value=_atual.get("obs", ""), key=f"{key_prefix}_ct_obs")
             salvar_ct = st.form_submit_button("💾 Salvar contatos", type="primary", use_container_width=True)
         if salvar_ct:
             fc.salvar_contato({
@@ -548,7 +549,9 @@ def ficha_html(row):
     """Gera uma ficha do empreendimento em HTML autossuficiente (imprimível como PDF),
     para encaminhamento de informações. Inclui dados cadastrais, conferência e contatos."""
     def _v(v):
-        return "—" if v is None or str(v) in ("nan", "NaT", "None", "") else str(v)
+        if v is None or str(v) in ("nan", "NaT", "None", ""):
+            return "—"
+        return _xesc(str(v))
 
     def _lin(k, v):
         return (f'<tr><td style="color:#64748b;padding:4px 10px;border-bottom:1px solid #eef2f6">{k}</td>'
